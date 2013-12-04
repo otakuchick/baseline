@@ -1,0 +1,131 @@
+//
+// Loading Animations HTML:
+//
+// Primary: <span class="loader"></span>
+//
+// Secondary: <span class="loader loader-secondary"></span>
+
+
+/* Default Styles */
+.loader {
+  display: inline-block;
+  position: relative;
+  .width(@baseFontPx,36);
+  .height(@baseFontPx,36);
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  .background-size();
+  line-height: 1;
+
+  &.loader-secondary {
+    .width(@baseFontPx,24);
+    .height(@baseFontPx,24);
+  }
+}
+.lt-ie9 {
+  .loader {
+    width: 36px;
+    height: 36px;
+
+    &.loader-secondary {
+      -ms-zoom: .66666667;
+      zoom: .66666667;
+    }
+  }
+}
+
+// CSS Animation
+.cssanimations.svg {
+  .loader {
+  // hardware acceleration
+    .forceAcceleration();
+    .transform-origin(50%,50%);
+
+    background-image: url(/static/ui_toolkit/v2-0/images/loader-light.svg);
+
+    &.loader-dark {
+      background-image: url(/static/ui_toolkit/v2-0/images/loader-dark.svg);
+    }
+  }
+//add animation to loading state only
+  .loading {
+    &.loader,
+    .loader {
+      .animation(loader 1200ms infinite linear);
+    }
+  }
+}
+// browsers that support animations, but not SVG + IE10
+.ie10.cssanimations.svg,
+.cssanimations.no-svg {
+  .loader {
+    background-image: url(/static/ui_toolkit/v2-0/images/loader-light.png);
+
+    &.loader-dark {
+      background-image: url(/static/ui_toolkit/v2-0/images/loader-dark.png);
+    }
+  }
+}
+// Overlay Loader
+.loader-overlay {
+  position: relative;
+  .width(@baseFontPx,90);
+  .height(@baseFontPx,90);
+  .border-radius(a,@baseFontPx,6);
+  .padding(a,@baseFontPx,24);
+  .background-rgba(@text,84%);
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    .margin(t,@baseFontPx,-18);
+    .margin(l,@baseFontPx,-18);
+  }
+}
+
+
+// Image fallback for older browsers + IE9 since it sucks at life :/
+.no-cssanimations.no-svg,
+.no-cssanimations {
+  .loader {
+    background-image: url(/static/ui_toolkit/v2-0/images/loader-light.gif);
+    &.loader-dark {
+      background-image: url(/static/ui_toolkit/v2-0/images/loader-dark.gif);
+    }
+  }
+}
+
+// Static Loader (used for lazy-loading and content slider)
+.loader.loader-static {
+  .width(@baseFontPx,48);
+  .height(@baseFontPx,24);
+  .animation(none);
+}
+.ie10.svg,
+.svg {
+ .loader.loader-static {
+   background-image: url(/static/ui_toolkit/v2-0/images/loader-static-light.svg);
+   .animation(none) !important;
+   &.loader-dark {background-image: url(/static/ui_toolkit/v2-0/images/loader-static-dark.svg);}
+ }
+}
+.no-svg {
+  .loader.loader-static {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAAAYCAMAAABN5hpXAAAAIVBMVEXf39/j4+PU1NTJycnNzc3d3d3Q0NDLy8vY2NjHx8fl5eV1LjZSAAAAm0lEQVRIx+2VwQ7DIAxDA4TS7P8/eFI1LU5KK9VSb/iGnm1yIcjnNcmqvquWqmZap/c9Zngq1X6qJYcJBtVF7S9NeYZB9WagLcYZ5tXdgjqmKSbzy9NoFPNqS8I4xVb1ZbVGh2KcYl69R8uOcYp5dRnoGOHJUQxeozR3tLSFGCZTTzvtN4JJXGGHqZ2XG8PyCNL75e/wkK2/MekL/7JOZ+iMHIIAAAAASUVORK5CYII=');
+    &.loader-dark {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAAAYCAMAAABN5hpXAAAAIVBMVEUjIyMqKipXV1dQUFBBQUEuLi5ISEg5OTlTU1NbW1sfHx+WPUsgAAAAnElEQVRIx+2VzQrEIAyEExPbpu//wIVl2fzUFhzYm3MSvplRD0Y6/yZa1W/VrGImyiPnNIvVpPaV3i4DsLAmsZ+k5BEWlpsFbTmOMK/ultRjGmI03rwcDWJebUUxDrFV/Vgt2SExDjGv3rNlj3GIeTUd0XGkJwex4OLmjlamEMJo6Gm3+QawfDf9mJoOpvg8q0bunZ9m+yRbf2PRBRDRTmcAM/5TAAAAAElFTkSuQmCC');
+    }
+  }
+}
+// set the zoom level for IE8; doesn't support background-size
+.lt-ie9 {
+  .loader.loader-static {
+    overflow: visible;
+    width: 90px;
+    height: 72px;
+    -ms-zoom: .5;
+    zoom: .5;
+  }
+}

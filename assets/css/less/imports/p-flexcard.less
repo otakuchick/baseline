@@ -1,0 +1,323 @@
+// Flex Card:
+// ==========
+//
+// Very much a work in progress
+// Use with caution
+// And by use, I mean don't use
+//
+
+
+// base flex card styles
+// ---------------------
+
+.flexcard, .flexcard:hover, .flexcard-listing, .flexcard-listing:hover {
+	
+	color: #707070;
+	line-height: 1em;
+
+	a {
+		border: 0;
+		color: inherit;
+		outline: none;
+		text-decoration: none;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0 0 0 1.411764705882353em;
+	}
+	li {
+		float: left;
+	}
+	.flight {
+//		background-color: #ddd;
+	}
+	.hotel {
+//		background-color: #ccc;
+	}
+	.package {
+//		background-color: #bbb;
+	}
+	.card {
+		background-color: #fff;
+		border-bottom: 1px solid #c7c7c7;
+		border-radius: 3px;
+		overflow: hidden;
+		transition: background .25s ease-in-out;
+		-moz-transition: background .25s ease-in-out;
+		-webkit-transition: background .25s ease-in-out;
+	}
+	.card:hover {
+		background-color: #d1eaff;
+	}
+	.card-photo {
+		overflow: hidden;
+	}
+	.supplemental {
+		margin-top: 1em;
+	}
+	.free {
+		color: #487c00;
+	}
+	.remaining {
+		color: #b80000;
+	}
+}
+
+
+// flex card - listing view
+// ------------------------
+
+.flexcard-listing, .flexcard-listing:hover {
+
+	li {
+		margin-right: 1%;
+		width: 49%;
+	}
+	li:nth-child(2n+2) {
+		margin-left: 1%;
+		margin-right: 0;
+	}
+	li:last-child {
+		margin-bottom: 2.5em;
+	}
+	.card {
+		height: 116px;
+	}
+	.card-link {
+		border-collapse: collapse;
+		display: table;
+		overflow: hidden;
+		width: 100%;
+	}
+	.card-photo {
+		display: table-cell;
+		vertical-align: top;
+		width: 9.36rem;
+	}
+	.card-photo img {
+		border-radius: 3px 0px 0px 3px;
+		height: auto;
+		max-width: 100%;
+	}
+	.card-text, .card-price-details {
+		display: table-cell;
+		padding: 0.5em 1em 1em 1em;
+		vertical-align: top;
+	}
+	.card-text h5 {
+		color: #0065b8;
+		font-size: 1.1764705882352942em;
+		margin: 0em;
+	}
+	.star-rating, .card-details, .supplemental {
+		font-size: 0.85em;
+	}
+	.card-price-details {
+		max-width: 150px;
+		min-width: 40px;
+		text-align: right;
+	}
+	.card-price {
+		font-size: 1.1em;
+		font-weight: bold;
+		line-height: 1.45em;
+	}
+	.card-price .small {
+		font-size: 0.8em;
+	}
+	.card-remove {
+		background-color: #eee;
+		display: table-cell;
+		height: 116px;
+		text-align: center;
+		vertical-align: top;
+		width: 40px;
+
+		button {
+			background: none;
+			color: #6b6b6b;
+			margin: 0.5em 0 0;
+			padding: 0;
+		}
+	}
+}
+
+
+// Media Queries
+// -------------
+
+@media only screen and (max-width: 1050px) {
+	.flexcard-listing, .flexcard-listing:hover {
+		ul li {
+			width: 100%;
+		}
+		ul li:nth-child(2n+2) {
+			margin-left: 0;
+		}
+	}
+}
+@media only screen and (max-width: 600px) {
+	.flexcard-listing, .flexcard-listing:hover {
+		.card-remove {
+			display: none;
+		}
+	}
+}
+@media only screen and (max-width: 520px) {
+	.flexcard-listing, .flexcard-listing:hover {
+		.card {
+			height: auto;
+		}
+		.card-photo, .text-hide {
+			display: none;
+		}
+		.card-text h5 {
+			font-size: 0.9em;
+			line-height: 1.3em;
+		}
+		.card-details {
+			font-size: 0.75em;
+		}
+		.card-price-details {
+			vertical-align: bottom;
+		}
+		.card-price {
+			font-size: 0.9em;
+			line-height: 1em;
+		}
+		.card-price .small {
+			font-size: 0.8em;
+		}
+	}
+}
+
+
+
+
+
+// You don't need to see my styles
+// This isn't the code you're looking for
+// You can go about your business
+// Move along
+
+// DO NOT USE ANYTHING BELOW
+
+
+// flex card - card view
+// ---------------------
+
+.flexcard, .flexcard:hover {
+
+	.card-link {
+		display: block;
+	}
+	.card-photo {
+		display: none;
+	}
+	.card-text, .card-price {
+		padding: 1em;
+	}
+	.card-text h5 {
+		margin: 0em;
+	}
+	.star-rating, .card-details, .supplemental {
+		font-size: 0.85em;
+	}
+	.card-price {
+		color: #1f1f1f;
+		font-size: 1.1em;
+		font-weight: bold;
+		text-align: right;
+	}
+	.card-remove {
+		display: none;
+	}
+}
+
+
+// Layout explorations
+
+// flex card with padding on photo (such as home page)
+// ---------------------------------------------------
+
+.pad {
+	> .card .card-photo {
+		padding: 1em;
+	}
+	> .card .card-photo img {
+		border-radius: 0px 0px 0px 0px;
+	}
+}
+
+
+// flex card in 2-up layout
+// ------------------------
+
+.grid-2 ul li {
+	> .card {
+		float: left;
+		height: 8.8em;
+		margin-right: 1%;
+		width: 49%;
+	}
+	> .card:nth-child(2n+2) {
+		margin-left: 1%;
+		margin-right: 0;
+	}
+}
+
+
+// flex card in 3-up & 4-up layout
+// -------------------------------
+
+.grid-3, .grid-4 {
+	> .card {
+		float: left;
+		margin-right: 2%;
+	}
+	> .card .card-photo {
+		width: 100%;
+	}
+	> .card .card-photo img {
+		border-radius: 3px 3px 0px 0px;
+	}
+}
+
+
+// flex card in 3-up layout
+// ------------------------
+
+.grid-3 {
+	> .card {
+		width: 32%;
+	}
+	> .card:nth-child(3n+3) {
+		margin-right: 0;
+	}
+	> .card .card-photo {
+		max-height: 12em;
+	}
+}
+
+
+// flex card in 4-up layout
+// ------------------------
+
+.grid-4 {
+	> .card {
+		width: 23.5%;
+	}
+	> .card:nth-child(4n+4) {
+		margin-right: 0;
+	}
+	> .card .card-photo {
+		max-height: 8em;
+	}
+}
+
+
+
+
+
+

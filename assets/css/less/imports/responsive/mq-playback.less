@@ -1,0 +1,110 @@
+@mqMinSmallTablet: ((481 / 16) + 0em);
+@mqMaxMobile: ((480 / 16) + 0em);
+
+@media only screen and (min-width: @mqMinTablet) and (max-width: @mqMaxTablet) {
+  // Large tablet breakpoint
+  // ==========================================================================
+  .pattern-playback {
+    .playback-summary {
+      .playback-summary-content {
+        width: 70%;
+        .col {
+          max-width: 49%;
+        }
+        .col + .col {
+          max-width: 51%;
+        }
+        .day-of-week {
+          display: none;
+        }
+      }
+      .playback-toggle {
+        width: 30%;
+      }
+    }
+  } 
+}
+
+@media only screen and (min-width: @mqMinSmallTablet) and (max-width: @mqMaxSmallTablet) {
+  // Small tablet breakpoint
+  // ==========================================================================
+  .pattern-playback {
+    .playback-summary {
+      .playback-summary-content {
+        width: 90%;
+        .col {
+          max-width: 60%;
+        }
+        .col + .col {
+          max-width: 40%
+        }
+        .travelers, .rooms, .day-of-week {
+          display: none;
+        }
+      }
+      .playback-toggle {
+        .change {
+          display: none;
+        }
+        width: 10%;
+      }
+    }
+    .playback-search.open + .playback-summary {
+      .playback-summary-content {
+        width: 25%;
+      }
+      .playback-toggle {
+        width: 75%;
+      }
+    }
+  } 
+}
+
+@media only screen and (max-width: @mqMaxMobile) {
+  // Mobile Breakpoint
+  // ==========================================================================
+  .pattern-playback {
+    .playback-summary {
+      .playback-summary-content {
+        width: 90%;
+        .col {
+          max-width: 48%;
+        }
+        .col + .col {
+          max-width: 52%;
+          .padding(l,15,12);
+        }
+        .origin, .to, .travelers, .rooms, .day-of-week, .airport-code, .pickup, .dropoff {
+          display: none;
+        }
+      }
+      .col.playback-toggle {
+        .change {
+          display: none;
+        }
+        .padding(l,15,12);
+        width: 10%;
+      }
+    }
+    .playback-search.open + .playback-summary {
+      .playback-summary-content {
+        width: 25%;
+      }
+      .playback-toggle {
+        width: 75%;
+      }
+    }
+    // LOB-specific styles
+    &.flights .playback-summary-content, &.packages .playback-summary-content {
+      .origin, .to, .airport-code {
+        display: inline;
+      }
+      .city {
+        display: none;
+      }
+      .airport-code::before, .airport-code::after {
+        content: '';
+      }
+    }
+  } 
+}

@@ -1,0 +1,135 @@
+
+
+
+// TABS IN A HERO BANNER
+// =======================================================================
+// using lots of !importants due to style overwirting and specicifity
+
+@media only screen and (max-width: @mqTablet600) {
+
+  .hero-banner-wrap,
+  .hero-banner,
+  .hero-banner:before,
+  .hero-banner-gradient{
+    background-image: none !important;
+    background-color:transparent;
+    padding-top: 0 !important;
+  }
+
+  .hero-banner-title{
+    position: absolute;
+    top:-999em;
+    left:-999em;
+  }
+
+  .hero-banner-box{
+    background-color:transparent !important;
+    padding:0 !important;
+  }
+
+  .cols-row.hero-banner-inner{
+    margin:0;
+    padding:0 !important;
+    padding-top:0!important;
+  }
+
+  .cols-row{
+    &.theme-pills,
+    &.theme-light-pills,
+    &.theme-inverse-pills{
+      width:auto;
+      padding-right:0!important;
+    }
+  }
+
+
+  .hero-banner-wrap{
+
+    .theme-pills,
+    .theme-light-pills,
+    .theme-inverse-pills{
+      .tabs .tab{
+        margin:0;
+        padding:0;
+        float:none;
+        .min-width(@baseFontPx,48);
+
+      }
+    }
+
+    .tabs{
+      padding-left:0;
+      float:none; // combats .col float
+
+      .flexbox();
+      flex-flow: row nowrap;
+
+      li{
+        .flex();
+        &:last-child a{
+          border-right:0;
+        }
+      }
+
+      a{
+        .border-radius(none);
+        .border(r,13,1,@moduleGrey);
+        .border(b,13,1,@moduleGrey);
+      }
+    }
+
+
+  // make inverse pills look like light-pills by overwirting everything
+    .theme-inverse-pills .tabs{
+      background-color: #e5e5e5;
+
+      a{
+        color:@link;
+        background-color: #e5e5e5;
+
+        &:hover{
+          background-color:@areaHover !important;
+          color:@link;
+        }
+
+        &.on,
+        &.on:hover{
+          color:#fff;
+          background-color:@brandBlue !important;
+        }
+      }
+    }
+
+    .tab-label{
+      display: none;
+    }
+
+
+  // non flexbox
+    .no-flexbox.no-flexboxlegacy& {
+
+      .tabs{
+        display:table;
+
+        .tab{
+          display: table-cell;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

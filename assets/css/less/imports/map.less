@@ -1,0 +1,174 @@
+@legendWidth: 300;
+@legendHeight: 300;
+@mapOverlayTopBorder: @brandYellow;
+
+.map-inline, .map-overlay {
+  .map-canvas {
+    position: absolute;
+    .pos(t,@baseFontPx,72);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .marker-title {
+      margin: 0;
+      .padding(trbl,20,0,1,6,0);
+    }
+    .gm-rev {
+      display: none;
+    }
+    // set to content-box so that the google maps UI elements display correctly
+    * { .box-sizing(content-box); }
+  }
+  .legend {
+    position: absolute;
+    .pos(t,@baseFontPx,72);
+    left: 0;
+    bottom: 0;
+    .width(@baseFontPx,@legendWidth);
+    .padding(a,@baseFontPx,24);
+    background: @paleGrey;
+    .border(r,@baseFontPx,1,@moduleGrey,solid);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  // adjust the position of the canvas to accomodate a legend
+  &.legend {
+    .map-canvas {
+      .pos(l,@baseFontPx,@legendWidth);
+    }
+  }
+}
+
+.map-inline {
+  overflow: hidden;
+  padding-bottom: ((9 / 16) * 100) + 0%;
+  &.aspect-ratio1-1 {
+    padding-bottom: 100%;
+  }
+  &.aspect-ratio3-2 {
+    padding-bottom: ((2 / 3) * 100) + 0%;
+  }
+  &.aspect-ratio4-3 {
+    padding-bottom: ((3 / 4) * 100) + 0%;
+  }
+  &.aspect-ratio16-9 {
+    padding-bottom: ((9 / 16) * 100) + 0%;
+  }
+  &.aspect-ratio2-1 {
+    padding-bottom: ((1 / 2) * 100) + 0%;
+  }
+  &.aspect-ratio3-1 {
+    padding-bottom: ((1 / 3) * 100) + 0%;
+  }
+  .map-canvas {
+    top: 0;
+  }
+  img {
+    max-width: none;
+  }
+  figcaption.map-heading {
+    #font > .size(15);
+    position: absolute;
+    top: 0;
+    .pos(l,15,-130);
+    right: auto;
+    bottom: auto;
+    width: auto;
+    max-width: 100%;
+    .padding(trbl,15,6,10,6,140);
+    background: @text;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.lt-ie9 .map-inline figcaption.map-heading {
+  left: 0;
+  .padding(l,15,10);
+  max-width: 65%;
+}
+
+.map-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  .border(t,@baseFontPx,5,@mapOverlayTopBorder,solid);
+  z-index:1001;
+  &.active {
+    display: block;
+  }
+  .map-header {
+    .padding(trb,@baseFontPx,12,24,11);
+    .height(@baseFontPx,72);
+    .border(b,@baseFontPx,1,@moduleGrey,solid);
+    button.btn-secondary,
+    button.btn-secondary.selected {
+      .margin(trb,@baseFontPx,6,0,0);
+      float: right;
+    }
+    .map-heading {
+        .margin(trbl,25,6,120,0,0);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .subtitle {
+        .margin(trbl,@baseFontPx,0,120,0,0);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+  }
+  
+  // adjust header height and canvas position to accomodate a sub-title
+  &.subtitle {
+    .map-header {
+      .height(@baseFontPx,96);
+    }
+    .map-canvas {
+      .pos(t,@baseFontPx,96);
+    }
+    .legend {
+      .pos(t,@baseFontPx,96);
+    }
+  }
+}
+
+//map-active is applied to the body by JS and is used to hide the scrollbars
+.no-touch.no-win8touch .map-active,
+.touch .map-active .site-content-wrap,
+.win8touch .map-active .site-content-wrap{
+  height:0;
+  overflow: hidden;
+}
+
+
+@media only screen and (max-width:@mqMaxTablet) {
+  .map-overlay, .map-overlay.subtitle {
+    .legend {
+      top: auto;
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      .height(@baseFontPx,@legendHeight);
+      border-right: 0;
+      .border(t,@baseFontPx,1,@moduleGrey,solid);
+    }
+    &.legend {
+      .map-canvas {
+        left: 0;
+        .pos(b,@baseFontPx,@legendHeight);
+      }
+    }
+  }
+}
+
+

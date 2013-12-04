@@ -1,0 +1,56 @@
+/* Fixed Grid */ 
+.a-column {
+  .cols4;
+}
+.b-column {
+  .cols8;
+}
+
+
+.grid-example {
+  ul {#font > .size(@baseFontPx); list-style: none; overflow: hidden; clear: both;.box-sizing; .padding(tr,@baseFontPx,12,0); .margin(a,@baseFontPx,0)} 
+  li {padding-bottom:0;}
+  .one, .two, .three, .four, .five, .six, 
+  .seven, .eight, .nine, .ten, .eleven, .twelve { 
+    font-weight: bold;
+    background: none !important; 
+    text-align: center; 
+
+    span { 
+      #font > .size(13);
+      .padding(tr,13,12,0);           
+      display: block; 
+      background: @headline;
+    }
+    
+    .cols-nested {
+      background: lightGray;
+    }
+  }
+}
+  
+.one {.cols1;}
+.two {.cols2;}
+.three {.cols3;}
+.four {.cols4;}
+.five {.cols5;}
+.six {.cols6;}                                                                           
+.seven {.cols7;}
+.eight {.cols8;}
+.nine {.cols9;}
+.ten {.cols10;}
+.eleven {.cols11;}
+.twelve {.cols12;}   
+
+/*Push/Pull Cols*/ 
+.inset-one {.in1;}
+.inset-two {.in2;}
+.inset-three {.in3;}
+.inset-four {.in4;}
+.inset-five {.in5;}
+.inset-six {.in6;}
+.inset-seven {.in7;}
+.inset-eight {.in8;}
+.inset-nine {.in9;}
+.inset-ten {.in10;}
+.inset-eleven {.in11;}

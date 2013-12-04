@@ -1,0 +1,140 @@
+@tabsFontSize:15;
+
+// behavioral styles
+.js .tab-pane { display: none; }
+.js .tab-pane.on { display: block; }
+
+// hover styles for non-touch browsers
+.no-touch .tabs a:hover,
+.tabs a:focus,
+.tabs a:active{
+  background: @linkHover;
+  text-decoration:none;
+  color: #fff;
+}
+
+// Default tab styles
+// ======================================================
+.tabs {
+  list-style-type: none;
+  a {
+    #font > .size(@tabsFontSize);
+    font-weight:bold;
+    display:block;
+    .border-radius(a,@tabsFontSize,4);
+    .padding(a,@tabsFontSize,6);
+  }
+  &.on{
+    text-decoration:none;
+  }
+}
+
+// Pills / Inverse Pills Theme / Light Pills Theme
+// ======================================================
+
+// Structure
+.theme-light-pills,
+.theme-inverse-pills{
+  .tabs{
+    margin-top:0;
+    li{
+      .padding(b,@baseFontPx,6);
+    }
+    a .icon{
+      .padding(r,@tabsFontSize,6);
+    }
+
+  }
+}
+
+// Ink
+.theme-inverse-pills .tabs {
+  a{
+    color:#fff;
+    &.on{
+      background:@link;
+      color:#fff;
+    }
+  }
+}
+// Inverse Tabs States
+.no-touch .theme-inverse-pills .tabs a:hover,
+.theme-inverse-pills .tabs a:active,
+.theme-inverse-pills .tabs a:focus {
+  background: @linkHover;
+}
+
+.theme-inverse-pills .tabs a.on,
+.no-touch .theme-inverse-pills .tabs a.on:hover,
+.theme-inverse-pills .tabs a.on:active,
+.theme-inverse-pills .tabs a.on:focus {
+  background: @link;
+}
+
+
+.theme-light-pills .tabs{
+  a{
+     color: @link;
+  }
+}
+
+
+// Inline Pills Theme
+// ======================================================
+.theme-inline-pills {
+  .tabs {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      .padding(b,@baseFontPx,6);
+      .padding(r,@baseFontPx,6);
+    }
+    a {
+      .padding(tr,@tabsFontSize,6,12);
+      font-weight:500;
+      color: @link;
+      background: #e5e5e5;
+      #font > .line-height(@tabsFontSize,1);
+    }
+  } 
+  .tabs-container {
+    .border(a,@baseFontPx,1,@moduleGrey);
+
+    .tab-pane {.padding(a,@baseFontPx,18);}
+  }
+}
+// Hover styles and states
+.no-touch .theme-inline-pills .tabs a:hover,
+.theme-inline-pills .tabs a:focus,
+.no-touch .theme-light-pills .tabs a:hover,
+.theme-light-pills .tabs a:focus {
+  background: @areaHover;
+  color: @link;
+}
+.theme-inline-pills .tabs a.on,
+.no-touch .theme-inline-pills .tabs a.on:hover,
+.theme-inline-pills .tabs a.on:active,
+.theme-inline-pills .tabs a.on:focus,
+.theme-light-pills .tabs a.on,
+.no-touch .theme-light-pills .tabs a.on:hover,
+.theme-light-pills .tabs a.on:active,
+.theme-light-pills .tabs a.on:focus{
+  background: @brandBlue;
+  color: #fff;
+}
+
+
+.lt-ie9 .theme-inline-pills .tabs li{
+  float:left;
+  .margin(l,@baseFontPx,6);
+  display: block;
+
+  &:first-child{
+    margin-left:0;
+  }
+
+  .tabs-container{
+    clear:both;
+  }
+}

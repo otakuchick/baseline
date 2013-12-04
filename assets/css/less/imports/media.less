@@ -1,0 +1,211 @@
+// Images
+img {
+  position: relative;
+}
+figure {
+  position: relative;
+  .margin(b,@baseFontPx,24);
+           
+  &.hero {
+    .min-height(@baseFontPx,240);
+  }                          
+  
+  img {
+    width: 100%;
+  }
+
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    .padding(trb,13,24,9,6);
+    background-color: transparent;
+    background-position: 50% 100;
+    background-repeat: repeat-x;
+    .background-size();
+    #font > .size(13);
+    text-align: left;
+    color: #fff;
+  }
+}
+
+// Caption Background styles
+.cssgradients .media-caption, .cssgradients .image-caption,  {.linear-gradient(tb, rgba(0,0,0,0), fadeout(@text,34%));}
+.no-cssgradients.backgroundsize .image-caption,
+.no-cssgradients.backgroundsize .media-caption {background-image: url(/static/ui_toolkit/v2-0/images/caption-gradient.png);}
+.lt-ie9.no-backgroundsize .image-caption,
+.lt-ie9.no-backgroundsize .media-caption{
+  background-color: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/static/ui_toolkit/v2-0/images/caption-gradient.png', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='/static/ui_toolkit/v2-0/images/caption-gradient.png', sizingMethod='scale')";
+}
+
+
+//
+// Image Aspect Ratios HTML:
+//
+// <figure class="media aspect-ratio-1-1">
+//   <img src="/path/to/image.jpg"  alt="image alt text" />
+// </figure>
+//
+.image, .media {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+  img, iframe {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom:0;
+  }
+  iframe{
+    width:100%;
+    height:100%;
+  }
+  &.aspect-ratio1-1 {
+    padding-bottom: 100%;
+  }
+  &.aspect-ratio3-2 {
+    padding-bottom: ((2 / 3) * 100) + 0%;
+  }
+  &.aspect-ratio4-3 {
+    padding-bottom: ((3 / 4) * 100) + 0%;
+  }
+  &.aspect-ratio16-9 {
+    padding-bottom: ((9 / 16) * 100) + 0%;
+  }
+
+
+
+  // Loading/Loaded States
+  // ==============================================================
+
+  // Default View
+  img,
+  .image-caption,
+  iframe {
+    .opacity(1);
+  }
+  // Loading State
+  &.loading {
+    iframe, img, .image-caption {.opacity(0);}
+    // Keep elements within <noscript> visible for browsers with no JS
+    noscript {
+      iframe, img{.opacity(1);}
+    }
+  }
+  // end
+}
+
+
+// moving css transitions out into a modernizr class
+.csstransitions{
+  img,
+  .image-caption,
+  iframe{
+    .transition(opacity 1s);
+    .stopTransitionFlicker();
+  }
+
+  // fading the caption in to match the media fading in so it feels less jerky
+  .media-caption{
+    .transition(opacity .5s);
+    .stopTransitionFlicker();
+  }
+}
+
+// targeting all but ie7
+.generatedcontent .resize-shrink{
+
+  &.background{
+    background-size: contain;
+  }
+
+  img{
+    max-height: 100%;
+    width: auto;
+    margin:auto;
+  }
+
+}
+
+
+// Background Images
+// ==============================================================
+.image.background {
+  .background-size(cover);
+}
+
+// Show "no-image" background image if an image is not available
+.image.no-image{
+  background-color: #e5e5e5;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  .background-size(25%);
+  img {
+    display: none;
+  }
+}
+.svg .no-image {background-image: url(/static/ui_toolkit/v2-0/images/no-image.svg);}
+// Overrides for background image
+.svg .background.no-image {.background-size(25%); background-position: 50% 50%;}
+
+.no-svg .no-image {background-image: url(/static/ui_toolkit/v2-0/images/no-image.png); .background-size(auto);}
+
+
+// Background Colours for different types
+.image {background-color: #e5e5e5;}
+.media {background-color: @text;}
+
+.lt-ie10 .media {
+  iframe{height:100%;}
+  &.loading iframe{height:0;.opacity(1);}
+}
+
+.lt-ie9 .media.loading{
+  iframe{height:100%;}
+  .media-loader{z-index:1;}
+}
+
+
+// https://github.com/louisremi/background-size-polyfill
+.lt-ie9 .image.background{
+  -ms-behavior: url(/static/ui_toolkit/v2-0/js/libs/backgroundsize.min.htc);
+}
+
+
+
+// Media Loader Wrapper
+.media-loader {
+  visibility: hidden;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  .margin(t,@baseFontPx,-12);
+  .margin(l,@baseFontPx,-24);
+  .width(@baseFontPx,48);
+  .height(@baseFontPx,24);
+}
+.media-loader.animated {
+  .width(@baseFontPx,36);
+  .height(@baseFontPx,36);
+  .margin(trbl,@baseFontPx,-18,0,0,-18);
+}
+
+.loading .media-loader {visibility: visible;}
+
+.lt-ie9 .media-loader {
+  // fixes a dumb bug in IE8 whereby ems are not sized correctly vs. images
+  overflow: visible;
+}
+
+
+
+

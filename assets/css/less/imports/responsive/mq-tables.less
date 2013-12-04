@@ -1,0 +1,123 @@
+@media  only screen and (max-width:@mqMaxSmallTablet) {
+
+    // set the table's font size as a variable
+@tableFontPx:15;
+
+    // i'm using :not so that when I apply .no-collapse I don't need to re-overwrite the original table styels back in.
+  .data-table:not(.no-collapse){
+
+    // Force table to not be like tables anymore
+    display: block;
+    color:@text;
+
+    thead,
+    tbody,
+    th,
+    td,
+    tr,
+    caption{
+      display: block;
+    }
+
+  // Hide table headers
+    thead tr{
+      position: absolute;
+      top: -9999em;
+      left: -9999em;
+    }
+
+  // prevents long worded languages from breaking out of the table cell / caption
+    th,
+    td,
+    caption{
+      word-wrap: break-word;
+      white-space: normal;
+    }
+
+    tbody{
+
+      tr{
+        .border(t,@tableFontPx,1,@moduleGrey);
+        &:first-child{
+          border-top:0;
+        }
+      }
+
+      td {
+      // Behave  like a "row"
+        border: none;
+        position: relative;
+        padding-left: 50%;
+
+        // setting a min height in case table cell is left empty
+        .min-height(@tableFontPx,45);
+
+      //  .word-break()
+
+        &:before{
+        // Now like a table header
+          position: absolute;
+
+        // Top/left values mimic padding
+          .pos(l,@tableFontPx,12);
+          width: 45%;
+          .padding(r,@tableFontPx,9);
+        }
+
+      // Label the data
+        &:before {
+          content: attr(data-title);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  // creating a class for non-standard <tables> that contain things such as colspan, rowspan, etc
+  .no-collapse{
+    display: block;
+    overflow: auto;
+    td,
+    th{
+      width:100%;
+      word-break:normal;
+    }
+  // the overflow auto is causing the border to double up on the right and bottom of the table
+  // the following rules fix it
+  // border is removed from <td> because removing it from <table> causes the border to be removed completely. trust me, i'm a cse dev.
+    tr th:last-child,
+    tr td:last-child,
+    caption{
+      border-right:0;
+    }
+
+    tr:last-child td{
+      border-bottom:0;
+    }
+  }
+
+  // rules for ie9
+  .lt-ie10 .data-table:not(.no-collapse){
+    tbody td{
+      display: table;
+      float: left;
+      clear:both;
+      .padding(l,@tableFontPx,210);
+      width:100%;
+
+      &:before{
+        .width(@tableFontPx,180);
+      }
+    }
+  }
+
+  // for <IE9 i'm adding a wrapping <div> so that the tables overflow properly
+  // i've also got to remove the padding from the inner <table> and apply it to this wrapper
+  .lt-ie10 .data-table-wrapper{
+    overflow:auto;
+    .margin(b,@tableFontPx,24);
+    .data-table{
+      margin-bottom:0;
+    }
+  }
+}

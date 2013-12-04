@@ -1,0 +1,142 @@
+//
+// Alerts:
+//
+// <div class="alert alert-important icon icon-warn">
+//   <h4 class="alert-title">Alert</h4>
+//   <p class="secondary alert-message">I am the alert text</p>
+//   <a href="#" class="alert-close icon icon-close">span.</a>
+// </div>
+//
+  .alert {
+    position: relative;
+    .margin(b,@baseFontPx,6);
+    .border(l,@baseFontPx,3,darken(@alertDefault,11%));
+    .padding(trbl,@baseFontPx,12,18,12,48);
+    background: @alertDefault; 
+    color: @text;
+
+    &:after {
+      position: absolute;
+      .pos(t,@baseFontPx,12);
+      .pos(l,@baseFontPx,15)
+    }
+    
+    &.with-close-btn {
+      .padding(tr,@baseFontPx,12,48);
+    }
+    .alert-title {
+      margin: 0;
+      font-weight: bold;
+    }
+    .alert-message {
+      margin-top: 0;
+      #font > .size(15);
+    }
+    .alert-title + .alert-message {
+      #font > .size(13);
+    }
+    a {text-decoration: underline;}
+
+
+    .btn-close.icon {
+      position: absolute;
+      .pos(tr,@baseFontPx,6,6);
+      .padding(tr,@baseFontPx,3,6);
+
+    }
+  }
+
+  .lt-ie9 .alert {
+    .padding(l,@baseFontPx,12);
+
+    .btn-close.icon{
+      .padding(t,@baseFontPx,2);
+    }
+  }
+
+//
+// Alert Labels (extends alert) HTML:
+//
+// <div class="alert-label">
+//  <strong>Alert message</strong>
+//   <button type="button" class="module-close icon icon-close" data-control="remove" role="button">
+//     <span class="alt">Close</span>
+//   </button>
+// </div>
+//
+    .alert-label {
+      display: inline-block;
+      position: relative; 
+      .border-radius(a,@baseFontPx,18);
+      .padding(trbl,@baseFontPx,6,48,6,12);
+      color: #fff;
+
+      &.alert-error {background: @alertError;}
+      &.alert-warn {background: @brandYellow; color: @brandBlue;}
+      &.alert-success {background: @alertSuccess;}
+    }
+  
+
+//
+/// Site Banner Alert (extends alert) HTML:
+//
+// <div class="alert-banner">
+//   Site Banner Content
+//   <button type="button" class="module-close icon icon-close" data-control="remove" role="button">
+//     <span class="alt">Close</span>
+//   </button>
+// </div>
+//
+  
+  .alert-banner {
+    margin-bottom: 0; 
+    .border-radius(none);
+    background: @brandYellow;
+    .padding(trbl,@baseFontPx,0,48,0,0);
+
+    a {display: block; .padding(tr,13,24,24); color: @brandBlue;}
+
+    + .alert-banner {
+      .border(trb,@baseFontPx,1,0,0, darken(@brandYellow,5%));
+    }
+    &.secondary {
+      .border-width(trb,13,1,0,0);
+      .padding(trbl,13,0,48,0,0);
+      
+      + .alert-banner {
+        .border-width(t,13,1);
+      }
+      a {.padding(tr,13,6,24);}
+    }
+  }
+
+  // Alert Colors
+  .alert-error {
+    border-color: @alertError;
+    background: @alertErrorBg; 
+    *, &:after, a, a:link, a:visited {color: @alertError;}
+
+  }
+  .alert-success {
+    border-color: @alertSuccess;
+    background: @alertSuccessBg; 
+    *, &:after, a, a:link, a:visited {color: @alertSuccess;}
+  }
+  .alert-info {
+    border-color: @alertInfo;
+    background: @alertInfoBg; 
+    *, &:after, a, a:link, a:visited {color: @alertInfo;}
+  }
+  .alert-warn {
+    border-color: @alertWarn;
+    background: @alertWarnBg;
+    *, &:after, a, a:link, a:visited {color: @alertWarn;}
+  }
+
+
+// overwrite .icon-sucess styles set for ie8 fallbacks in icons.less
+.lt-ie9 .alert-success.icon-success:after{
+    width: auto;
+    height: auto;
+    background-image: none;
+}

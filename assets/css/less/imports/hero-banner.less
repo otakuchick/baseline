@@ -1,0 +1,187 @@
+// GO NINJA!!
+@heroTransition: .50s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+// this wraps the entire component
+.hero-banner-wrap{
+  background-color:#1f1f1f;
+  position:relative;
+
+  // applies the softer, longer vertical gradient for storefront.
+  .hero-banner-gradient{
+    background: url(/static/ui_toolkit/v2-0/images/hero-banner-vertical-gradient.png) repeat-x 0 0;
+  }
+
+
+// the element containing the background hero image
+  .hero-banner{
+    width: 100%;
+    margin:0 auto;
+    position: relative;
+    background-repeat: no-repeat;
+    .background-size(100%);
+    .background-position(cent,50%,0);
+    .transition(padding @heroTransition);
+    .transition(background-size @heroTransition);
+    .transition(background-position @heroTransition);
+    padding-top:15%;
+
+
+
+  // this bit applies the harsh, short secondary vertical gradient from bottom to top
+    &:before{
+      content:'';
+      display: block;
+      position: absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      height: 100%;
+      width:100%;
+
+      background-image:url(/static/ui_toolkit/v2-0/images/hero-banner-secondary-vertical-gradient.png);
+
+      background-repeat: repeat-x;
+      .background-size(100%);
+
+    }
+
+
+  // a wrapper for the internal content (also has .cols-row applied)
+    .hero-banner-inner{
+      .padding(t,@baseFontPx,144);
+      .padding(b,@baseFontPx,24);
+      .padding(l,@baseFontPx,24);
+
+
+
+    // the secondary gradient is absolutely positioned. these lines of code ensire the search box will sit 'on top' of the secondary gradient
+      position:relative;
+      z-index:100;
+
+    // the hero banner title
+      .hero-banner-title{
+        color:#fff;
+        .margin(b,@baseFontPx,6);
+        .transition(padding @heroTransition);
+        .word-break();
+      }
+
+    // hero banner search box
+      .hero-banner-box{
+        position: relative;
+        .padding(a,@baseFontPx,0);
+
+        .cols-nested {.margin(l,@baseFontPx,-24);}
+      }
+    }
+
+  }
+
+
+
+// overwriting padding and gradient for the .condensed style
+  &.condensed{
+    .hero-banner-gradient{
+      background-position:50% -2%;
+    }
+
+    .hero-banner{
+      padding-top:0;
+      background-position:50% 0%;
+      .transition(background-size @heroTransition);
+
+      &:before{
+        background-image:url(/static/ui_toolkit/v2-0/images/hero-banner-condensed-vertical-gradient.png);
+      }
+
+      .hero-banner-inner{
+        padding-top:8%;
+        .transition(padding @heroTransition);
+      }
+      .hero-banner-box {
+        .border-radius(a,@baseFontPx,3);
+        .padding(a,@baseFontPx,24);
+        background: #fff;
+
+      }
+    }
+  }
+}
+
+
+// media queries
+@mqHeroTablet: ((600 / 16) + 0em);
+
+@media only screen and (max-width: @mqHeroTablet){
+// background image and gradient overlay must resize in tandem
+// the transition here is optional, but looks pretty damn cool
+  .hero-banner-wrap.condensed .hero-banner,
+  .hero-banner-wrap.condensed .hero-banner:before{
+    .background-size(150%);
+    .transition(background-size @heroTransition);
+  }
+}
+
+
+// vertical media queries
+@mqHeroFold: ((540 / 16) + 0em);
+@mqHeroMidPoint: ((768 / 16) + 0em);
+
+
+@media only screen and (max-height: @mqHeroFold) {
+
+  .hero-banner-wrap .hero-banner,
+  .hero-banner-wrap.condensed .hero-banner{
+    padding-top:0;
+    .transition(padding @heroTransition);
+  }
+
+  .hero-banner-wrap .hero-banner .hero-banner-inner{
+    .padding(t,@baseFontPx,24);
+    .transition(padding @heroTransition);
+  }
+
+  .hero-banner-wrap.condensed .hero-banner .hero-banner-inner{
+    padding-top:4%;
+  }
+
+}
+
+
+@media only screen and (min-height: @mqHeroFold) and (max-height: @mqHeroMidPoint) {
+
+  .hero-banner-wrap .hero-banner{
+    padding-top:6%;
+    .transition(padding @heroTransition);
+  }
+
+
+  .hero-banner-wrap.condensed .hero-banner .hero-banner-inner{
+    padding-top:8%;
+  }
+}
+
+
+
+
+
+// ie, doing it's own thing
+
+.lt-ie9{
+  .hero-banner-wrap{
+    background: none;
+  }
+
+  .hero-banner{
+    .max-width(@baseFontPx,1176);
+    margin: 0 auto;
+  }
+
+}
+
+
+
+
+
+

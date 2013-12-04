@@ -1,0 +1,192 @@
+///*
+// * TYPOGRAPHY
+// */
+
+ 
+html {
+ font-size: @rootFontSize;//sets the percentage which all ems are based upon
+ line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {color: @textSecondary} 
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:link, .link, a:visited {color: @link; text-decoration: none;}
+a:hover {text-decoration: underline;}
+.site-content a:visited {color: @linkVisited}
+.no-touch a:hover, a:focus, a:visited:focus, a:active {color: @linkHover;}
+a:focus {outline: none}
+
+//Utilities for touch devices
+.no-touch {
+  // Hide link style from non-touch devices
+  a[href^="tel:"], a[href^="tel:"]:hover, a[href^="tel:"]:visited {
+    color: @mediumGrey;
+    text-decoration: none;
+    cursor: default;
+  }
+}
+
+del, .strike {
+  color: @mediumGrey;
+  text-decoration: line-through;
+}
+/***********************************************************************************************
+	Headlines
+***********************************************************************************************/  
+h1, h2, h3, h4, h5, h6, {
+  font-weight: bold;
+  color: @text;
+  margin: 0;
+}
+h1, .h1, h2, .h2, h3, .h3 {line-height: 1.2;}
+
+/* On-Canvas Color-Override */
+aside[role="complementary"], section[role="main"] {
+  > h1, > h2, > h3, 
+  > h4, > h5, > h6 {
+    color: #58738a;
+  }
+}
+h1, .h1 {
+  .H(1);
+
+  &.display {
+    .H(d);
+  }
+}
+h2, .h2 {
+  .H(2);
+}
+h3, .h3 {
+  .H(3);
+}
+h4, dt, .h4 {
+  .H(4);
+}
+h5, .h5 {
+  .H(5);
+}
+h6, .h6 {
+  .H(6);
+}
+/* Headline Bars */
+.headline-bar {
+  background-color: @moduleBlue;
+	.border-radius(tlr,@h3,4,4);
+  color: #fff;
+  #font > .size(@h3);
+  .margin(trb,@h3,0,0,24);
+  .padding(tr,@h3,6,12);
+}
+.headline-bar-alt {
+  background-color: @headline;
+  color: @text;
+}
+
+  
+p {
+  margin: 0;
+  + p {
+    .margin(t,@baseFontPx,24);
+  }
+}                             
+// Lists
+ul, ol {
+  .margin(trb,@baseFontPx,24,0,0);
+  
+  li {.padding(trb,@baseFontPx,0,0,12);}
+  
+  ul, ol {                       
+    .margin(a,@baseFontPx,12);
+  } 
+  &.nobullet {
+    padding-left: 0;
+    margin-left: 0; 
+    margin-right: 0; 
+    list-style: none;  
+  }
+}
+// Secondary Type styles
+ul.secondary {
+  .margin(trb,13,18,0,0);
+  li {
+   .padding(trb,13,0,6,6); 
+  }
+}
+
+dl {
+  dt {color: @text;}
+  dd {margin-left: 0; .padding(b,@baseFontPx,12);}
+}
+
+/* Quotes */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+
+  // Add a bit of style to the quoates
+  &:before, &:after {font-size: 120%; line-height: normal;}
+
+  // sets quotation marks
+  &:before { content: open-quote; }
+  &:after { content: close-quote; }
+}
+
+
+// Utility Classes
+.dashed {border-style: dashed;}
+.primary {
+  #font > .size(17);
+  line-height: 1.4;
+}
+.secondary {
+  #font > .size(13);
+  line-height: 1.4;
+}
+
+.left {float:left;}
+.right {float:right;}
+
+//  right justified copy
+.justify-right {
+  text-align: right;
+}
+
+.larger {font-size: 120%;}
+small {
+  display: inline-block;
+  #font > .sizeIncludeLineheight(11);
+}
+.bold, strong, b {font-weight: bold;}
+.underline {text-decoration: underline;}
+.padded {
+  .padding(trb,@baseFontPx,12,18,0);
+  &.secondary {
+    .padding(trb,13,12,18,0);
+  }
+}
+
+.add-margin {
+  .margin(tr,@baseFontPx,12,0);
+  &.secondary {
+    .margin(tr,13,12,0);
+  }
+}
+.remove-margin {margin:0 !important;}
+
+// Disabled Link Styles
+a.disabled, a.disabled:active, a.disabled:hover, a.disabled:focus {
+  color: @moduleGrey;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Text Alert Classes  */
+.default {color: @text;}
+.note, a.note {color: @text + #666}
+.light, a.light {color: @alertDefault}
+.link {color: @alertLink}
+.bold, a.bold {color: @alertBold}
+.success, a.success {color: @alertSuccess}
+.important, a.important {color: @alertImportant}
+.urgency {color: @urgency;}

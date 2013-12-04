@@ -1,0 +1,145 @@
+@pagFontSize:13;
+.pagination{
+
+  .margin(t,@pagFontSize,24);
+  text-align:right;
+
+  .backToTop {
+    float: left;
+    #font > .size(@pagFontSize);
+    .height(@pagFontSize, 36);
+    #font > .line-height(@pagFontSize, 1.6);
+    .margin(r,@pagFontSize,18);
+  }
+
+  ul,
+  .showing-results
+  {
+    #font > .size(@pagFontSize);
+    color: @textSecondary;
+  }
+
+  .showing-results{
+    display: inline-block;
+    .height(@pagFontSize, 36);
+    #font > .line-height(@pagFontSize, 1.6);
+  }
+
+  ul{
+    float: right;
+    display:inline;
+
+    li{
+      .margin(l,@pagFontSize,3);
+      display:inline-block;
+
+      label{
+            margin-top: 0;
+
+            // FireFox's chrome produces a blue glow arund the radio button. This nudges the radio button in from the edge to hide the glow.
+            &.check .masked{
+              .pos(tl,@pagFontSize,3,3);
+            }
+          }
+
+      .pagination-label,
+      .disabled,
+      .current-page,
+      .pagination-prev,
+      .pagination-next{
+        display: inline-block;
+        .border-radius(a,@pagFontSize,3);
+        .padding(tr,@pagFontSize,6,12);
+        .height(@pagFontSize, 36);
+        #font > .line-height(@pagFontSize,1);
+        font-weight: normal;
+
+      }
+
+      .pagination-label
+      {
+        text-decoration: none;
+        background: #e5e5e5;
+        position:relative;
+        display: inline-block;
+        color:@link;
+
+      }
+
+
+      .pagination-prev,
+      .pagination-next{
+
+        abbr{
+          border-bottom:0;
+          cursor:pointer;
+        }
+
+      }
+
+      // apply margin to first <li>
+      &:first-child{
+        .margin(l,@pagFontSize,18);
+      }
+    }
+  }
+}
+// States
+//
+// Show :hover only to non-touch devices
+// ===================================================================
+.no-touch .pagination .pagination-label:hover,
+.check.selected input:focus + .pagination-label
+{
+  background: @areaHover;
+  color: @linkHover;
+  cursor: pointer;
+}
+
+.no-touch .pagination .pagination-prev:hover,
+.no-touch .pagination .pagination-next:hover{
+  color: @linkHover;
+}
+
+.pagination {
+
+// Focus/Active
+
+  .pagination-prev:focus,
+  .pagination-next:focus,
+  input:focus + span,
+  .pagination-prev:active,
+  .pagination-next:active,
+  input:active + span
+  {
+    background: @areaActive !important; // using !important due to .no-touch higher specicifity above
+  }
+  // Current page
+
+  .check.selected .pagination-label
+  {
+    color: #fff;
+    background:@brandBlue;
+    cursor: default;
+  }
+
+//  .check.selected input:focus + span{
+//    background:@areaHover;
+//    color: @link;
+//  }
+
+  .pagination-prev,
+  .pagination-next{
+    background:none;
+    margin:0;
+    font-weight:normal;
+    color:@link;
+
+    &:disabled{
+      color: @moduleGrey;
+      cursor: default;
+      border: none;
+    }
+  }
+
+}

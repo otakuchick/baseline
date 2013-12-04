@@ -1,0 +1,215 @@
+// Scratchpad:
+// ===========
+//
+// Very much a work in progress
+// Use with caution
+//
+
+header.page-header {
+	background: #fff;
+	border-bottom: 1px solid #e5e5e5;
+}
+header.page-header .cols-row {
+	padding-right: 0;
+}
+header.page-header .cols-row .headerContainer h2 {
+	color: #00355f;
+	float: left;
+	height: 1.2em;
+	margin: .48em 0 .48em .96em;
+	max-width: 50%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+header.page-header .cols-row .headerContainer .settingsArea {
+	float: right;
+	height: 3.176470588235294em;
+	position: relative;
+}
+header.page-header .cols-row .headerContainer .settingsArea .link {
+	cursor: pointer;
+	display: none;
+	font-size: 0.7647058823529411em;
+	height: 100%;
+	padding: 1.411764705882353em 1.411764705882353em 0 1.411764705882353em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	vertical-align: middle;
+}
+header.page-header .cols-row .headerContainer .separator {
+	border-bottom: 1px solid #e5e5e5;
+	clear: both;
+	display: none;
+}
+header.page-header .cols-row .headerContainer .sendNotesContainer {
+	float: right;
+	margin-left: 1.411764705882353em;
+	margin-right: 1.411764705882353em;
+}
+header.page-header .cols-row .headerContainer .sendNotesContainer fieldset.on-off-switch {
+	margin-bottom:.7058823529411765em;
+}
+.on-off-switch legend {
+	float: left;
+	margin-right: .9230769230769231em;
+	padding-top: 1.3846153846153846em;
+}
+@media only screen and (max-width: 37.5em) {
+	header.page-header .cols-row .headerContainer h2 {
+		max-width: 75%;
+	}
+	header.page-header .cols-row .headerContainer .settingsArea .link {
+		display: block;
+	}
+	header.page-header .cols-row .headerContainer .settingsArea .link.done {
+		display: none;
+	}
+	header.page-header .cols-row .headerContainer .separator {
+		display: block;
+	}
+	header.page-header .cols-row .headerContainer .sendNotesContainer {
+		float: none;
+	}
+}
+
+
+
+// New code added from UX-provided prototype
+// Still needs more clean-up
+// -----------------------------------------
+
+#scratchpad section {
+}
+
+/* Header General */
+.site-content a:visited {
+	color: #0068b5;
+}
+.search-title {
+	color: #00355f;
+	width: 100%;
+}
+.search-header {
+	line-height: 18px;
+}
+.header-wrap {
+	float: left;
+	width: 100%;
+}
+.timestamp {
+	color: #6b6b6b;
+	font-size: 13px;
+	margin-bottom: 9px;
+	padding-left: 24px;
+}
+
+/* Icon */
+.search-icon {
+	float: left;
+	font-size: 30px;
+	line-height: 36px;
+	height: 36px;
+	margin-right: 6px;
+	top: -2px;
+}
+
+/* Dates and Destination */ 
+.topline {
+	height: 18px;
+	width: 100%;
+}
+.search-dates, .search-destination {
+	font-size: 15px;
+	font-weight: bold;
+	height: 18px;
+}
+.search-dates {
+	display: inline-block;
+	overflow: hidden;
+	padding-left: 18px;
+	white-space: no-wrap;
+}
+.search-destination {
+	display: inline-block;
+	max-width: 50%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Metadata */
+.search-details {
+	font-size: 13px;
+	height: 18px;
+}
+.item {
+	padding-right: 18px;
+}
+
+/* Tools */
+.search-tools {
+	display: inline-block;
+	float: right;
+	font-size: 15px;
+	height: 18px;
+	line-height: 18px;
+	max-width: 25%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.search-tools a {
+	margin-left: 12px;
+}
+.search-tools a span {
+	margin-right: 3px;
+}
+
+/* MEDIA QUERIES */
+.show-960, .show-600 {
+	display: none;
+}
+@media (max-width: 959px) {
+	.hide-960 {
+		display: none;
+	}
+	.show-960 {
+		display: inline;
+	}
+
+	/* Move search icon to align left */
+	.search-tools {
+		float: none;
+	}	
+}
+@media (max-width: 599px) {
+	.hide-600 {
+		display: none;
+	}
+	.show-600 {
+		display: inline;
+	}
+
+	/* Move search icon to align right */
+	.search-tools {
+		float: right;
+	}
+
+	/* Shift the date to the second line */
+	.search-dates {
+		display: none;
+	}
+	.search-destination {
+		max-width: 65%;
+	}
+	.search-details {
+		overflow: hidden;
+		width: 85%;
+	}
+}
+@media (max-width:340px) {
+	.hide-340 {
+		display: none;
+	}
+}

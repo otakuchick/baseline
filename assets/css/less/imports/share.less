@@ -1,0 +1,186 @@
+.socialize {
+  @font-face {
+    font-family: 'social-icomoon';
+    src:url('/static/social/fonts/icomoon.eot');
+    src:url('/static/social/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('/static/social/fonts/icomoon.woff') format('woff'),
+    url('/static/social/fonts/icomoon.ttf') format('truetype'),
+    url('/static/social/fonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  [data-icon]:before {
+    font-family: 'social-icomoon';
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .margin(a, @baseFontPx, 0);
+  .padding(a, @baseFontPx, 0);
+  list-style: none;
+  &.medium{visibility: hidden;}
+
+  li {
+    display: inline-block;
+    vertical-align: text-top;
+    .margin(trb, @baseFontPx, 0, 5, 0);
+  }
+
+  &.medium {
+
+    .share-googleplus {.width(@baseFontPx, 68);}
+    .share-twitter {.width(@baseFontPx, 88);}
+
+    .share-pinterest {
+      .width(@baseFontPx, 70);
+
+      a {
+        // override uitk doc styles that's breaking counter
+        -ms-word-break: normal !important;
+        word-break: normal !important;
+      }
+    }
+
+    .share-email a {
+      #font.size(@baseFontPx, 24);
+      color: #407FBF;
+      display: block;
+      .padding(trbl, @baseFontPx, 2, 7, 0, 6);
+      .border(a, @baseFontPx, 2, @moduleGrey, solid);
+      .border-radius(a, @baseFontPx, 5);
+      background: -moz-linear-gradient(top, #ffffff 0%, #e1e1e1 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e1e1e1));
+      background: -webkit-linear-gradient(top, #ffffff 0%,#e1e1e1 100%);
+      background: -o-linear-gradient(top, #ffffff 0%,#e1e1e1 100%);
+      background: -ms-linear-gradient(top, #ffffff 0%,#e1e1e1 100%);
+      background: linear-gradient(to bottom, #ffffff 0%,#e1e1e1 100%);
+
+      &:hover {
+        text-decoration: none;
+        border-color: @mediumGrey;
+      }
+    }
+  }
+
+  &.compact {
+
+    display: inline-block;
+
+    .menu {
+      width: 30em;
+      .margin(tr,@baseFontPx,14,0);
+      .border-radius(a, @baseFontPx, 6);
+      h5 {margin: 0em;}
+      [data-icon]:before {font-size: 1.8em;}
+
+      .menu-footer {.border-radius(blr, @baseFontPx, 6, 6);}
+      .close {
+        .padding(a,@baseFontPx,17);
+        line-height: 2em;
+      }
+      .inner-padding {padding: 1em;}
+
+      .tooltip-arrow {
+        .margin(t,@baseFontPx,-15);
+        display: block;
+      }
+
+      a {
+        display: inline;
+        color: #666;
+        padding: 0em;
+      }
+
+      a:hover {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .menu-header {
+        width: 100%;
+        overflow:hidden;
+        margin-bottom: 1em;
+
+        .img-col {
+          width: 15%;
+          float: left;
+
+          figure {margin-bottom: 0em;}
+        }
+
+        .txt-col {
+          strong {
+            #font > .size(@h2);
+            color: #000;
+          }
+
+          #font > .size(@h6);
+          width: 85%;
+          padding-left: 1em;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          float: right;
+          white-space: nowrap;
+        }
+      }
+
+      .share-tab {
+        display: inline-block;
+        width: 32%;
+        text-decoration: none;
+        padding-left: .5em;
+
+        span {
+          display: inline-block;
+          vertical-align: middle;
+
+          &:nth-child(2) {
+            font-size: .9em;
+            color: @link;
+
+            &:hover {text-decoration: underline;}
+          }
+        }
+        &.share-facebook span:nth-child(1) {color: #3a5b98;}
+        &.share-googleplus span:nth-child(1) {color: #dd4c38;}
+        &.share-twitter span:nth-child(1){color: #2eabe1;}
+        &.share-pinterest span:nth-child(1){color: #cb2127;}
+        &.share-email span:nth-child(1){color: #b9b9b9;}
+        &:hover {cursor: pointer;}
+      }
+    }
+  }
+}
+
+iframe[class*='PIN_'], iframe[class^='PIN_'] {display: none;}
+
+@mqMaxMobile: ((480 / 16) + 0em);
+@media only screen and (max-width: @mqMaxMobile) {
+
+  .socialize {
+
+    &.compact {
+
+      &.btn-group {
+        position: inherit;
+      }
+
+      .menu {
+        min-width: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        a {display: block;}
+        .share-tab {width: 48%;}
+      }
+    }
+  }
+}

@@ -1,0 +1,179 @@
+@modal-transition:0.25s;
+@modalBorderRadius: 9;
+@modalBackground: #bcd3e5;
+@modalBacgroundActiveOpacity: 0.84;
+
+.modal-wrap{
+  position: fixed;
+  .pos(t,@baseFontPx,-999);
+  width:100%;
+  z-index:1001;
+  .transition(top @modal-transition ease-out);
+  &.modal-dismiss{
+    cursor: pointer;
+  }
+  &.active {.pos(t,@baseFontPx,90);}
+}
+.modal-inner{
+  .opacity(0);
+  position: relative;
+  width:90%;
+  max-width: ((960 / @baseFontPx) + 0em);
+  .min-height(@baseFontPx,120);
+  max-height: 90%;
+  margin:0 auto;
+  .border-radius(a,@baseFontPx,@modalBorderRadius);
+  background:#fff; 
+  cursor: default;
+
+  .transition(opacity @modal-transition ease-out);
+
+  .modal-loader{
+    display: none;
+    position: absolute;
+    top: 50%;
+    .pos(l,@baseFontPx,48);
+    .margin(t,@baseFontPx,-12);
+    .padding(r,@baseFontPx,30);
+
+    .loader-secondary {position: absolute; top: 0; right: 0;}
+  }
+}
+// override for IE8
+.lt-ie9 {
+  .modal-loader .loader {
+    top: -9px;
+  }
+}
+
+
+.modal-body{
+  opacity: 1;
+  margin-top: 0;
+  .padding(trb,@baseFontPx,48,48,48);
+  //when empty, do not take up any height
+  &:empty {
+    height: 0;
+    overflow: hidden;
+  }
+}
+.modal-header{
+  position: relative;
+  overflow: hidden;
+  .padding(trb,@baseFontPx,48,48,0);
+
+  .modal-title {opacity: 1; margin: 0; color: @brandBlue;}
+  .btn-close {
+    position: absolute;
+    .pos(t,@baseFontPx,18);
+    .pos(r,@baseFontPx,18);
+  }
+}
+
+//decrease the top margin of modal-body when header is missing
+.modal-header + .modal-body{
+  .padding(t,@baseFontPx,24);
+}
+
+.modal-footer{
+  position: relative;
+  .border-radius(blr,@baseFontPx,9,9);
+  .padding(a,@baseFontPx,24);
+  background: lighten(@alertLight,8);
+
+  .opt-out, .modal-close {
+    float: right;
+  }
+  .opt-out {
+    margin-bottom: 0;
+    .padding(r,@baseFontPx,24);
+    .inline-label{
+      margin:0;
+    }
+  }
+  .modal-close, .modal-close.btn-utility:active {
+    margin: 0;
+  }
+}
+// Root Modal Close Button
+.modal-inner > .modal-close{
+  position: absolute;
+  .pos(t,@baseFontPx,18);
+  .pos(r,@baseFontPx,18);
+}
+// Hide if there's a footer
+.modal-footer + .modal-close {visibility: hidden;}
+// show if loading AJAX content only
+.loading .modal-footer + .modal-close {visibility: visible;}
+
+.modal-background{
+  position: fixed;
+  .opacity(0);
+  z-index:1000;
+  background: @modalBackground;
+
+  top:-50%;
+  bottom:0;
+  left:0;
+  right:0;
+  width: 100%;
+  height: 1000%;
+  .transition(opacity @modal-transition ease-out @modal-transition);
+  &.modal-dismiss{cursor: pointer;}
+  .stopTransitionFlicker();
+}
+//modal when loading
+.loading {
+  .modal-header {
+    padding: 0;
+    height: 0;
+    .modal-title {opacity: 0;}
+  }
+  .modal-body {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+//    margin-top: -999em;
+  }
+  .modal-loader{display: inline-block;}
+
+}
+// lt-IE9 styles
+.lt-ie9 {
+  .modal-header {display: block;}
+  .modal-body {visibility: visible;}
+  .modal-footer + .modal-close {display: none;}
+  .loading {
+    .modal-header {display: none}
+    .modal-body {visibility: hidden;}
+    .modal-loader{display: block;}
+    .modal-footer + .modal-close {display: block;}
+  }
+}
+//modal when active
+.active{
+  &.modal-wrap{
+    .transition(top @modal-transition linear @modal-transition);
+
+    &.resizing{
+      .transition(top 0s linear 0s);
+    }
+  }
+
+  .modal-inner{
+    .opacity(1);
+
+    .transition(opacity @modal-transition ease-out @modal-transition);
+  }
+
+  &.modal-background{
+    .opacity(@modalBacgroundActiveOpacity);
+    .transition(opacity @modal-transition linear);
+  }
+}
+
+/* Modal States
+========================================================================== */
+
+/* No CSS Animation Support */

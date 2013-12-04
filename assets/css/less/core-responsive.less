@@ -1,0 +1,36 @@
+// ==========================================================================
+// Responsive Breakpoints
+// ==========================================================================
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+
+  .cols-row {
+  	max-width: @absMaxWidth;
+  	width: 100%;
+  	margin: 0 auto;
+  	.padding(r,@baseFontPx,24);
+  }
+}
+// set min-width for browsers without @media support
+.mediaqueries {
+  body {
+    min-width: ((240 / 16) + 0em);
+  }
+}
+// Inport the
+@import "imports/mixins";
+@import "imports/responsive/mq-all";
+@import "imports/responsive/mq-small-tablet";
+@import "imports/responsive/mq-tablet";
+@import "imports/responsive/mq-layouts";
+@import "imports/responsive/mq-playback";
+@import "imports/responsive/mq-patterns";
+@import "imports/responsive/mq-country-code";
+@import "imports/responsive/mq-hero";
+@import "imports/responsive/mq-tables";
+@import "imports/responsive/mq-content-slider";
+@import "imports/responsive/mq-tile-grid";
+@import "imports/responsive/mq-resp-sortbar";
+

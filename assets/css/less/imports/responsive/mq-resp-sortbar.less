@@ -1,0 +1,25 @@
+@mqMaxSort: ((480 / 16) + 0em);
+@mqMinSort: ((481 / 16) + 0em);
+
+@media only screen and (max-width: @mqMaxSort) {
+  .responsive-sortbar .sort-bar-wrap + .sort-bar-wrap {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: @mqMinSort) {
+  .responsive-sortbar{
+    .sort-bar-select-wrap {
+      display: none;
+    }
+
+    &.override-mq{
+      .sort-bar-select-wrap {
+        display: table;
+      }
+      .sort-bar-wrap + .sort-bar-wrap {
+        display: none;
+      }
+    }
+  }
+}

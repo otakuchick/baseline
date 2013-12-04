@@ -1,0 +1,43 @@
+@media only screen and (max-width:@mqTablet600) {
+
+@btn-width:30;
+
+  .content-slider{
+    position:relative;
+    .margin(l,@baseFontPx,-24);
+    .margin(r,@baseFontPx,-24);
+    .padding(l,@baseFontPx,24);
+    .padding(r,@baseFontPx,24);
+
+
+    .content-slider-controls{
+      position:absolute;
+      top:0;
+      right:0;
+      left:0;
+      bottom:0;
+      height:100%;
+      pointer-events:none;
+    }
+
+    .content-slider-controls .btn-paging{
+
+      #font > .size(@btn-width);
+      pointer-events:auto;
+      height:100%;
+      position:absolute;
+      z-index:10;
+      .margin(l,@btn-width,-4);
+      .padding(r,@btn-width,9);
+    }
+
+    .content-slider-controls .btn-paging + .btn-paging{
+      top:0;
+      right:0;
+      padding-right:0;
+      margin-left:0;
+      .margin(r,@btn-width,-4);
+      .padding(l,@btn-width,9);
+    }
+  }
+}

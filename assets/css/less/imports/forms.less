@@ -1,0 +1,574 @@
+// 
+// FORM STYLES
+// 
+fieldset {
+  .margin(b,@baseFontPx,24);
+}
+legend {
+  font-weight: bold;
+  .padding(t,13,12);
+}
+
+legend, .label, .inline-label, .field-description {
+  #font > .size(13);
+  color: darken(@moduleGrey,36%);
+  font-weight: bold;
+  line-height: 1.4;
+  display: block;
+
+  .margin(b,13,6);
+}
+
+// Field description text elem
+.field-description {
+  font-weight: normal;
+  color:@text;
+}
+
+
+// Remove appearance of native Calendar UI
+input[type="date"] {
+  .appearance(textfield);
+}
+// input::-webkit-calendar-picker-indicator{
+//     display: none;
+// }
+// input[type="date"]::-webkit-input-placeholder{
+//     visibility: hidden !important;
+// }
+
+// Remove validation styles
+::-webkit-validation-bubble-message { display: none; }
+:-moz-validation-bubble-message { display: none; }
+
+// Validation Messages
+.validation-msg {
+  #font > .size(15);
+  font-weight: bold;
+  line-height: 1.2;
+  position: relative;
+
+  &:before {
+    .padding(r,15,8)
+  }
+
+  &.error {
+    color: @alertError;
+  }
+}
+
+// Basic Button Overrides
+// =========================================================================
+button {
+  .appearance;
+  #font > .primary-stack;
+}
+
+.btn-primary.inline-button,
+.btn-primary.inline-button:active,
+.btn-primary.inline-button.selected,
+.btn-secondary.inline-button,
+.btn-secondary.inline-button:active,
+.btn-seconadry.inline-button.selected {
+  .margin(t,15,36) !important;
+}
+
+
+
+// Placeholder Text Styles
+// ==========================================================================
+.text input::-webkit-input-placeholder,
+.text textarea::-webkit-input-placeholder,
+.text.invalid input:focus::-webkit-input-placeholder,
+.text.invalid textarea:focus::-webkit-input-placeholder {
+  color: @moduleGrey - 13;
+}
+.text input:-ms-input-placeholder,
+.text textarea:-ms-input-placeholder {
+  color: @moduleGrey - 13;
+}
+.text input:-moz-placeholder,
+.text input::-moz-placeholder,
+.text input::-ms-placeholder,
+.text textarea:-moz-placeholder,
+.text textarea::-moz-placeholder,
+.text textarea::-ms-placeholder,
+.text input:focus:-moz-placeholder,
+.text input:focus::-moz-placeholder,
+.text input:focus::-ms-placeholder,
+.text textarea:focus:-moz-placeholder,
+.text textarea:focus::-moz-placeholder,
+.text textarea:focus::-ms-placeholder,
+.text.invalid input:focus:-moz-placeholder,
+.text.invalid input:focus::-moz-placeholder,
+.text.invalid input:focus::-ms-placeholder,
+.text.invalid textarea:focus:-moz-placeholder,
+.text.invalid textarea:focus::-moz-placeholder,
+.text.invalid textarea:focus::-ms-placeholder {
+  color: @moduleGrey - 13;
+}
+
+// Placeholder Polyfill
+.text .placeholderspolyfill{
+  color: @moduleGrey;
+}
+.text .placeholderspolyfill:focus, text.invalid .placeholderspolyfill:focus {color: @link;}
+.text.invalid .placeholderspolyfill {color: #d6a3a3 !important;}
+
+// overwrite for the HTML5 Boilerplate way to hide labels
+label.visuallyhidden-with-placeholder{
+  height:auto !important;
+  overflow: visible !important;
+  position:absolute !important;
+  left:-999em;
+}
+
+
+// Labels and Child Icon and Input Styles
+// ==========================================================================
+
+label {
+  display: block;
+  position: relative;
+  .margin(t,@baseFontPx,12);
+  color: @text * 2;
+
+  span {display: block;}
+
+  // Inline text sits next to form fields
+  .inline-label {
+    display: inline;
+    margin: 0;
+    .padding(r,13,6)
+  }
+
+  // Hidden-Labels
+  &.no-label .label {
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -999em;
+    width: 0;
+  }
+
+  // Basic Field Styles
+  input, select, textarea {
+    #font > .size(15);
+    .min-height(15,36);
+    outline: none;
+    .padding(tr,15,8,12);
+  }
+
+  input[type="radio"], input[type="checkbox"] {
+    min-height: 0;
+    .box-shadow(none);
+  }
+
+  input[type="radio"] {top: 0;}
+
+  &.disabled, input[disabled], select[disabled], textarea[disabled], &.disabled .icon,
+  {
+    opacity: .72;
+    cursor: not-allowed;
+  }
+
+  // Adjust when we do not have labels
+  &.no-label input + span {
+    .margin(t,15,4);
+  }
+}
+
+// hides input elements and replaces them with label
+// stop user from jumping to top of page when clicking on input.masked
+// using !important so that this can be used on any components
+input.masked {
+  position: absolute;
+  left: 0;
+  height:1px !important;  // min 1px required to that input can be tabbed to
+  width:1px !important;
+  float:left;             // removes unecessary whitespace between elements
+  margin-left:3px;        // nudges the 1px radio button away from the edge. Pixels measurement is ok here.
+  z-index:-1;             // drops input 'behind' the overlaying span. Mainly to fix safari and firefox
+
+}
+
+
+// Text Input-Specific Styles
+.text {
+  & input, & textarea {
+    width: 100%;
+    .padding(tr,15,8,12);
+    .box-shadow(
+      inset 0 ((1 / 15) + 0em) 0 rgba(0,0,0,.1)~","
+      inset 0 ((1 / 15) + 0em) ((1 / 15) + 0em) rgba(0,0,0,.05)
+    );
+    .border-radius(a,15,3);
+    .border(a,15,1);
+    border-color: lighten(@text,40%) lighten(@text,64%) lighten(@text,64%);
+    background: #fff;
+    cursor: text;
+    color: @text;
+  }
+  & textarea {
+    .min-height(15,56);
+    overflow: visible;
+    resize:vertical;
+  }
+  // Icon Element Styles
+  &.icon-before input, &.icon-before textarea {
+    .padding(l,15,30);
+  }
+  &.icon-after input, &.icon-after textarea {
+    .padding(r,15,30);
+  }
+}
+// IE Overrides
+.ie8 {
+  input, select {
+    .height(15,36);
+    min-height: 0;
+  }
+}
+// Reset padding on <select> for IE8-9 and FF
+.lt-ie10 {
+  select {
+    .padding(l,15,6);
+    .padding(r,15,6);
+  }
+}
+// Ugly FF-only hack for above fix
+.firefox .select select {
+  .padding(l,15,6);
+  .padding(r,15,6);
+}
+
+// Basic Radio/Checkbox Styles
+// ==========================================================================
+
+.check {
+  display: inline-block;
+  width: auto;
+
+  .inline-label {
+    display: inline-block;
+    position: relative;
+    .margin(r,13,12);
+    .padding(l,13,24);
+    padding-right: 0;
+    color: @textSecondary;
+    text-transform: none;
+    font-weight: normal;
+    vertical-align: top;
+  }
+  input {
+    cursor: pointer;
+    #font > .size(13);
+    display: inline;
+    line-height: 1.4;
+    position: absolute;
+    left:0;
+    .width(13,18);
+    .height(13,18);
+    vertical-align: middle;
+
+
+    &:checked + .inline-label {color: @text}
+
+    &:disabled, &:disabled + .inline-label {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+  }
+  // TODO: CHECK THIS DOES NOT BREAK SOME SHIT
+  input[type=radio], input[type="checkbox"] {
+    .width(13,15);
+    .height(13,15);
+    vertical-align: baseline;
+  }
+  input[type="checkbox"] {.pos(t,13,2);}
+}
+// Another FF fix...
+.firefox .check {
+  input[type="checkbox"] {top: 0;}
+}
+
+// because IE 9 +  10 are retarded...
+.ie9 .check input[type="radio"],
+.ie9 .check input[type="checkbox"],
+.ie10 .check input[type="radio"],
+.ie10 .check input[type="checkbox"]{vertical-align: middle; top: auto;}
+.lt-ie9 .check {
+  .margin(l,@baseFontPx,3);
+
+  & input {
+    color: @text;
+  }
+  & .inline-label {padding-right: 0;}
+
+  // reset the columns margins
+  &.col {
+    margin-left: 0;
+    & .inline-label {.padding(r,13,12); padding-left: 0;}
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {vertical-align: middle;}
+}
+
+// end retarded code
+
+// Special Styles for Ratings inline with radios/checkboxes
+// ==========================================================================
+.lt-ie9 .check .inline-label .star-rating,
+.lt-ie9 .check .inline-label .star-rating .icon {
+  vertical-align: top;
+}
+.lt-ie9 .check .inline-label .star-rating .icon {
+  .pos(t,13,-3);
+  bottom: auto !important;
+}
+// Select Styling
+// ==========================================================================
+.select {
+  padding: 0;
+  // Icon - for -webkit- only
+  &:after,
+  .icon-toggle180:after{
+    #font > .size(17);
+    line-height: 2.4;
+    text-align: center;
+    display: none;
+    .height(17,36);
+    .margin(t,17,24);
+    position: absolute;
+    .pos(b,@baseFontPx,-1);
+    right: 0;
+    left: auto;
+    .transform-origin;
+    .width(17,30);
+    pointer-events: none;
+  }
+
+  // when there isn't a label
+  &.no-label:after {
+    margin-top: 0;
+  }
+
+  select {
+    width: 100%;
+    .height(15,36);
+    border-color: lighten(@text,40%);
+    .border-radius(a,15,3);
+    .padding(t,15,6);
+    .padding(b,15,6);
+    .linear-gradient(tb,lighten(@moduleGrey,18%),lighten(@moduleGrey,12.5%));
+
+
+    &:focus {
+      .linear-gradient(tb,lighten(@moduleGrey,19.25%),lighten(@moduleGrey,15%));
+    }
+  }
+
+  .inline-label + select{
+    width:auto;
+  }
+}
+
+// FF and IE (border style/width screws up webkit)
+.firefox, .ie10, .lt-ie10 {
+  .select select {
+    border-style: solid;
+    .border-width(a,15,1);
+  }
+}
+
+// Webkit only - styles apply only to webkit since it supports -webkit-appearance property (properly) on <select> elems
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .select{
+    &.icon:after,
+    .icon-toggle180:after{
+      display: block;
+    } //show icon
+
+    select {
+      .padding(r,15,30);
+      .appearance
+    }
+  }
+}
+
+// added .text as part of the selector to prevent this from applying to .check inputs
+.lt-ie9 .text input,
+.lt-ie9 .select select {
+  line-height: (18 / 15) + 0em;
+  .height(15,36);
+}
+.ie8 .select{
+  select {width: 100%;}
+  .inline-label + select{width:auto;}
+}
+
+
+
+// Field Icons
+// ==========================================================================
+.icon-before, .icon-after {
+  .icon {
+    position: absolute;
+    display: block;
+    .width(@baseFontPx,30);
+    .height(@baseFontPx,36);
+    .margin(t,@baseFontPx,-36);
+    .box-shadow(none) !important; //here only to not repeat myself, not because styles too specific!
+    padding: 0;
+    #font > .line-height(@baseFontPx,1.5);
+    text-align: center;
+    color: @moduleGrey;
+    cursor: pointer;
+  }
+}
+
+.icon-before {
+  input, textarea {.padding(l,15,30)}
+}
+.icon-after {
+  input, textarea {.padding(r,15,30)}
+  .icon {.pos(r,15,1);}
+}
+// Field icons
+&.icon-after {
+  input, textarea {.padding(r,15,30)}
+}
+
+
+// IE Fallbacks for Icons
+.lt-ie9 {
+
+  .icon{
+    // IE8 needs this otherwise alt text gets messed up. padding:1px also works
+    border:1px solid transparent;
+  }
+
+  .text {
+
+    .icon {
+      .width(@baseFontPx,26);
+      .height(@baseFontPx,26);
+      .margin(t,@baseFontPx,-30);
+      .margin(l,@baseFontPx,2);
+      background: @moduleGrey url(/static/ui_toolkit/v2-0/images/field-icons.png) no-repeat;
+      background-position: -63px -63px;
+      border:0;
+
+    }
+
+    .icon-warn {background-position: -3px -3px;}
+    .icon-calendar {background-position: -33px -33px;}
+    .icon-settings {background-position: -63px -63px;}
+    .icon-location {background-position: -93px -93px;}
+    .icon-notime {background-position: -123px -123px;}
+    .icon-traveler {background-position: -153px -153px;}
+    .icon-travelers {background-position: -183px -183px;}
+    .icon-success {background-position: -213px -213px;}
+    .icon-train{background-position: -183px -243px;}
+    .icon-cruise{background-position: -153px -273px;}
+    .icon-packages{background-position: -123px -303px;}
+    .icon-hotels{background-position: -93px -333px;}
+    .icon-cars{background-position: -63px -363px;}
+    .icon-flights{background-position: -33px -393px;}
+    .icon-activities{background-position: -3px -422px;}
+
+
+    // For IE :(
+    &.col .icon {.pos(l,@baseFontPx,24);}
+  }
+}
+
+// Field States
+// ==================================================================================================
+
+// :focus
+.text input:focus, .text.focused input, .text.focused input + .icon,
+.text input:focus + .icon, .text textarea:focus, .text textarea:focus + .icon,
+.text.invalid textarea:focus, .text.invalid textarea:focus + .icon,
+.select select:focus, .select.invalid select:focus,
+.text.invalid input:focus, .text.focused.invalid input:focus + .icon{
+  color: @link;
+  outline: none;
+  .box-shadow(0 0 0 ((2 / 15) + 0em) @brandBlue);
+  border-color: @brandBlue;
+}
+
+// have to put "invalid" pseudo class selectors in their own rule set for IE
+.text input:invalid:focus, .text input:invalid:focus + .icon,
+.select select:invalid:focus, .text textarea:invalid:focus {
+  color: @link;
+  outline: none;
+  .box-shadow(0 0 0 ((2 / 15) + 0em) @brandBlue);
+  border-color: @brandBlue;
+}
+
+// invalid text
+.text.invalid input, .select.invalid select, .text.invalid textarea {
+  color: @alertError;
+  .box-shadow(0 0 0 ((2 / 15) + 0em) @alertError);
+  border-color: @alertError;
+}
+// Invalid Placeholder styles
+.text.invalid input::-webkit-input-placeholder,
+.text.invalid textarea::-webkit-input-placeholder {
+  color: #d6a3a3;
+}
+.text.invalid input:-ms-input-placeholder,
+.text.invalid textarea:-ms-input-placeholder {
+  color: #d6a3a3;
+}
+.text.invalid input:-moz-placeholder,
+.text.invalid input::-moz-placeholder,
+.text.invalid input::-ms-placeholder,
+.text.invalid textarea:-moz-placeholder,
+.text.invalid textarea::-moz-placeholder,
+.text.invalid textarea::-ms-placeholder {
+  color: #d6a3a3 !important;
+}
+
+// invalid icon styles
+.text.invalid .icon {
+  color: @alertError;
+}
+
+// IE < 9 Focus & Error States Fallback for text inputs
+.lt-ie9 .text {
+  &.invalid {
+    .icon {background-color: @alertError;}
+  }
+  input:focus + .icon, &.focused input + .icon, &.invalid input:focus + .icon {background-color: @link}
+
+}
+
+
+// Focus states for .check
+// (omitting invalid states - need direction from UX)
+// (omitting border color and box shadow on :focus, omitting styles for select and textarea)
+.check {
+  // Focus
+  input:focus + .inline-label, &.focused input + inline-label, &.focused input + .icon, input:focus + .icon {
+    color: @link;
+    outline: none;
+  }
+
+  // TODO: need invalid states
+}
+
+
+
+//  read-only input class
+.text .read-only,
+.text .read-only:focus{
+  font-weight: bold;
+  color:@text;
+  .border(a, @baseFontPx, 0);
+  .padding(a, @baseFontPx, 0);
+  .box-shadow(0 0 0);
+  cursor: default;
+}

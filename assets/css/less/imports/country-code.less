@@ -1,0 +1,303 @@
+.cc-input.text {
+  input {
+    .padding(l,15,60);
+  }
+  .icon {
+    .width(@baseFontPx,60);
+    .padding(l,@baseFontPx,6);
+    text-decoration: none;
+  }
+}
+
+.tooltip-inner .countries-flags {
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0;
+    padding: 0;
+    &.default:first-child {
+      .border(b,13,1,@moduleGrey);
+    }
+    a {
+      display: block;
+      .padding(a,13,6);
+      text-decoration: none;
+      position: relative;
+    }
+  }
+  .cc-flag {
+    position: absolute;
+    .pos(tl,13,8,6);
+  }
+}
+
+.cc-select {
+  display: none;
+}
+
+.cc-tooltip-item {
+  display: block;
+  .padding(tr,@baseFontPx,6,0);
+  .item-text {
+    display: block;
+    .padding(l,@baseFontPx,34);
+  }
+  &:hover {
+    background:@linkHoverBg;
+  }
+}
+
+.cc-flag { 
+  display: inline-block;
+  width: 16px;
+  height: 12px;
+  .margin(r,@baseFontPx,6);
+  background: url('/static/ui_toolkit/v2-0/images/sprite-flags-all.png') no-repeat 0 0; 
+  background-size: 16px 3000px;
+  &.ad, &.and { background-position: 0 0;  } 
+  &.ae, &.are { background-position: 0 -24px/2;  } 
+  &.af, &.afg { background-position: 0 -48px/2;  } 
+  &.ag, &.atg { background-position: 0 -72px/2;  } 
+  &.ai, &.aia { background-position: 0 -96px/2;  } 
+  &.al, &.alb { background-position: 0 -120px/2;  } 
+  &.am, &.arm { background-position: 0 -144px/2;  } 
+  &.ao, &.ago { background-position: 0 -168px/2;  } 
+  &.aq, &.ata { background-position: 0 -192px/2;  } 
+  &.ar, &.arg { background-position: 0 -216px/2;  } 
+  &.as, &.asm { background-position: 0 -240px/2;  } 
+  &.at, &.aut { background-position: 0 -264px/2;  } 
+  &.au, &.aus { background-position: 0 -288px/2;  } 
+  &.aw, &.abw { background-position: 0 -312px/2;  } 
+  &.az, &.aze { background-position: 0 -360px/2;  } 
+  &.ba, &.bih { background-position: 0 -384px/2;  } 
+  &.bb, &.brb { background-position: 0 -408px/2;  } 
+  &.bd, &.bgd { background-position: 0 -432px/2;  } 
+  &.be, &.bel { background-position: 0 -456px/2;  } 
+  &.bf, &.bfa { background-position: 0 -480px/2;  } 
+  &.bg, &.bgr { background-position: 0 -504px/2;  } 
+  &.bh, &.bhr { background-position: 0 -528px/2;  } 
+  &.bi, &.bdi { background-position: 0 -552px/2;  } 
+  &.bj, &.ben { background-position: 0 -576px/2;  } 
+  &.bl, &.blm { background-position: 0 -600px/2;  } 
+  &.bm, &.bmu { background-position: 0 -624px/2;  } 
+  &.bn, &.brn { background-position: 0 -648px/2;  } 
+  &.bo, &.bol { background-position: 0 -672px/2;  } 
+  &.bq, &.bes { background-position: 0 -696px/2;  } 
+  &.br, &.bra { background-position: 0 -720px/2;  } 
+  &.bs, &.bhs { background-position: 0 -744px/2;  } 
+  &.bt, &.btn { background-position: 0 -768px/2;  } 
+  &.bw, &.bwa { background-position: 0 -816px/2;  } 
+  &.by, &.blr { background-position: 0 -840px/2;  } 
+  &.bz, &.blz { background-position: 0 -864px/2;  } 
+  &.ca, &.can { background-position: 0 -888px/2;  } 
+  &.cc, &.cck { background-position: 0 -912px/2;  } 
+  &.cd, &.cod { background-position: 0 -936px/2;  } 
+  &.cf, &.caf { background-position: 0 -960px/2;  } 
+  &.ch, &.che { background-position: 0 -1008px/2;  } 
+  &.ci, &.civ { background-position: 0 -1032px/2;  } 
+  &.ck, &.cok { background-position: 0 -1056px/2;  } 
+  &.cl, &.chl { background-position: 0 -1080px/2;  } 
+  &.cm, &.cmr { background-position: 0 -1104px/2;  } 
+  &.cn, &.chn { background-position: 0 -1128px/2;  } 
+  // handle extra styles from .col class
+  &.co, &.col { background-position: 0 -1152px/2; float: none; padding-left: 0; position: static; } 
+  &.cr, &.cri { background-position: 0 -1176px/2;  } 
+  &.cu, &.cub { background-position: 0 -1200px/2;  } 
+  &.cv, &.cpv { background-position: 0 -1224px/2;  } 
+  &.cw, &.cuw { background-position: 0 -1248px/2;  } 
+  &.cx, &.cxr { background-position: 0 -1272px/2;  } 
+  &.cy, &.cyp { background-position: 0 -1296px/2;  } 
+  &.cz, &.cze { background-position: 0 -1320px/2;  } 
+  &.de, &.deu { background-position: 0 -1344px/2;  } 
+  &.dj, &.dji { background-position: 0 -1368px/2;  } 
+  &.dk, &.dnk { background-position: 0 -1392px/2;  } 
+  &.dm, &.dma { background-position: 0 -1416px/2;  } 
+  &.do, &.dom { background-position: 0 -1440px/2;  } 
+  &.dz, &.dza { background-position: 0 -1464px/2;  } 
+  &.ec, &.ecu { background-position: 0 -1488px/2;  } 
+  &.ee, &.est { background-position: 0 -1512px/2;  } 
+  &.eg, &.egy { background-position: 0 -1536px/2;  } 
+  &.er, &.eri { background-position: 0 -1584px/2;  } 
+  &.es, &.esp { background-position: 0 -1608px/2;  } 
+  &.et, &.eth { background-position: 0 -1632px/2;  } 
+  &.fi, &.fin { background-position: 0 -1656px/2;  } 
+  &.fj, &.fji { background-position: 0 -1680px/2;  } 
+  &.fk, &.flk { background-position: 0 -1704px/2;  } 
+  &.fm, &.fsm { background-position: 0 -1728px/2;  } 
+  &.fo, &.fro { background-position: 0 -1752px/2;  } 
+  &.fr, &.fra { background-position: 0 -1776px/2;  } 
+  &.ga, &.gab { background-position: 0 -1800px/2;  } 
+  &.gb, &.gbr { background-position: 0 -1824px/2;  } 
+  &.gd, &.grd { background-position: 0 -1848px/2;  } 
+  &.ge, &.geo { background-position: 0 -1872px/2;  } 
+  &.gf, &.guf { background-position: 0 -1896px/2;  } 
+  &.gh, &.gha { background-position: 0 -1944px/2;  } 
+  &.gi, &.gib { background-position: 0 -1968px/2;  } 
+  &.gl, &.grl { background-position: 0 -1992px/2;  } 
+  &.gm, &.gmb { background-position: 0 -2016px/2;  } 
+  &.gn, &.gin { background-position: 0 -2040px/2;  } 
+  &.gp, &.glp { background-position: 0 -2064px/2;  } 
+  &.gq, &.gnq { background-position: 0 -2088px/2;  } 
+  &.gr, &.grc { background-position: 0 -2112px/2;  } 
+  &.gt, &.gtm { background-position: 0 -2160px/2;  } 
+  &.gu, &.gum { background-position: 0 -2184px/2;  } 
+  &.gw, &.gnb { background-position: 0 -2208px/2;  } 
+  &.gy, &.guy { background-position: 0 -2232px/2;  } 
+  &.hk, &.hkg { background-position: 0 -2256px/2;  } 
+  &.hn, &.hnd { background-position: 0 -2304px/2;  } 
+  &.hr, &.hrv { background-position: 0 -2328px/2;  } 
+  &.ht, &.hti { background-position: 0 -2352px/2;  } 
+  &.hu, &.hun { background-position: 0 -2376px/2;  } 
+  &.id, &.idn { background-position: 0 -2400px/2;  } 
+  &.ie, &.irl { background-position: 0 -2424px/2;  } 
+  &.il, &.isr { background-position: 0 -2448px/2;  } 
+  &.in, &.ind { background-position: 0 -2496px/2;  } 
+  &.iq, &.irq { background-position: 0 -2544px/2;  } 
+  &.ir, &.irn { background-position: 0 -2568px/2;  } 
+  &.is, &.isl { background-position: 0 -2592px/2;  } 
+  &.it, &.ita { background-position: 0 -2616px/2;  } 
+  &.jm, &.jam { background-position: 0 -2664px/2;  } 
+  &.jo, &.jor { background-position: 0 -2688px/2;  } 
+  &.jp, &.jpn { background-position: 0 -2712px/2;  } 
+  &.ke, &.ken { background-position: 0 -2736px/2;  } 
+  &.kg, &.kgz { background-position: 0 -2760px/2;  } 
+  &.kh, &.khm { background-position: 0 -2784px/2;  } 
+  &.ki, &.kir { background-position: 0 -2808px/2;  } 
+  &.km, &.com { background-position: 0 -2832px/2;  } 
+  &.kn, &.kna { background-position: 0 -2856px/2;  } 
+  &.kp, &.prk { background-position: 0 -2880px/2;  } 
+  &.kr, &.kor { background-position: 0 -2904px/2;  } 
+  &.kw, &.kwt { background-position: 0 -2928px/2;  } 
+  &.ky, &.cym { background-position: 0 -2952px/2;  } 
+  &.kz, &.kaz { background-position: 0 -2976px/2;  } 
+  &.la, &.lao { background-position: 0 -3000px/2;  } 
+  &.lb, &.lbn { background-position: 0 -3024px/2;  } 
+  &.lc, &.lca { background-position: 0 -3048px/2;  } 
+  &.li, &.lie { background-position: 0 -3072px/2;  } 
+  &.lk, &.lka { background-position: 0 -3096px/2;  } 
+  &.lr, &.lbr { background-position: 0 -3120px/2;  } 
+  &.ls, &.lso { background-position: 0 -3144px/2;  } 
+  &.lt, &.ltu { background-position: 0 -3168px/2;  } 
+  &.lu, &.lux { background-position: 0 -3192px/2;  } 
+  &.lv, &.lva { background-position: 0 -3216px/2;  } 
+  &.ly, &.lby { background-position: 0 -3240px/2;  } 
+  &.ma, &.mar { background-position: 0 -3264px/2;  } 
+  &.mc, &.mco { background-position: 0 -3288px/2;  } 
+  &.md, &.mda { background-position: 0 -3312px/2;  } 
+  &.me, &.mne { background-position: 0 -3336px/2;  } 
+  &.mf, &.maf { background-position: 0 -3360px/2;  } 
+  &.mg, &.mdg { background-position: 0 -3384px/2;  } 
+  &.mh, &.mhl { background-position: 0 -3408px/2;  } 
+  &.mk, &.mkd { background-position: 0 -3432px/2;  } 
+  &.ml, &.mli { background-position: 0 -3456px/2;  } 
+  &.mm, &.mmr { background-position: 0 -3480px/2;  } 
+  &.mn, &.mng { background-position: 0 -3504px/2;  } 
+  &.mo, &.mac { background-position: 0 -3528px/2;  } 
+  &.mp, &.mnp { background-position: 0 -3552px/2;  } 
+  &.mq, &.mtq { background-position: 0 -3576px/2;  } 
+  &.mr, &.mrt { background-position: 0 -3600px/2;  } 
+  &.ms, &.msr { background-position: 0 -3624px/2;  } 
+  &.mt, &.mlt { background-position: 0 -3648px/2;  } 
+  &.mu, &.mus { background-position: 0 -3672px/2;  } 
+  &.mv, &.mdv { background-position: 0 -3696px/2;  } 
+  &.mw, &.mwi { background-position: 0 -3720px/2;  } 
+  &.mx, &.mex { background-position: 0 -3744px/2;  } 
+  &.my, &.mys { background-position: 0 -3768px/2;  } 
+  &.mz, &.moz { background-position: 0 -3792px/2;  } 
+  &.na, &.nam { background-position: 0 -3816px/2;  } 
+  &.nc, &.ncl { background-position: 0 -3840px/2;  } 
+  &.ne, &.ner { background-position: 0 -3864px/2;  } 
+  &.nf, &.nfk { background-position: 0 -3888px/2;  } 
+  &.ng, &.nga { background-position: 0 -3912px/2;  } 
+  &.ni, &.nic { background-position: 0 -3936px/2;  } 
+  &.nl, &.nld { background-position: 0 -3960px/2;  } 
+  &.no, &.nor { background-position: 0 -3984px/2;  } 
+  &.np, &.npl { background-position: 0 -4008px/2;  } 
+  &.nr, &.nru { background-position: 0 -4032px/2;  } 
+  &.nu, &.niu { background-position: 0 -4056px/2;  } 
+  &.nz, &.nzl { background-position: 0 -4080px/2;  } 
+  &.om, &.omn { background-position: 0 -4104px/2;  } 
+  &.pa, &.pan { background-position: 0 -4128px/2;  } 
+  &.pe, &.per { background-position: 0 -4152px/2;  } 
+  &.pf, &.pyf { background-position: 0 -4176px/2;  } 
+  &.pg, &.png { background-position: 0 -4200px/2;  } 
+  &.ph, &.phl { background-position: 0 -4224px/2;  } 
+  &.pk, &.pak { background-position: 0 -4248px/2;  } 
+  &.pl, &.pol { background-position: 0 -4272px/2;  } 
+  &.pm, &.spm { background-position: 0 -4296px/2;  } 
+  &.pr, &.pri { background-position: 0 -4344px/2;  } 
+  &.pt, &.prt { background-position: 0 -4392px/2;  } 
+  &.pw, &.plw { background-position: 0 -4416px/2;  } 
+  &.py, &.pry { background-position: 0 -4440px/2;  } 
+  &.qa, &.qat { background-position: 0 -4464px/2;  } 
+  &.re, &.reu { background-position: 0 -4488px/2;  } 
+  &.ro, &.rou { background-position: 0 -4512px/2;  } 
+  &.rs, &.srb { background-position: 0 -4536px/2;  } 
+  &.ru, &.rus { background-position: 0 -4560px/2;  } 
+  &.rw, &.rwa { background-position: 0 -4584px/2;  } 
+  &.sa, &.sau { background-position: 0 -4608px/2;  } 
+  &.sb, &.slb { background-position: 0 -4632px/2;  } 
+  &.sc, &.syc { background-position: 0 -4656px/2;  } 
+  &.sd, &.sdn { background-position: 0 -4680px/2;  } 
+  &.se, &.swe { background-position: 0 -4704px/2;  } 
+  &.sg, &.sgp { background-position: 0 -4728px/2;  } 
+  &.sh, &.shn { background-position: 0 -4752px/2;  } 
+  &.si, &.svn { background-position: 0 -4776px/2;  } 
+  &.sk, &.svk { background-position: 0 -4824px/2;  } 
+  &.sl, &.sle { background-position: 0 -4848px/2;  } 
+  &.sm, &.smr { background-position: 0 -4872px/2;  } 
+  &.sn, &.sen { background-position: 0 -4896px/2;  } 
+  &.so, &.som { background-position: 0 -4920px/2;  } 
+  &.sr, &.sur { background-position: 0 -4944px/2;  } 
+  &.st, &.stp { background-position: 0 -4992px/2;  } 
+  &.sv, &.slv { background-position: 0 -5016px/2;  } 
+  &.sx, &.sxm { background-position: 0 -5040px/2;  } 
+  &.sy, &.syr { background-position: 0 -5064px/2;  } 
+  &.sz, &.swz { background-position: 0 -5088px/2;  } 
+  &.tc, &.tca { background-position: 0 -5112px/2;  } 
+  &.td, &.tcd { background-position: 0 -5136px/2;  } 
+  &.tg, &.tgo { background-position: 0 -5184px/2;  } 
+  &.th, &.tha { background-position: 0 -5208px/2;  } 
+  &.tj, &.tjk { background-position: 0 -5232px/2;  } 
+  &.tk, &.tkl { background-position: 0 -5256px/2;  } 
+  &.tl, &.tls { background-position: 0 -5280px/2;  } 
+  &.tm, &.tkm { background-position: 0 -5304px/2;  } 
+  &.tn, &.tun { background-position: 0 -5328px/2;  } 
+  &.to, &.ton { background-position: 0 -5352px/2;  } 
+  &.tr, &.tur { background-position: 0 -5376px/2;  } 
+  &.tt, &.tto { background-position: 0 -5400px/2;  } 
+  &.tv, &.tuv { background-position: 0 -5424px/2;  } 
+  &.tw, &.twn { background-position: 0 -5448px/2;  } 
+  &.tz, &.tza { background-position: 0 -5472px/2;  } 
+  &.ua, &.ukr { background-position: 0 -5496px/2;  } 
+  &.ug, &.uga { background-position: 0 -5520px/2;  } 
+  &.us, &.usa { background-position: 0 -5568px/2;  } 
+  &.uy, &.ury { background-position: 0 -5592px/2;  } 
+  &.uz, &.uzb { background-position: 0 -5616px/2;  } 
+  &.va, &.vat { background-position: 0 -5640px/2;  } 
+  &.vc, &.vct { background-position: 0 -5664px/2;  } 
+  &.ve, &.ven { background-position: 0 -5688px/2;  } 
+  &.vg, &.vgb { background-position: 0 -5712px/2;  } 
+  &.vi, &.vir { background-position: 0 -5736px/2;  } 
+  &.vn, &.vnm { background-position: 0 -5760px/2;  } 
+  &.vu, &.vut { background-position: 0 -5784px/2;  } 
+  &.wf, &.wlf { background-position: 0 -5808px/2;  } 
+  &.ws, &.wsm { background-position: 0 -5832px/2;  } 
+  &.ye, &.yem { background-position: 0 -5856px/2;  } 
+  &.yt, &.myt { background-position: 0 -5880px/2;  } 
+  &.za, &.zaf { background-position: 0 -5904px/2;  } 
+  &.zm, &.zmb { background-position: 0 -5928px/2;  } 
+  &.zw, &.zwe { background-position: 0 -5952px/2;  } 
+} 
+
+.no-backgroundsize .cc-flag {
+  background-image: url('/static/ui_toolkit/v2-0/images/sprite-flags-all-low.png');
+}
+
+.lt-ie9 {
+  .cc-input.text .icon {
+    background-image: none;
+    background-color: transparent !important;
+    #font > .line-height(@baseFontPx,1);
+  }
+}

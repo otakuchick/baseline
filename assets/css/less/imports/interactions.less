@@ -1,0 +1,147 @@
+
+//  Interaction Patterns
+//
+//  Uses CSS3 Animations in-place of JavaScript
+//
+//   ==========================================================================
+
+
+  
+ // Expand/Collapse
+ // ==========================================================================
+  
+  @toggleTime: 0.5s;
+
+  // animate collapse and expand
+  .toggle.slide{
+    .transition(margin @toggleTime);
+  }
+
+  // TOGGLE
+  .toggle-trigger{
+    cursor: pointer;
+    margin-bottom:0;
+  }
+
+    // inverts toggle arrow on open/close
+    .toggle-trigger.open .icon-expand{
+      .rotate(-180deg);
+    }
+
+
+  // TOGGLE PANE
+  .toggle-pane{
+    display:block;
+    overflow:hidden;
+    padding-bottom:0;
+  }
+
+  .toggle-pane.slide{
+    .forceAcceleration();    // for hardware acceleration
+    .transition(
+      height @toggleTime~","
+      opacity @toggleTime
+    );
+  }
+
+
+  .toggle-pane.fade{
+    .transition(
+      opacity @toggleTime
+    );
+  }
+
+
+  .toggle-pane.fade.viewed{
+    .transition(
+      opacity 0
+    );
+  }
+
+  .toggle-pane.fade .rm,
+  .toggle-pane.fade .rm-hide{
+    .transform(translateZ(0));
+    .transition(
+      opacity @toggleTime
+    );
+  }
+
+  .js .toggle-pane{
+    opacity: 0;
+    visibility: hidden;
+    height:0;
+  }
+
+  .toggle.open > .toggle-pane,
+  .toggle[data-type="read-more"] .toggle-pane,
+  .js .toggle-pane.open {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+  }
+
+  // READ MORE
+  .js .toggle .rm-hide{
+    opacity: 0;
+  }
+
+  .toggle .rm{
+    opacity: 1;
+  }
+
+  .no-js .toggle[data-type="read-more"] .ellipse,
+  .no-js .toggle[data-type="read-more"] .toggle-trigger,
+  .js .toggle[data-type="read-more"] .rm-hide{display:none;}
+
+
+// temporary workaround until toggle.js gets fixed: https://mingle.karmalab.net/projects/ue_team_initiatives/cards/711/
+//.toggle-pane.open { overflow: visible; }
+
+  
+  // Remove Interaction
+  // ==========================================================================
+  @removeTime: .5s;
+
+  .remove-animated {
+    .transition(
+      height @removeTime~","
+      opacity @removeTime
+    );
+    height: auto;
+
+    // Fade Animation
+    &.animated-fade {
+      opacity: 0 !important;
+    } 
+    // Slide Animation
+    &.animated-slide {
+      opacity: 0 !important;
+      overflow: hidden !important;
+      height: 0 !important;
+    }
+  }
+
+
+  // Loading Animation
+  // ==========================================================================
+
+
+  // Loader Animation
+.loader-animation() {
+  from {
+    .rotate(0deg);
+  }
+  to {
+    .rotate(359deg);
+  }
+}
+// Keyframes
+@-webkit-keyframes loader {.loader-animation;}
+@-moz-keyframes loader {.loader-animation;}
+@-o-keyframes loader {.loader-animation;}
+@keyframes loader {.loader-animation;}
+
+
+
+
+

@@ -1,0 +1,50 @@
+@media only screen and (max-width: @mqMaxSmallTablet) {
+
+  // Tile Grid
+  // ==========================================================================
+  // Override margin settings
+  .tile-grid .tile,
+  .tile-grid-sub-primary .tile,
+  .tile-grid-secondary .tile,
+  .tile-grid-tertiary .tile {.margin(b,@baseFontPx,24);}
+
+  //set
+  .tile-grid .tile,
+  .tile-grid-sub-primary .tile{.cols6(6);}
+
+  // grid of medium tiles
+  .tile-grid-secondary .tile{.cols3(6);}
+
+  // grid of small tiles
+  .tile-grid-tertiary .tile{.cols2(6);}
+
+
+  // group of tiles
+  .tile-group{
+    .cols6(6);
+    .tile-grid .tile,
+    .tile-grid-sub-primary .tile{.cols6(@mqColsSmallTablet);}
+    .tile-grid-secondary .tile{.cols3(@mqColsSmallTablet);}
+    .tile-grid-tertiary .tile{.cols2(@mqColsSmallTablet);}
+  }
+
+  .content-slider{
+  //set
+    .tile-grid .tile,
+    .tile-grid-sub-primary .tile{.cols6(@mqColsSmallTablet * 20);}
+
+  // grid of medium tiles
+    .tile-grid-secondary .tile{.cols3(@mqColsSmallTablet * 20);}
+
+  // grid of small tiles
+    .tile-grid-tertiary .tile{.cols2(@mqColsSmallTablet * 20);}
+  }
+
+}
+
+@media only screen and (max-width: @mqMaxMobile) {
+  .tile-grid-secondary .tile,
+  .tile-grid-tertiary .tile{
+    width:100%;
+  }
+}

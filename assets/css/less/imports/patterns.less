@@ -1,0 +1,319 @@
+// validation pattern - may end up living in forms.less
+.validation-group {
+  .validation-msg {
+    #font > .size(15);
+    .margin(b,15,6);
+  }
+  .validation-list {
+    margin-top: 0;
+    #font > .sizeIncludeLineheight(13);
+    &.error {
+      color: @alertError;
+    }
+    li {
+      padding: 0;
+    }
+  }
+}
+
+// FLIGHTS SEARCH WIZARD PATTERN
+// =======================================================================
+
+// Base Styles
+.pattern-playback.flights .playback-search {
+  .validation-group {
+    .margin(t,@baseFontPx,12);
+  }
+  .options {
+    .margin(b,@baseFontPx,12);
+    .options-pane .cols-nested {
+      .padding(t,@baseFontPx,12);
+    }
+    .children-rules .col {
+      margin-top: 0;
+    }
+    .young-child-note {
+      margin-top: 0;
+    }
+  }
+  button.btn-secondary.btn-sub-action {
+    margin-top: 0;
+  }
+}
+
+// Non-responsive / IE (less than IE 9) styles
+body[data-layout="fixed"] .pattern-playback.flights .playback-search,
+.lt-ie9 .pattern-playback.flights .playback-search {
+  visibility: visible !important;
+  height: auto !important;
+  opacity: 1 !important;
+  
+  & > * {
+    .opacity-no-ie(1);
+    .transition(none);
+  }
+  .inline-wrapper {
+    position: relative;
+    .margin(r,@baseFontPx,130);
+  }
+  .cols-row {
+    width: auto;
+    float: left;
+    padding-right: 0;
+    padding-top: 0;
+    &.validation-group {
+      float: none;
+      width: 100%;
+    }
+    &.locations {
+      float: none;
+      .margin(r,@baseFontPx,312);
+      margin-bottom: 0;
+    }
+    &.timeframe, &.search-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-bottom: 0;
+    }
+    &.search-button {
+      .pos(r,@baseFontPx,-130);
+      .width(@baseFontPx,130);
+    }
+  }
+  .origin, .destination {
+    width: 50%;
+  }
+  .departing, .returning {
+    .min-width(17,156);
+  }
+  .options {
+    clear: left;
+    label {
+      margin-top: 0;
+    }
+    .options-pane {
+      .cols-nested {
+        .padding(b,@baseFontPx,12);
+        &.passenger-select, &.children-ages, &.children-rules {
+          padding-bottom: 0;
+        }
+      }
+      div.col {
+        .margin(t,@baseFontPx,24);
+        .check {
+          clear: left;
+        }
+      }
+      .children-rules {
+        .col {
+          margin-top: 0;
+        }
+        .young-child-note {
+          display: inline-block;
+          .margin(trbl,13,0,12,0,0);
+        }
+        label {
+          line-height: 1;
+        }
+      } 
+    }
+  }
+  button.btn-secondary.btn-sub-action {
+    .margin(t,15,36);
+  }
+  + .playback-summary {
+    display: none;
+  }
+}
+
+// Accomodating long French translation for 'Search'
+html[lang="fr"] body[data-layout="fixed"] .pattern-playback.flights .playback-search,
+html[lang="fr"] .lt-ie9 .pattern-playback.flights .playback-search {
+  .inline-wrapper {
+    .margin(r,@baseFontPx,160);
+  }
+  .cols-row {
+    &.search-button {
+      .pos(r,@baseFontPx,-160);
+      .width(@baseFontPx,160);
+    }
+  }
+}
+
+// IE styles (less than IE 9)
+.lt-ie9 body[data-layout="fixed"],
+.lt-ie9 {
+  .pattern-playback.flights .playback-search {
+    .cols-row {
+      &.locations {
+        .margin(r,@baseFontPx,360);
+      }
+    }
+  }
+}
+
+// HOTELS SEARCH WIZARD PATTERN
+// =======================================================================
+.pattern-playback.hotels .playback-search {
+  .validation-group {
+    .margin(t,@baseFontPx,12);
+  }
+  .options {
+    &.cols-row {
+      .padding(r,@baseFontPx,24);
+    }
+    & > .col {
+      width: 100%;
+    }
+    .secondary-playback {
+      .padding(b,13,12);
+    }
+    .options-pane .cols-nested {
+      .padding(t,@baseFontPx,12);
+    }
+    .room {
+      position: relative;
+      width: 100%;
+      .padding(b,@baseFontPx,24);
+      .border(t,@baseFontPx,1,@moduleGrey,solid);
+      .btn-close {
+        float: right;
+      }
+      .room-title {
+        margin: 0;
+        .padding(t,13,6);
+        #font > .size(@h6);
+        color: @mediumGrey;
+      }
+    }
+    .add-room {
+      .border(t,13,1,@moduleGrey,solid);
+      .padding(trb,13,6,0,18);
+    }
+  }
+  button.btn-secondary.btn-sub-action {
+    margin-top: 0;
+  }
+}
+
+.lt-ie9 {
+  .pattern-playback.hotels .playback-search {
+    &.open .icon-expand:after {background-position: 0 -2px;}
+    .open > .icon-expand:after {background-position: -18px -18px;}
+    .cols-row {
+      width: auto;
+      float: left;
+      padding-right: 0;
+      padding-top: 0;
+      &.validation-group {
+        float: none;
+        width: 100%;
+      }
+      &.location {
+        width: 55%;
+      }
+    }
+    .destination {
+      width: 100%;
+    }
+    .check-in, .check-out {
+      .min-width(17,156);
+    }
+    .options {
+      &.cols-row {
+        .padding(r,@baseFontPx,24);
+      }
+      width: 100%;
+      clear: both;
+      label {
+        margin-top: 0;
+      }
+      .options-pane {
+        position: relative;
+        .cols-nested:last-child {
+          padding-bottom: 0;
+        }
+        div.col {
+          .margin(t,@baseFontPx,24);
+          .check {
+            clear: left;
+          }
+        }
+      }
+    }
+    button.btn-secondary.btn-sub-action {
+      margin-top: 0;
+    }
+  }
+}
+
+// A-COL FILTERS PATTERN
+// =======================================================================
+
+.pattern-filters {
+  .section-header-main {
+    line-height: 1.45;
+    .margin(trb,@baseFontPx,36,0,18);
+    #font > .size(@baseFontPx);
+    color: @brandBlueSecondary;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .section-header-sub {
+    .margin(trb,15,12,0,6);
+    #font > .size(15);
+    font-weight: normal;
+    line-height: 1.2;
+    color: @brandBlueSecondary;
+  }
+  .filter-section {
+    .margin(b,@baseFontPx,12);
+  }
+  .filter-search {
+    margin: 0;
+    width: 66%;
+  }
+  .filter-search-btn {
+    width: 33%;
+    button, button:active {
+      margin: 0;
+    }
+  }
+  .filter-list {
+    .margin(trb,13,0,0,12);
+    li {
+      .padding(trb,13,0,0,6);
+    }
+    label {
+      margin-top: 0;
+      .inline-label {
+        #font > .size(13,13);
+      }
+    }
+    .check input[type="radio"], .check input[type="checkbox"] {
+      font-size: 1em;
+    }
+    .count {
+      display: inline;
+      color: @mediumGrey;
+    }
+    & + .filter-list {
+      .margin(t,13,-12);
+    }
+    & + .show-all {
+      .margin(t,13,-12);
+    }
+  }
+}
+
+// IE8 styles for .pattern-filters
+.lt-ie9 .pattern-filters {
+  .check .inline-label .star-rating {
+    display: inline;
+    .icon {
+      vertical-align: middle;
+    }
+  }
+}

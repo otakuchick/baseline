@@ -1,0 +1,55 @@
+
+// /* ==========================================================================
+//    Global Modules
+//    ========================================================================== */
+
+
+
+// price list
+ .price-list-item,
+ .price-list-price{
+   font-size:1em;
+   float: left;
+   margin: 0;
+ }
+ .price-list-item{clear:left; width:70%;}
+ .price-list-price{text-align: right; width:30%;}
+
+
+//
+// Wizard banner
+//
+// TODO: Remove "wizard-banner"
+//
+.wizard-banner, .hero-banner{
+  > header {
+    position: absolute;
+    .padding(l,@baseFontPx,24);
+  }
+  .title {    
+    display: inline-block;
+    position: relative;
+    .border-radius(blr,@baseFontPx,3,3);
+    .padding(tr,@baseFontPx,6,12);
+    background: #000;
+    #font > .size(45);
+    color: #fff;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+}
+
+//
+// Page intro
+//
+.page-intro{
+  .col{.cols8();}
+  .col:first-child{.cols4();}
+}
+
+    
+
+
+

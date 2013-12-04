@@ -1,0 +1,149 @@
+/**
+ * Sortbar styles
+ */
+ 
+@sortFilterBarTopBorder: @brandYellow;
+ 
+.sort-bar-wrap {
+
+  & .off-canvas-btn {
+    display: none;
+    position: relative;
+    .margin(t,@baseFontPx,-1);
+    vertical-align: top;
+    overflow: hidden;
+  }
+
+  & .sort-filter-bar {
+    vertical-align: top;
+    margin-bottom: 0;
+  }
+}
+.sort-filter-bar {
+  width: 100%;
+  .border(t,@baseFontPx,3,@sortFilterBarTopBorder);
+  padding: 0;
+
+
+
+  .sorts, .filters {
+    padding-left: 0;
+    margin-bottom: 0;
+    > li {
+      float: left;
+      position: relative;
+      .margin(t,@baseFontPx,-3);
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    li {list-style: none; vertical-align: middle}
+
+    label {margin-top: 0;}
+  }
+
+  .check .inline-label {
+    margin-right: 0;
+    vertical-align: middle;
+    text-decoration: none;
+  }
+
+  /* Tab Styles */
+  .tab, .check .tab {
+    display: inline-block;
+    position: static;
+    .border(t,13,3,transparent);
+    .padding(trb,13,9,18,9);
+    #font > .size(13);
+    #font > .line-height(13,1);
+    color: @link;
+    text-decoration: none;
+  }
+
+  // Stop all events on sortbar label
+  .tab.sortbar-label,
+  .tab.sortbar-label:focus,
+  .tab.sortbar-label:active {
+    pointer-events: none;
+    border-top-color: transparent;
+    background: none;
+  }
+  // end
+  .check input:checked + .tab {
+    color: @moduleBlue;
+  }
+
+  .menu {
+    .min-width(@baseFontPx,180);
+
+    .check {padding-top: 0;}
+    .check .inline-label {
+      color: @text + #333;
+    }
+    li {
+      .check input:checked + .inline-label {
+        color: @text;
+        border: none;
+      }
+    }
+  }
+  .sorts {
+    float: left;
+    li:first-child .tab {
+      .border-radius(tlbl,13,3,3);
+    }
+    .inline-label {margin-left: 0;}
+  }
+  .filters {
+    float: right;
+
+    li:last-child .tab {.border-radius(trbr,13,3,0);}
+    .open .tab, .open .tab:hover, {border-top-color: @brandBlue; background: @brandBlue; color: #fff;}
+    .open .tab-more {.border-radius(trbr,13,3,0); }
+
+    /* Override for visible checkbox */
+    > li:first-child {.margin(l,17,7);}
+    > li > .check input {position: absolute; .pos(t,13,15); .pos(l,13,9);}
+    input + .tab {
+      .padding(l,13,30);
+      //.margin(l,13,-30);
+    }
+  }
+
+
+  /* Checked/Open States */
+  .open .tab,
+  .open .tab:hover,
+  .check input:checked + .tab {
+    border-top-color: @brandBlue;
+  }
+}
+
+/* No :hover for touch devices */
+.no-touch .sort-filter-bar .tab:hover,
+.no-touch .sort-filter-bar input:hover + .tab,
+.sort-filter-bar .check input:focus + .tab,
+.sort-filter-bar .check input:active + .tab {
+  border-top-color: @link;
+  background: @linkHoverBg;
+  color: @link;
+}
+.sort-filter-bar .check input:active + .tab {
+  background: @areaActive;
+}
+
+.no-touch .sort-filter-bar {
+  .tab.sortbar-label,
+  .tab.sortbar-label:focus,
+  .tab.sortbar-label:active {
+    pointer-events: none;
+    border-top-color: transparent;
+    background: none;
+  }
+}
+
+/* Browser that don't support checked */
+.no-checkedselector .sort-filter-bar {
+  .check .checked + .tab, {
+    border-top-color: @brandBlue;
+  }
+}

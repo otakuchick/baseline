@@ -1,0 +1,251 @@
+// UITK Tooltips //
+
+// tooltip wrapper
+.uitk-tooltip{
+  display: block;
+  z-index: 10000;
+  position: absolute;
+  .opacity-no-ie(0);
+  max-width: 90%;
+  .padding(a,@baseFontPx,0);
+
+  &.show-arrow {.padding(tr,@baseFontPx,14,0);}
+}
+
+.uitk-tooltip.show-arrow.mid,
+.uitk-tooltip.show-arrow.mid-bottom,
+.uitk-tooltip.show-arrow.mid-top{
+  .padding(tr,@baseFontPx,0,14);
+}
+
+.lt-ie9 .uitk-tooltip{
+  visibility: hidden;
+}
+
+.uitk-tooltip, .uitk-tooltip *{
+  .box-sizing(content-box);
+}
+
+.uitk-tooltip.on{
+  .opacity-no-ie(1);
+  visibility: visible;
+}
+
+
+.uitk-tooltip.fade{
+  .transition(opacity 45ms cubic-bezier(0.155, 0.615, 0.990, 1.000));
+
+  &.theme-click.on{
+    .transition(opacity 0);
+  }
+
+}
+
+// tooltip inner
+.tooltip-inner{
+  overflow:hidden;
+  position: relative;
+  max-width: 100%;
+  .popupShadow;
+  .border-radius(a,@baseFontPx,4);
+  .padding(a,@baseFontPx,18);
+  background: #fff;
+}
+
+.tooltip-inner .hd{
+  .margin(trb,@baseFontPx,0,0,12);
+  .padding(a,@baseFontPx,0);
+}
+
+.tooltip-inner p, .tooltip-inner ul {
+  .margin(t,13,12);
+  #font > .size(13);
+}
+
+.tooltip-inner p:first-child {margin-top: 0;}
+
+// to support a close button
+.tooltip-inner button.btn-close {
+  position: absolute;
+  .pos(t,@baseFontPx,6);
+  .pos(r,@baseFontPx,6);
+}
+
+
+.tooltip-inner{
+  .border(a,@baseFontPx,3,@brandBlue);
+}
+
+.show-arrow .tooltip-arrow,
+.show-arrow .tooltip-arrow-border{
+  display:block;
+}
+
+// tooltip arrow
+.tooltip-arrow {
+  display: none;
+  position: absolute;
+  .width(@baseFontPx,18);
+  .height(@baseFontPx,18);
+  background: #fff;
+  .border(a,@baseFontPx,3,@brandBlue);
+  -ms-transform:rotate(45deg);
+  -moz-transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  -o-transform:rotate(45deg);
+  transform:rotate(45deg);
+}
+
+//vertical align
+.top .tooltip-arrow{.pos(b, @baseFontPx, 4);}
+.mid .tooltip-arrow {top: 50%;.margin(t,@baseFontPx,-9);}
+.bottom .tooltip-arrow{.pos(t, @baseFontPx, 4);}
+
+//horizontal align
+.center .tooltip-arrow{
+  left: 50%;
+  .margin(l,@baseFontPx,-9);
+}
+.top.left .tooltip-arrow,
+.bottom.left .tooltip-arrow{
+  .pos(l, @baseFontPx, 24);
+}
+.top.right .tooltip-arrow,
+.bottom.right .tooltip-arrow{
+  .pos(r, @baseFontPx, 24);
+}
+.mid.right .tooltip-arrow{
+  .pos(l, @baseFontPx, 4);
+}
+.mid.left .tooltip-arrow{
+  .pos(r, @baseFontPx, 4);
+}
+
+// Filter and positioning for IE 8 and down
+.lt-ie9 {
+  // use a filter to rotate the arrow element (ie8 only)
+  .tooltip-arrow {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)";
+  }
+  .top .tooltip-arrow {.pos(b, @baseFontPx, 8);}
+  .bottom .tooltip-arrow {top: 0;}
+  .mid.right .tooltip-arrow{left: 0;}
+  .mid.left .tooltip-arrow{.pos(r, @baseFontPx, 8);}
+}
+
+// Tooltip Themes
+// ==========================================================================
+
+// Standard
+
+// Hover
+.theme-hover{
+  &.show-arrow {.padding(tr,@baseFontPx,6,0);}
+  &.show-arrow.mid,
+  &.show-arrow.mid-bottom,
+  &.show-arrow.mid-top{
+    .padding(tr,@baseFontPx,0,6);
+  }
+
+  .tooltip-inner {
+    .box-shadow(none);
+    border: none;
+    .padding(tr,@baseFontPx,6,12);
+    background: @moduleBlue;
+    color: #fff;
+
+    p {margin: 0; white-space: nowrap;}
+  }
+
+//ARROW
+  .tooltip-arrow{
+    .width(@baseFontPx,10);
+    .height(@baseFontPx,10);
+    background: @brandBlue;
+    border: none;
+  }
+
+//vertical align
+  &.top .tooltip-arrow{.pos(b, @baseFontPx, 1);}
+  &.mid .tooltip-arrow{.margin(t,@baseFontPx,-5);}
+  &.bottom .tooltip-arrow{.pos(t, @baseFontPx, 1);}
+
+//horizontal align
+  &.center .tooltip-arrow{
+    left: 50%;
+    .margin(l,@baseFontPx,-5);
+  }
+  &.mid.right .tooltip-arrow{
+    .pos(l, @baseFontPx, 1);
+  }
+  &.mid.left .tooltip-arrow{
+    .pos(r, @baseFontPx, 1);
+  }
+  .top.left .tooltip-arrow,
+  .bottom.left .tooltip-arrow{
+    .pos(l, @baseFontPx, 12);
+  }
+  .top.right .tooltip-arrow,
+  .bottom.right .tooltip-arrow{
+    .pos(r, @baseFontPx, 12);
+  }
+}
+// Hover theme positioning overrides for IE8
+.lt-ie9 .theme-hover {
+  &.top .tooltip-arrow {.pos(b, @baseFontPx, 3);}
+  &.mid.left .tooltip-arrow{.pos(r, @baseFontPx, 3);}
+}
+
+// Calendar
+.theme-calendar,
+.theme-typeahead,
+.theme-typeahead-by-category {
+  .tooltip-inner {
+    padding: 0;
+  }
+
+  &.top.right,
+  &.bottom.right{
+    .margin(l,@baseFontPx,2);
+  }
+
+  &.top.left,
+  &.bottom.left{
+    .margin(l,@baseFontPx,-2);
+  }
+}
+
+.theme-country-code {
+  .tooltip-inner {
+    .max-height(@baseFontPx,300);
+    .padding(a,@baseFontPx,12);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+
+// Arrow border transparency needs to go after themes
+// ==========================================================================
+
+// vertical align
+.top .tooltip-arrow{
+  border-left-width: 0;
+  border-top-width: 0;
+}
+
+.bottom .tooltip-arrow{
+  border-right-width: 0;
+  border-bottom-width: 0;
+}
+
+// horizontal align
+.mid.right .tooltip-arrow{
+  border-right-width: 0;
+  border-top-width: 0;
+}
+
+.mid.left .tooltip-arrow{
+  border-left-width: 0;
+  border-bottom-width: 0;
+}

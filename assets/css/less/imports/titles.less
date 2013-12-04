@@ -1,0 +1,163 @@
+// ==========================================================================
+// Headline/Heading Styles
+// ==========================================================================
+   
+@mqMinDesktop: ((960 / 16) + 0em);
+
+  // Initial Styles for headings/sub-headings
+  
+  // .cols-row-header {
+  //   .margin(b,@baseFontPx,24);
+  // }
+  .cols-row-header {
+    //needed so content doesn't collapse
+    position: relative;
+    width: 100%;
+    .padding(t,@baseFontPx,24);
+    
+    .page-header, .search-header, .section-header {
+      float: left;
+      margin: 0;
+      max-width: 75%;
+    }
+    .section-header-main, .section-header-sub {
+      float: left;
+      clear: both;
+      margin: 0;
+      span {
+        white-space: nowrap;
+      }
+    }
+    .section-header-sub {
+      font-weight: normal;
+    }
+    .section-header-content  {
+      clear: both;
+      .padding(t,@baseFontPx,12);
+    }
+    .see-all {
+      float: right;
+      .padding(trbl,@baseFontPx,12,0,0,24);
+    }
+  } 
+  
+  // If this is the first row-header, remove top padding 
+  .site-content .cols-row-header:first-child {padding-top: 0;}
+
+  // Set default off-canvas colour 
+  .cols-row-header .page-header .section-header-main,
+  .cols-row-header.page-header.no-group .section-header-main {color: @brandBlue;}
+
+  .cols-row-header .section-header-main,
+  .cols-row-header .section-header-main span {
+    color: @brandBlueSecondary; 
+  } 
+  .cols-row-header .page-header .section-header-sub,
+  .cols-row-header .search-header .section-header-sub,
+  .cols-row-header .section-header-sub {
+    color: darken(@moduleGrey,36%);
+  }
+  // Set on-canvas colour 
+  .box .cols-row-header .section-header-main,
+  .segmented-list .cols-row-header .section-header-main {color: @text;}
+
+//
+// Page Heading HTML:
+//
+// <header class="page-header">
+//   <h1>Page Name
+//     <span></span>
+//   </h1>
+// </div>
+//
+  .page-header.no-group,
+  .cols-row-header .page-header {
+    .margin(b,@baseFontPx,12);
+    .padding(l,@baseFontPx,24);
+  }
+  .page-header {
+    & .section-header-main {
+      float: left;
+      color: @brandBlue;
+      span { line-height: 1; color: @brandBlueSecondary;}
+    }
+    & .section-header-sub {
+      float: left;
+      color: @brandBlue;
+      span { line-height: 1; color: @brandBlueSecondary;}
+    }
+  }
+  
+  //SEARCH HEADING
+  .search-header.no-group,
+  .cols-row-header .search-header,
+  .cols-row-header .search-header + .section-header-content {
+    .padding(l,@baseFontPx,24);
+  }
+  .search-header {
+    .margin(b,@baseFontPx,12);
+    .section-header-main {
+      .margin(trb,@h2,0,0,6);
+      #font > .size(@h2);
+      float: left;
+      color: @brandBlue;
+      span { line-height: 1; color: @brandBlueSecondary;}
+    }
+    .section-header-sub {
+      .margin(trb,@h3,0,0,6);
+      #font > .size(@h3);
+      float: left;
+      color: @brandBlue;
+      span { line-height: 1; color: @brandBlueSecondary;}
+    }
+  }
+  .search-header .section-header-content,
+  .search-header + .section-header-content {
+    padding-top: 0;
+    .supporting {
+      .margin(tr,@baseFontPx,6,0);
+    }
+    .legal {
+      display: block;
+      #font > .size(13);
+      .margin(tr,13,6,0);
+    }
+  }
+  .search-header + .section-header-content {
+    .margin(b,@baseFontPx,12);
+  }
+
+  //SECTION HEADING
+  .section-header {
+    .header-group{
+      float: left;
+      width: 75%;
+    }  
+      .section-header-main{
+        margin: 0;
+      }
+      .section-header-sub{
+        font-weight: normal;
+        margin-top: 0;
+      }
+    & + .see-all {padding: 0;}
+  }
+
+//section heading used across a full width row
+.row-header.section-header{
+  .cols8;
+}
+
+@media only screen and (min-width: @mqMinDesktop) {
+  // abs position .supporting.same-line at desktop and higher resolution
+  .search-header .section-header-content,
+  .search-header + .section-header-content {
+    .supporting.same-line {
+      position: absolute;
+      .pos(t,@baseFontPx,24);
+      right: 0;
+      max-width: 30%;
+    }
+  }
+  .site-content .cols-row-header:first-child .supporting.same-line {top: 0;}
+}

@@ -1,0 +1,419 @@
+
+//
+// FOR EVERY UPDATE TO THE FONT FILE, YOU MUST UPDATE THE FILENAME TOO.
+// MODIFY THE RELEASE NUMBER ACCORDINGLY TO BUST THE CACHE SO THAT
+// USERS GET THE LASTEST FONT FILE. THIS IS IMPORTANT, HENCE THE CAPS.
+//
+
+// Glyph Family and Index //
+@font-face {
+  font-family: 'ExpediaIcons';
+  src: url(/static/ui_toolkit/v2-0/fonts/ExpediaIcons.09r1.eot?#iefix) format('No-IE-404'),
+  url(/static/ui_toolkit/v2-0/fonts/ExpediaIcons.09r1.woff) format('woff'),
+  url(/static/ui_toolkit/v2-0/fonts/ExpediaIcons.09r1.ttf) format('truetype'),
+  url(/static/ui_toolkit/v2-0/fonts/ExpediaIcons.09r1.svg#ExpediaIcons) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Basic Setup of icons //
+.icon {
+  display: inline-block;
+  position: relative;
+  font-style: normal;
+
+// Hide Alternative Content for Modern Browsers //
+  .alt {
+    display: inline-block;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    text-indent: -999em;
+  }
+// Generated Content for icons //
+  &:after, &::before {
+    display: inline-block;
+    position: relative;
+    font-family: 'ExpediaIcons';
+    font-weight: normal;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: center;
+    speak: none;
+  }
+}
+
+// Icons  //
+//travelers "&#xe000;"
+.icon-travelers:after {content: "\e000"}
+
+//traveler "&#xe001;"
+.icon-traveler:after {content: "\e001"}
+
+//time "&#xe002;"
+.icon-time:after {content: "\e002"}
+
+//time alt "&#xe003;"
+.icon-timealt:after {content: "\e02b"}
+
+//no time "&#xe003;"
+.icon-notime:after {content: "\e003"}
+
+//roundtrip "&#xe004;"
+.icon-roundtrip:after {content: "\e004"}
+
+//roundtrip alt "&#xe02c;"
+.icon-roundtripalt:after {content: "\e02c"}
+
+//help "&#xe005;"
+.icon-help:after {content: "\e005"}
+
+//location "&#xe006;"
+.icon-location:after {content: "\e006"}
+
+//location alt "&#xe02d;"
+.icon-locationalt:after {content: "\e02d"}
+
+//phone "&#xe007;"
+.icon-phone:after {content: "\e007"}
+
+//packages "&#xe008;"
+.icon-packages:after {content: "\e008"}
+
+//packages alt "&#xe031;"
+.icon-packagesalt:after {content: "\e031"}
+
+//mail "&#xe009;"
+.icon-mail:after {content: "\e009"}
+
+//list "&#xe00a;"
+.icon-list:after {content: "\e00a"}
+
+//auth "&#xe00b;"
+.icon-auth:after {content: "\e00b"}
+
+//info "&#xe00c;"
+.icon-info:after {content: "\e00c"}
+
+//hotels "&#xe00d;"
+.icon-hotels:after {content: "\e00d"}
+
+//hotels alt "&#xe030;"
+.icon-hotelsalt:after {content: "\e030"}
+
+//shop "&#xe00e;"
+.icon-shop:after {content: "\e00e"}
+
+//shop alt "&#xe02e;"
+.icon-shopalt:after {content: "\e02e"}
+
+//cruise "&#xe00f;"
+.icon-cruise:after {content: "\e00f"}
+
+//cruise alt "&#xe028;"
+.icon-cruisealt:after {content: "\e028"}
+
+//settings "&#xe010;"
+.icon-settings:after {content: "\e010"}
+
+//success "&#xe011;"
+.icon-success:after {content: "\e011"}
+
+//mobile "&#xe012;"
+.icon-mobile:after {content: "\e012"}
+
+//cars "&#xe013;"
+.icon-cars:after {content: "\e013"}
+
+//cars alt "&#xe029;"
+.icon-carsalt:after {content: "\e029"}
+
+//calendar "&#xe014;"
+.icon-calendar:after {content: "\e014"}
+
+//calendar alt "&#xe02a;"
+.icon-calendaralt:after {content: "\e02a"}
+
+//luggage "&#xe015;"
+.icon-luggage:after {content: "\e015"}
+
+//map "&#xe015;"
+.icon-map:after {content: "\e016"}
+
+//Viewed "&#xe026;"
+.icon-viewed:after {content: "\e017"}
+
+//Overnight "&#xe018;"
+.icon-overnight:after {content: "\e018"}
+
+//Overnight alt "&#xe01b;"
+.icon-overnightalt:after {content: "\e01b"}
+
+//arrow "&#xe019;"
+.icon-arrow0:after {content: "\e019"; .transform(rotate(-90deg))}
+
+.icon-arrow45:after {content: "\e019"; .transform(rotate(-45deg))}
+
+.icon-arrow90:after {content: "\e019"}
+
+.icon-arrow135:after {content: "\e019"; .transform(rotate(45deg))}
+
+.icon-arrow180:after {content: "\e019"; .transform(rotate(90deg))}
+
+.icon-arrow225:after {content: "\e019"; .transform(rotate(135deg))}
+
+.icon-arrow270:after {content: "\e019"; .transform(rotate(180deg))}
+
+.icon-arrow315:after {content: "\e019"; .transform(rotate(225deg))}
+
+//walk "&#xe01a;"
+.icon-walk:after {content: "\e01a"}
+
+//sun "&#xe01c;"
+.icon-sun:after {content: "\e01c"}
+
+//sun alt "&#xe01d;"
+.icon-sunalt:after {content: "\e01d"}
+
+//warn "&#xe01e;"
+.icon-warn:after {content: "\e01e"}
+
+//flights "&#xe01f;"
+.icon-flights:after {content: "\e01f"}
+
+//flights alt "&#xe01f;"
+.icon-flightsalt:after {content: "\e027"}
+
+//expand + collapse "&#xe021;"
+.icon-expand:after {content: "\e021"}
+
+.icon-expand[data-control-state="open"]:after {.transform(rotate(-180deg))}
+
+//close "&#xe022;"
+.icon-close:after {content: "\e022"}
+
+//print "&#xe023;"
+.icon-print:after {content: "\e023"}
+
+//popup "&#xe024;"
+.icon-popup:after {content: "\e024"}
+
+//toggle "&#xe025;"
+.icon-toggle0:after {content: "\e025"; .transform(rotate(-90deg))}
+
+.icon-toggle90:after {content: "\e025";}
+
+.icon-toggle180:after {content: "\e025"; .transform(rotate(90deg))}
+
+.icon-toggle270:after {content: "\e025";  .transform(rotate(-180deg))}
+
+//seat "&#xe026;"
+.icon-seat:after {content: "\e026"}
+
+//train "&#xe02f;"
+.icon-train:after {content: "\e02f"}
+
+//train alt "&#xe032;"
+.icon-trainalt:after {content: "\e032"}
+
+//shield "&#xe033;"
+.icon-shield:after {content: "\e033"}
+
+//heart "&#xe03b;"
+.icon-heart:after {content: "\e03b"}
+
+//heartalt "&#xe03a;"
+.icon-heartalt:after {content: "\e03a"}
+
+//offcanvas "&#xe03c;"
+.icon-offcanvas:after {content: "\e03c"}
+
+//subtract "&#xe03d;"
+.icon-subtract:after {content: "\e03d"}
+
+//add "&#xe03e;"
+.icon-add:after {content: "\e03e"}
+
+//pageprev "&#xe03f;"
+.icon-pageprev:after {
+  content: "\e03f";
+ .transform(rotate(-180deg));
+}
+
+
+//pagenext "&#xe03f;"
+.icon-pagenext:after {content: "\e03f"}
+
+//play "&#xe035;"
+.icon-play:after {content: "\e035";}
+
+//trend "&#xe040;"
+.icon-trend:after {content: "\e040"}
+
+//cardoors "&#xe041;"
+.icon-cardoors:after {content: "\e041"}
+
+//gridview "&#xe042;"
+.icon-gridview:after {content: "\e042"}
+
+// wifi "&#xe043"
+.icon-wifi:after {content: "\e043";}
+
+//oneway alt "&#xe044;"
+.icon-onewayalt:after {content: "\e044"}
+
+//oneway "&#xe045;"
+.icon-oneway:after {content: "\e045"}
+
+// accessible "&#xe046"
+.icon-accessible:after {content: "\e046";}
+
+// noimage "&#xe047"
+.icon-noimage:after {content: "\e047";}
+
+// activities "&#xe048"
+.icon-activities:after {content: "\e048";}
+
+// activitiesalt "&#xe01b"
+.icon-activitiesalt:after {content: "\e01b";}
+
+// noimage "&#xe049"
+.icon-search:after {content: "\e049";}
+
+// wifi "&#xe050"
+.icon-comment:after {content: "\e050";}
+
+// rss "&#xe037"
+.icon-rss:after {content: "\e037";}
+
+// enlarge "&#xe039"
+.icon-enlarge:after {content: "\e039";}
+
+// shrink "&#xe04a"
+.icon-shrink:after {content: "\e04a";}
+
+// snowflake "&#xe04b"
+.icon-snowflake:after {content: "\e04b";}
+
+// updown "&#xe04c"
+.icon-updown:after {content: "\e04c";}
+
+
+//
+// Basic IE < 9 Icon Fallbacks
+//
+.lt-ie9 {
+
+  .icon {
+    .alt {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      text-indent: 0
+    }
+    &:after {
+      // this content value was set to  '' but it caused IE8 to have a spaz. changing the content value to none seems to achieve the desired effect without the spazattack
+       content: '' !important;
+    }
+  }
+
+
+  .tab .icon-toggle180,
+  .nav-tab .icon-toggle180 {
+    zoom: 1;
+    display: inline-block;
+    width: 18px;
+    background: url(/static/ui_toolkit/v2-0/images/dropdown-icon.png) -18px 50% no-repeat;
+  }
+
+  .open .tab .icon-toggle180,
+  .open .nav-tab .icon-toggle180 {
+    background-position: 0 50%;
+  }
+}
+
+
+.lt-ie9{
+//
+// information icon fallbacks
+//
+
+  // defining specific icons so as not to interfere with icons that do not have an image fallback
+    .icon-expand,
+    .icon-popup,
+    .icon-toggle180,
+    .icon-toggle0,
+    .icon-success,
+    .icon-arrow90,
+    .btn-close.icon-close{
+
+        // the next two lines are a variation on http://css-tricks.com/centering-in-the-unknown/
+        // because IE8 was being a pain to line up icons vertically
+        height: 100%;
+        vertical-align: middle;
+
+      &:after{
+
+        display: inline-block;
+        width:18px;
+        height:18px;
+        background-image: url(/static/ui_toolkit/v2-0/images/icons-18.png);
+        background-repeat:no-repeat;
+        background-position: 0 -2px;
+        vertical-align: middle;
+      }
+
+      // visually hiding the alt text associated with these icons
+      .alt{
+        height: 0;
+        overflow: hidden;
+      }
+    }
+
+    .open .icon-expand:after{background-position: -18px -18px;}
+    .icon-popup:after{background-position: -36px -38px;}
+    .icon-toggle180:after{background-position: -54px -56px;}
+    .icon-toggle0:after{background-position: -72px -74px;}
+    .icon-success:after{background-position: -90px -92px;}
+    .icon-arrow90:after{background-position: -108px -144px;}
+
+  // prevent fallbacks from doubling up
+  .text > .icon-success:after,
+  .nav-tab > .icon-toggle180:after{
+          background-image:none;
+    }
+
+  // resetting height for close buttons
+  .btn-close.icon-close{height:auto;}
+
+  .btn-close.icon-close:after,
+  .btn-close.icon-close:hover:after,
+  .btn-close.icon-close:active:after
+  {
+    background-position: -105px -108px;
+  }
+
+  .btn-close.module-close.icon-close:after,
+  .btn-close.module-close.icon-close:hover:after,
+  .btn-close.module-close.icon-close:active:after
+  {
+    background-position:-123px -126px;
+  }
+
+  .btn-close.module-close.icon-close:hover,
+  .btn-close.module-close.icon-close:active
+  {
+    background-color: @textSecondary;
+  }
+
+
+
+}
+
+
+// adds space to the after to stop IE having a line-height spaz
+.ie10,.ie9{.icon-pageprev:after{content:"\0000a0\e03f"; }}
+
+
+
+

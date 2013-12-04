@@ -1,0 +1,489 @@
+@btnActionBackground: @brandYellow;
+@btnActionGradientBottom: spin(@btnActionBackground,-3);
+@btnActionBorder: #d4a900;
+@btnActionText: #3d3100;
+
+@btnSubActionBackground: @link;
+@btnSubActionBorder: #005499;
+@btnSubActionText: #fff;
+
+
+// Form and Anchor Buttons
+a.btn, a.btn:visited, button {
+  display: inline-block;
+  position: relative;
+  .margin(trbl,@baseFontPx,24,24,0,0);
+  .border(trb,@baseFontPx,1,1,2);
+  .border-radius(a,@baseFontPx,4);
+  padding: 0;
+  #font > .size(@baseFontPx);
+  line-height: 1.45;
+  font-weight: bold;
+  cursor: pointer;
+  .btn-label {
+    display: inline-block;
+    .padding(trb,@baseFontPx,10,18,11);
+    pointer-events: none;
+  }
+}
+// Base Button States
+a.btn, button {
+  &:hover {text-decoration: none;}
+  &:focus {outline: none;}
+  &:active, &.selected {
+    .border-width(b,17,1);
+  }
+}
+// No :hover for touch devices
+.no-touch a.btn:hover, .no-touch button:hover {
+  color: lighten(@text,10%);
+}
+// fix height issues for IE7
+.lt-ie8 .btn, .lt-ie8 button {
+  height: auto
+}
+
+// extends primary size
+a.btn-secondary,
+button.btn-secondary {
+  .margin(trbl,15,24,24,0,0);
+  .border-width(trb,15,1,1,2);
+  .border-radius(a,15,4);
+  padding: 0;
+  vertical-align: bottom;
+  #font > .size(15,@baseFontPx);
+  line-height: 1.2;
+  &:active, &.selected {
+    .border-width(b,15,1);
+  }
+  .btn-label {
+    .padding(trb,15,7,12,8);
+  }
+}
+// 1px shift on :active
+.btn-primary.btn-action:active,
+.btn-sub-action.btn-sub-action:active {
+   .btn-label {
+    .padding(t,@baseFontPx,10);
+    .padding(b,@baseFontPx,12);
+  }
+}
+.btn-secondary.btn-action:active,
+.btn-secondary.btn-sub-action:active {
+  .btn-label {
+    .padding(t,15,7);
+    .padding(b,15,9);
+  }
+}
+// 2D Transforms only
+.no-csstransforms3d.csstransforms {
+  .btn-primary.btn-action:active,
+  .btn-sub-action.btn-sub-action:active,
+  .btn-secondary.btn-action:active,
+  .btn-secondary.btn-sub-action:active {
+     .btn-label {
+       .translate(0, 1px);
+     }
+  }
+}
+// 3D Transforms
+.csstransforms3d.csstransforms {
+  .btn-primary.btn-action:active,
+  .btn-sub-action.btn-sub-action:active,
+  .btn-secondary.btn-action:active,
+  .btn-secondary.btn-sub-action:active {
+    .btn-label {
+      .translate3d(0, 1px);
+    }
+  }
+}
+// older browser fallback
+.no-csstransforms {
+  .btn-primary.btn-action:active,
+  .btn-sub-action.btn-sub-action:active,
+  .btn-secondary.btn-action:active,
+  .btn-secondary.btn-sub-action:active {
+    .btn-label {
+      .margin(b,@baseFontPx,-1);
+    }
+  }
+}
+
+// Visual Style
+button.btn-action,
+a.btn-action,
+a.btn-action:visited {
+  border-color: @btnActionBorder darken(@btnActionBorder,8.24%) darken(@btnActionBorder,8.24%);
+  .linear-gradient(bt, @btnActionGradientBottom, @btnActionBackground);
+  color: @btnActionText;
+
+  &.selected, &:active {
+    border-color: darken(@btnActionBorder,5.5%) darken(@btnActionBorder,14.5%) darken(@btnActionBorder,14.5%);
+    background: saturate(@btnActionBackground,10%);
+  }
+
+}
+// No :hover for touch devices
+.no-touch .btn-action:hover,
+.no-touch a.btn-action:hover,
+.btn-action:focus,
+a.btn-action:focus {
+  border-color: darken(@btnActionBorder,5.5%) darken(@btnActionBorder,14.5%) darken(@btnActionBorder,14.5%);
+  background: @btnActionBackground;
+}
+
+.no-touch .btn-action:active,
+.no-touch a.btn-action:active{
+  border-color: darken(@btnActionBorder,14.5%) darken(@btnActionBorder,14.5%) darken(@btnActionBorder,5.5%);
+  background: @btnActionBackground;
+}
+
+.btn-sub-action,
+a.btn-sub-action,
+a.btn-sub-action:visited {
+  border-color: @btnSubActionBorder darken(@btnSubActionBorder,8.48%) darken(@btnSubActionBorder,8.48%);
+  .linear-gradient(tb,@btnSubActionBackground,darken(@btnSubActionBackground,4.3%));
+  color: @btnSubActionText;
+}
+.btn-sub-action,
+a.btn-sub-action {
+  &.selected, &:active {
+    border-color: darken(@btnSubActionBorder,8.48%) darken(@btnSubActionBorder,8.48%) @btnSubActionBorder;
+    background: @btnSubActionBackground;
+  }
+}
+// No :hover for touch devices
+.no-touch .btn-sub-action:hover,
+.no-touch a.btn-sub-action:hover,
+.btn-sub-action:focus,
+a.btn-sub-action:focus {
+  color: @btnSubActionText;
+  background: lighten(@btnSubActionBackground,5%);
+}
+
+a.btn-utility, a.btn-utility:visited, button.btn-utility {
+  .border(a,@baseFontPx,1,darken(@moduleGrey,18%));
+  .linear-gradient(tb,lighten(@moduleGrey,18%),lighten(@moduleGrey,12.5%));
+  font-weight: normal;
+  color: @textSecondary;
+  &:active {
+    .margin(t,@baseFontPx,24);
+
+  }
+  &.btn-secondary {
+    .border(a,15,1,darken(@moduleGrey,18%));
+    &:active {.margin(t,15,24);}
+    .btn-label {
+      .padding(t,15,8);
+    }
+  }
+  .btn-label {
+    .padding(t,@baseFontPx,10);
+  }
+}
+
+// No :hover for touch devices
+.no-touch .btn-utility:hover,
+.no-touch a.btn-utility:hover,
+.btn-utility:focus,
+a.btn-utility:focus {
+  border-color: @textSecondary;
+  .linear-gradient(tb,lighten(@moduleGrey,19.25%),lighten(@moduleGrey,15%));
+
+
+}
+
+// Utility Button States
+.touch, .no-touch {
+  a.btn-utility:active,
+  .btn-utility:active {
+    background-color: lighten(@moduleGrey,15.25%);
+    border-color: @textSecondary;
+    color: @text;
+  }
+}
+
+// State within menu
+.open .btn-utility.dropdown-toggle {
+  border-color: @brandBlue;
+  background-color: @brandBlue;
+  background-image:none;
+
+  color: #fff;
+}
+
+// Disabled Buttons
+button[disabled],
+button[disabled]:hover,
+button[disabled]:focus,
+.btn.disabled,
+.btn.disabled:hover,
+.btn.disabled:focus,
+a.btn.disabled,
+a.btn.disabled:hover,
+a.btn.disabled:focus{
+  cursor: not-allowed;
+  opacity: .8;
+  pointer-events: none;
+  border-color: @moduleGrey !important;
+  background-color: lighten(@moduleGrey,15%) !important;
+  background-image:none;
+  color: @moduleGrey !important;
+}
+
+// Button Bar
+// ==========================================================================
+
+.btn-group {
+  display: inline-block;
+  position: relative;
+
+  > .btn {
+    .margin(trbl,15,0,0,0,-6);
+    .border-radius(none);
+
+    &:first-child,  {
+      margin-left: 0;
+      .border-radius(tlrbrl,15,3,0,0,3);
+    }
+    &:last-of-type {.border-radius(tlrbrl,15,0,3,3,0)}
+    &:only-of-type {.border-radius(a,15,3)}
+  }
+  .btn-secondary.btn-utility:active {margin-top: 0;}
+
+  .icon {padding: 0;}
+  &.open .btn-sub-action.dropdown-toggle, .btn-sub-action.selected  {background-color: @brandBlue}
+
+  &+ .btn-group {.margin(l,15,24);}
+}
+
+
+// Close Button
+// ==========================================================================
+
+.btn-close {
+  margin: 0;
+  border: none;
+  background-color: transparent;
+// .width(@baseFontPx,24);
+  #font > .size(@baseFontPx);
+  line-height: 1.45;
+  color: inherit;
+
+  &:active {margin-top: 0;}
+
+  &:after {
+    .padding(tr,@baseFontPx,0,3);
+  }
+
+// Psuedo element to pad the touch target
+  &:before {
+    display: block;
+    position: absolute;
+    .box-sizing(content-box);
+    .pos(t,@baseFontPx,-3);
+    .pos(l,@baseFontPx,-3);
+    .width(@baseFontPx, 30);
+    .height(@baseFontPx, 30);
+    content: '';
+  }
+  .btn-label {
+    padding:0;
+    
+  }
+
+//&.icon {padding: 0;}
+}
+
+.no-touch .btn-close:hover,
+.btn-close:focus {
+  color: @text;
+  background-color: none;
+}
+
+.secondary .btn-close,
+.btn-close.secondary {
+  margin-top: 0;
+}
+
+.btn-close.module-close {
+  background-color: darken(@moduleGrey,36%);
+  color: lighten(@moduleGrey,18%);
+  &:focus,
+  &:hover,
+  &:active{
+    background-color: @text;
+    color: #fff;
+  }
+}
+// No :hover for touch devices
+.no-touch .btn-close.module-close:hover,
+.btn-close.module-close:focus,
+.btn-close.module-close:active {
+  background-color: @text;
+  color: #fff;
+}
+
+
+
+// Off Canvas Toggle Button:
+.off-canvas-btn {
+  display: none;
+  position: relative;
+  margin-top: 0;
+  .min-width(@baseFontPx,48);
+  .height(@baseFontPx,48);
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &:active {margin-top: 0;}
+  .icon {
+
+    &:after {line-height: inherit;}
+  }
+
+  &.menu-toggle-btn {
+    position: relative;
+    float: right;
+    clear: right;
+    margin-right: 0;
+    background: none;
+    color: @link;
+  }
+  .btn-label {
+    .padding(trb,@baseFontPx,12,12,15);
+  }
+}
+
+// Paging Buttons:
+.btn-paging {
+  #font > .size(48);
+  line-height: 1;
+  margin:0;
+  padding:0;
+  border:0;
+  background: none;
+  color: @link;
+  vertical-align: middle;
+
+  &.disabled, &.disabled:hover,
+  &.disabled:focus {
+    opacity: .4;
+    color: @moduleGrey;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// remove padding from .btn-label for btn-paging buttons
+a.btn, a.btn:visited, button,
+a.btn-secondary, button.btn-secondary,
+a.btn-utility, a.btn-utility:visited, button.btn-utility {
+  &.btn-paging {
+    .btn-label {
+      padding: 0;
+    }
+  }
+}
+
+// No :hover for touch devices
+.no-touch .btn-paging:hover,
+.btn-paging:focus,
+.btn-paging:active {
+  margin-top: 0;
+  color: @linkHover;
+}
+
+// Secondary Size Paging Button
+.btn-paging.btn-secondary {
+  margin: 0;
+  padding: 0;
+  #font > .size(36);
+  &:active {margin-top: 0;}
+}
+
+
+// IE < 9 Icon Fallbacks
+
+.lt-ie9  {
+// 1px shift on :active
+  .btn-primary.btn-action:active,
+  .btn-sub-action.btn-sub-action:active,
+  .btn-secondary.btn-action:active{
+  .margin(b,@baseFontPx,1);
+  }
+
+
+}
+
+
+.lt-ie9
+{
+  .btn-paging {
+    width: 48px;
+    height: 48px;
+    font-size: 0;
+    background: url(/static/ui_toolkit/v2-0/images/paging-icons.png) -1px -1px;
+
+    &.prev:hover
+    {
+      background-position: -49px -49px;
+    }
+
+    &.prev:active{
+      background-position: -48px -48px;
+    }
+
+    &.next {
+      background-position: -97px -97px;
+
+    }
+
+    &.next:hover{
+      background-position: -145px -145px;
+    }
+
+    &.next:active{
+      background-position: -144px -144px;
+    }
+
+    &.disabled {
+      .opacity(0.1);
+    }
+
+    &.btn-secondary {
+      width: 36px;
+      height: 36px;
+
+      &.prev {
+        background-position: -198px -198px;
+      }
+
+      &.prev:hover {
+        background-position: -240px -246px;
+      }
+      &.prev:active{
+        background-position: -239px -245px;
+      }
+
+      &.next {
+        background-position: -294px -294px;
+
+      }
+
+      &.next:hover {
+        background-position: -336px -342px;
+      }
+      &.next:active{
+        background-position: -335px -341px;
+      }
+
+      &.disabled{
+        .opacity(0.1);
+      }
+    }
+  }
+}
+

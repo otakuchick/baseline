@@ -1,0 +1,261 @@
+//
+// MEDIA VIEWER
+//
+
+@thumbnailCurrent: @brandYellow;
+
+.media-viewer {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  padding-top: 56.25%;
+  background: @text;
+
+
+  .media-caption { //extends figcaption from media.less
+    opacity: 0;
+    .padding(trb,13,24,18,12);
+  }
+  img, iframe{
+    .opacity(0);
+    .transition(opacity 240ms cubic-bezier(0.080, 0.665, 0.775, 0.935));
+  }
+
+  img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+
+    //iframe can't have translateZ as it breaks the iframe in Firefox
+    .transform(translateZ(0));
+  }
+
+  iframe{
+    top:0;
+    left:1000%;
+    width:100%;
+    height:100%;
+    position:absolute;
+    .transition(opacity 1s~"," left 0 1s);
+  }
+
+  .media-wrap{
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+
+  .media-wrap.current{z-index:1;}
+  .current img, .current iframe, .current .media-caption{.opacity(1);}
+  .current iframe{left:0; .transition(opacity 240ms cubic-bezier(0.080, 0.665, 0.775, 0.935)"," left 0 0);}
+}
+
+.no-csstransitions .media-wrap{
+  display:none;
+  &.current{
+    display:block;
+  }
+}
+
+
+//
+// IMAGE SLIDER
+//
+.image-slider{
+  position:relative;
+  background: @text;
+
+  .image-slider-mask{
+    width: 100%;
+    overflow:hidden;
+    background-color: @text;
+  }
+
+  .image-slider-thumbs{
+    padding:0;
+    position: relative;
+    left:0;
+    margin:0;
+    list-style-type:none;
+    width: 2000%;
+    .transform(translateZ(0));
+
+    li{
+      float:left;
+      padding:0;
+    }
+
+    a{
+      display: block;
+      position: relative;
+      img{
+        z-index:-1;
+        position: relative;
+        .transform(translateZ(0));
+        .transition(opacity 240ms cubic-bezier(0.080, 0.665, 0.775, 0.935));
+        .opacity(0.5);
+        .max-height(@baseFontPx,90);
+      }
+      // Play icon
+      &.video .icon-play, &.video:hover .icon-play,
+      &.video:focus .icon-play{
+        @playIcon:30;
+        #font > .size(@playIcon);
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        background: fade(@text,72);
+        color: #fff;
+        text-decoration: none;
+        line-height: 1;
+        .margin(t,@playIcon,-24);
+        .margin(l,@playIcon, -24);
+        .padding(trbl,@playIcon,8,6,8,9);
+        .text-indent(@playIcon,1);
+        .border-radius(cent,100%);
+      }
+    }
+
+    .current a img, a:hover img, a:focus img{
+       .opacity(1);
+    }
+
+
+    .current a:after{
+      content: '';
+      display: block;
+      position: absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      z-index: 1;
+      background: @thumbnailCurrent;            
+      .height(@baseFontPx,6);
+
+    }
+  }
+  .image-slider-thumbs.slide{
+    .transition(left 0.5s);
+  }
+
+  .image-slider-control{
+    background: #fff;
+    border-width: 0;
+    color:@link;
+    #font > .size(25);
+    line-height: 1.5em;
+    padding:0;
+    position: absolute;
+    top:50%;
+    margin: -0.75em 0 0;
+    z-index: 100;
+    .width(25,30);
+
+    &:hover{
+      color:@linkHover;
+    }
+  }
+  .image-slider-control.prev{
+    left:0;
+    .border-radius(tlrbrl,25,0,3,3,0);
+
+    .icon{padding-left: 0;}
+  }
+  .image-slider-control.next{
+    right:-2px;
+    padding-right: 2px;
+    text-align: right;
+    .border-radius(tlrbrl,25,3,0,0,3);
+    .icon{padding-right: 0;}
+  }
+}
+
+
+
+
+  // IE8 Fallbacks
+  // ==========================================================================
+
+
+.lt-ie10{
+
+  .image-slider-thumbs{
+    z-index: 100;
+
+    li{
+      float: left;
+    }
+
+  }
+
+  .image-slider-control{
+    z-index: 200;
+  }
+
+}
+
+
+.lt-ie9{
+  .current a{
+    // keeps yellow line at bottom of image of IE8
+    .padding(b,@baseFontPx,1);
+  }
+}
+
+
+  .lt-ie9 .media-viewer{
+    .media-loader{z-index:1;}
+  }
+
+  .lt-ie9 .image-slider {
+    .image-slider-control {
+
+      display: block;
+      width: 30px;
+      height: 36px;
+      padding: 0;
+      background-image: url(/static/ui_toolkit/v2-0/images/paging-icons.png);
+      background-repeat: no-repeat;
+      line-height: 0;
+
+      &.prev {background-position: -444px -438px;}
+      &.next {background-position: -392px -390px;}
+    }
+    // Video play icon fallback
+    .image-slider-thumbs .video .icon-play,
+    .image-slider-thumbs .video:hover .icon-play,
+    .image-slider-thumbs .video:visited .icon-play,
+    .image-slider-thumbs .video:focus .icon-play{
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACU0lEQVRo3uWavU4CQRDHL9HagNiRwGugDQmloYFgojyAJGrCMxDgAYBApdALAUUDV9iYYGOCjQ2FhRQWV1hgYUgscNbsJpfNIXI3c19u8msu3O78udndmZ1VotGogkAAiAM5oAScA23ghtPmz0r8N3H+juWxrby8BaSBKjAE1DUZ8nfTvC/bBGwDx8CVCaOXcQ2cACFKARtABughGi7T42NsYgsIA3VCw2XYWBEsAbtA10bj9V9jz6qAfWDggPGCAbfBlICkg4bLJNcVEHP4nzf6ErG/CogQrzRW5kRklQC2fDVcaLygIS+xsoCMi40XHCwTEHKp6xi5UshIwKkHjBecyQJYMNX3kIC+CACFgBRGx+Px+G0ymWj5fP7BBhEpvYAaRqcLXRuNRq+JROKOUEBVCAiYjOd/FcDabDb7rFQqT0QCmM0hhWdHKoUA0ZhbZbPZewIRCYWneKQCWJvP51+qqr4gC8gpPE8lFyCapmkfhULhEWnMIhPQtFMA8iRvKpi772LNxtzK4iTvKZg+uTDZrMwNVwhotVrPJse8ddSF2D5hcUJfOjaJkZbUpu3L6HQ6fUfc1Iq2bmQEYUXOllCCMLD7CSWCVMEc8q67NJhDD6eJ4h6ZGnpCw1yFGU4UecqkfZVSKjxR9mxS74tjFc8fbImjxbqLja+vOloU1ZiuS10n/C+O131R4PBFiUmw5+Uin1Nl1gZmmVW/xB4Shxys7yOKQre8Y1NcNWD1iR0nLnvULFz2qDlx2cOIoO66TRm4ADrs2IPT4c/Kuus2QYyxvwExQhSVbqQjHgAAAABJRU5ErkJggg==');
+      #font > .size(30);
+      color: #fff;
+      text-decoration: none;
+      line-height: 1;
+
+    }
+  }
+
+
+
+
+
+// No JavaScript Default
+ // ==========================================================================
+  // Media Viewer
+  .no-js .media-viewer {
+    visibility: hidden;
+  }
+  // Image Thumbs
+  .no-js .image-slider .image-slider-mask {
+    overflow: auto;
+  }
+

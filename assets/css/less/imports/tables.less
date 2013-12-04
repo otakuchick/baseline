@@ -1,0 +1,53 @@
+// Responsive Tables
+
+// set the table's font size as a variable
+@tableFontPx:15;
+
+.data-table{
+
+  width:100%;
+  .margin(b,@baseFontPx,24);
+  .border(a,@baseFontPx,1,@moduleGrey);
+  background:#fff;
+
+  caption{
+    color:#fff;
+    background:@mediumGrey;
+    border-bottom:0;
+    text-align: left;
+    #font > .size(@tableFontPx);
+    .padding(tr,@tableFontPx,9,12);
+  }
+
+  td,
+  th{
+    #font > .size(@tableFontPx);
+    vertical-align:top;
+    .border(trbl,@tableFontPx,0,1,1,0,@moduleGrey);
+    .word-break();
+  }
+
+  th{
+    color:@text;
+    .padding(tr,@tableFontPx,9,12);
+    text-align: left;
+  }
+
+  td{
+    .padding(a,@tableFontPx,12);
+    .border(trbl,@tableFontPx,0,1,1,0,@moduleGrey);
+  }
+
+
+  &.striped{
+
+    tr:nth-of-type(odd){
+      background-color:@paleGrey;
+    }
+
+    thead th{
+      background-color:#fff;
+    }
+  }
+
+}

@@ -1,0 +1,97 @@
+// up to 959px - 9cols
+@mqColsTablet: 9;
+
+// Tablet MQ
+@media only screen and (min-width: @mqMinTablet) and (max-width: @mqMaxTablet){
+
+  #viewport(device-width);
+
+  // Header
+  // ==========================================================================
+  .site-header {
+    .logo {.cols2(9);}
+    .site-navigation {.cols7(9);}
+
+  }
+
+
+
+  // Tabs
+  // ==========================================================================
+  // Pills and inverse pills
+  .theme-pills,
+  .theme-light-pills,
+  .theme-inverse-pills{
+
+
+    //   outline:1px solid red;
+    .tabs{
+      overflow:hidden;
+      width:100%;
+    }
+
+    .tabs li{
+      float:left;
+      .margin(r,@baseFontPx,6);
+      text-align:center;
+      .min-width(@baseFontPx,78);
+    }
+
+    .tabs a{
+      background:#e5e5e5;
+      #font > .size(13);
+      .padding(tr,13,6,6);
+
+      .icon{
+        display:block;
+        #font > .size(19,13);
+        padding:0;
+        text-align:center;
+      }
+    }
+  }
+
+  .theme-inverse-pills .tabs a{.background-rgba(#6b6b6b,54);}
+
+  // Tile Grid
+  // ==========================================================================
+  // Override margin settings
+  .tile-grid .tile,
+  .tile-grid-secondary .tile,
+  .tile-grid-tertiary .tile {.margin(b,@baseFontPx,24);}
+
+  //set
+  .tile-grid .tile{width: 50%;}
+
+  // grid of medium tiles
+  .tile-grid-secondary .tile{width: 50%;}
+
+  // grid of small tiles
+  .tile-grid-tertiary .tile{.cols3(@mqColsTablet);}
+
+
+  // group of tiles
+  .tile-group{
+    .cols9();
+    .tile-grid .tile{.cols6(@mqColsTablet);}
+    .tile-grid-secondary .tile{.cols3(@mqColsTablet);}
+    .tile-grid-tertiary .tile{.cols2(@mqColsTablet);}
+  }
+
+  .content-slider{
+    //set
+    .tile-grid .tile{width: 2.5%;}
+
+    // Secondary and Tertiary Tiles
+    .tile-grid-secondary .tile,
+    .tile-grid-tertiary .tile {
+      .cols3(@mqColsTablet*20, @mqColsTablet);
+    }
+  }
+}
+
+
+
+
+
+

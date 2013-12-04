@@ -1,0 +1,136 @@
+.content-slider{
+  overflow:hidden;
+
+  .tile-grid,
+  .tile-grid-sub-primary,
+  .tile-grid-secondary,
+  .tile-grid-tertiary{
+    position: relative;
+    width:2000%;
+    left:0;
+
+    .stopTransitionFlicker();
+
+    .translate3d ();
+    .transition(left 0.5s ease-out);
+
+    &.view-change{
+      .transition(left 0s ease-out);
+    }
+  }
+
+
+  // grid of large tiles
+  .tile-grid .tile{.cols4(240);}
+
+  // grid of larger tiles
+  .tile-grid-sub-primary .tile{.cols6(240);}
+
+  // grid of medium tiles
+  .tile-grid-secondary .tile{.cols3(240);}
+
+  // grid of small tiles
+  .tile-grid-tertiary .tile{.cols2(240);}
+
+  .tile-grid .tile,
+  .tile-grid-secondary .tile,
+  .tile-grid-tertiary .tile {.margin(b,@baseFontPx,0);}
+
+  & + .content-slider {.margin(t,@baseFontPx,24);}
+}
+
+
+//controls
+.content-slider-controls{
+
+  .translate3d ();
+
+  position: relative;
+  .margin(t,@baseFontPx,6);
+  text-align:center;
+
+  .btn-paging {
+    position: absolute;
+    top: 0;
+  }
+  .next{right: 0;}
+  .prev{left: 0}
+}
+
+.content-slider-nav{
+  .margin(tr,@baseFontPx,0,60);
+  // .padding(trb,@baseFontPx,7,0,9);
+  padding:0;
+  text-align: center;
+  list-style-type:none;
+
+
+  li{
+    display: inline-block;
+    width: auto;
+    .margin(tr,@baseFontPx,12,3);
+    text-align: center;
+    .height(@baseFontPx,30);
+    .width(@baseFontPx,30);
+  }
+
+  button{
+
+    #font > .size(13);
+    .opacity(0.25);
+    display:block;
+    .height(13,30);
+    .width(13,30);
+    .margin(tr,13,0,0);
+    position:relative;
+    background-color:transparent;
+
+    &:after{
+      content:'';
+      display:block;
+      position: absolute;
+      .pos(tl,13,11,11);
+      .height(13,7);
+      .width(13,7);
+      .border-radius(cent,100%);
+      background-color:@brandBlue;
+      padding:0;
+    }
+
+    &.current{
+      cursor: default;
+      .opacity(1);
+    }
+  }
+}
+
+
+// No :hover for touch devices
+
+.no-touch .content-slider-controls{
+  .btn-paging:hover,
+  .btn-paging:focus{
+    color: @linkHover;
+  }
+}
+
+.no-touch .content-slider-nav{
+  button:hover:after,
+  button:focus:after {
+    .opacity(1);
+    background:@linkHover;
+  }
+}
+
+//No JS
+.no-js .content-slider-mask{overflow:auto;}
+
+
+.lt-ie10 .content-slider-nav li{
+  .margin(trb,@baseFontPx,9,3,15);
+}
+
+.ie8 .content-slider-nav li button:after{
+  .pos(t,13,5);
+  .pos(l,13,11);
+}

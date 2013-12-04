@@ -1,0 +1,498 @@
+// ==========================================================================
+//   Components
+//   ==========================================================================
+//
+// Lines HTML:
+//
+// <hr class="dotted" />
+//
+  hr{
+    border-color: @moduleGrey;
+
+    &.secondary{
+      border-style: dashed;
+    }
+  }
+// new star ratings CSS jan '13
+
+// bracketed fallback font-sizes:
+// stars-primary: 24px
+// stars-secondary: 18px
+// stars-tertiary: 13px
+
+// current fallback colours:
+// stars-black #000
+// stars-blue #00335d
+// stars-orange #f06601
+
+.icon-stars1-0:after {content: "\e038";}
+.icon-stars1-5:after {content: "\e038\e036";}
+.icon-stars2-0:after {content: "\e038\e038";}
+.icon-stars2-5:after {content: "\e038\e038\e036"}
+.icon-stars3-0:after {content: "\e038\e038\e038";}
+.icon-stars3-5:after {content: "\e038\e038\e038\e036";}
+.icon-stars4-0:after {content: "\e038\e038\e038\e038";}
+.icon-stars4-5:after {content: "\e038\e038\e038\e038\e036"}
+.icon-stars5-0:after {content: "\e038\e038\e038\e038\e038";}
+
+.star-rating
+{
+  position: relative;
+  display:inline-block;
+
+  .icon{
+    position: relative;
+    line-height: inherit;
+    //bottom: 0; // line-height correction
+    left:0;
+  }
+// Hidden until its deemed we no longer need the grey background
+//    .stars-background:after{
+//      content: "\e038\e038\e038\e038\e038";
+//      color:@moduleGrey;
+//      position: relative;
+//    }
+//
+}
+//// to stop IE9 spazzing out, sized in ems so it scales.
+//.ie9 .star-rating {
+//  .width(@baseFontPx,90);
+//}
+
+
+.lt-ie9 .star-rating {
+  & , & .icon {vertical-align: middle;}
+  .icon {
+    background: url(data:image/png;base64,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) repeat-x 0 0;
+  }
+
+  &.rating-primary{
+    width: 120px;
+    .icon{
+      height:24px;
+      width:120px;
+
+      &.stars-black{
+        background-position:0 -25px;
+      }
+
+      &.stars-grey{
+        background-position:0 -50px;
+      }
+
+      &.stars-yellow{
+        background-position:0 -75px;
+      }
+
+      &.icon-stars1-0{width:24px;}
+      &.icon-stars1-5{width:36px;}
+      &.icon-stars2-0{width:48px;}
+      &.icon-stars2-5{width:60px;}
+      &.icon-stars3-0{width:72px;}
+      &.icon-stars3-5{width:84px;}
+      &.icon-stars4-0{width:96px;}
+      &.icon-stars4-5{width:108px;}
+      &.icon-stars5-0{width:120px;}
+    }
+  }
+
+  &.rating-secondary{
+    width:90px;
+    .icon {
+      height:18px;
+      width:90px;
+      background: url(data:image/png;base64,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) repeat-x 0 0;
+
+      &.stars-black{
+        background-position:0 -19px;
+      }
+
+      &.stars-grey{
+        background-position:0 -38px;
+      }
+
+      &.stars-yellow{
+        background-position:0 -57px;
+      }
+
+      &.icon-stars1-0{width:18px;}
+      &.icon-stars1-5{width:27px;}
+      &.icon-stars2-0{width:36px;}
+      &.icon-stars2-5{width:45px;}
+      &.icon-stars3-0{width:54px;}
+      &.icon-stars3-5{width:63px;}
+      &.icon-stars4-0{width:72px;}
+      &.icon-stars4-5{width:81px;}
+      &.icon-stars5-0{width:90px;}
+    }
+  }
+
+  &.rating-tertiary{
+    width: 65px;
+    .icon{
+      height:13px;
+      width:65px;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAA1CAYAAACawmG8AAAEbklEQVRIx5WUfUhdZRzHv5fNlBRUfH9/yVLI3V2ZrZS2NhNFB1d7WaJuas2u3uu9vr/hbBYJjQX+EUSW/ZEtS4IRrCXUIskXLKc4UsuXEjRD9keEmy5s09P3OT3K4XLutQmf85zn+X0/z/Oc85wrxsbG4IIs4qNXcyU8TNbJ0QeRThKFVD2I9LaUrrmSjpBy8iw5QTLIqpTukVOa8VLRCimFzMnQfojnzNQu++4+whXirfdM6eS2U3iHFOz3Iv7WWeURd1KzJvixZtUeV9IBERgdHb01Pj7+9MrKCqampuJHRkampBipJxUxMDw9Pe23sLCArq4uTE5OYn5+HsPDw1dZv7AniQJnB4W42dlZrK2tobKyEuLPbDZjeXkZi4uLQoxhzjAxMQHMzMxAbIUrYHV1FcXFxaoQHBx8ULQZGRnqanNzc1haWlLvkZaWhv7+fmxtbaG1tVUVwsPDERcX92FMTEyU6BcWFmJzcxMDAwPIzMwEDAYDAgMDkZubi9DQULGCEMIpKLGxsVkREREICAhAdnY2oqOj1UkRHx+vhj08PBAWFqb2KbwiJHKJEyAyMlKti8lFXQT0uCalBb26uDxDviFXyAdEPMs/UhL0yfF+MkheEJIvuagJuaOXhGuXjSXD5L5O+CfyhHZ7zqw7CTvi1Ts/k5ZUF9sqdCcNyNBgVFTUIbY9sj/tSkoWAZ7L++LcxIGGhISAB3xeis/rSacYKPH390diYiLKysqQkpICX19fIZpZLyMGVQoKClI/D3HyQkhISIDD4UBnZycaGhqQnJwMPz8/tS4E8ZnBZDKpW/Hy8lJlIbS1taGiosLU3Nzs1dTUhKSkJHh6eqqTiknQ2NiIvLw8tVNSUqIKVqv1oaqqqt/Zpogv32KxwGg0IicnB3V1dUB1dTVaWlrUn0V9fT1sNhsopBKFlFJEbW2tmhHU1NRABFTsdvvePemQ0md6dXE5RE6QRPKobH+V0l1ikuOPkXTylJCOk79k6P9QsLtkJPl6n/BNcnh3e1pOkztO4R1So805S4INHSnAnfSqJjyoub/kTrpnt9sUm81ecOblZlRUVqc77LZbUvTWk/IYuM2gsaisFa81n0XpuUacs9T5O+zWP1hv25M4q3pD4XB5Ra2PufANfPrOMWz/DFz/yIj8og6UlTceqHZYjzBnsFXZgdNnzkNspdLqwHNFr+NqdyqUOUC5CbUd7UvES2fbUW6pEzJeLG7nbL0m1NdacNzche6LOVD4r3p7HNgYQtvWGIKV34Av3ntSrYtdfdlzlLP9Aqx/fxDf9T6Ou6PA/RsUhhG4OQKF7cmtHzjJj8DQ5SSsXfdW8yIAhTMrsxRYvDMEUCgQEukQfa4IZYZM/JcXAT0+kdINvbq4HCOXyVuknVwgG1JSNONvkj6SL6Ro8rkm5I4hkqxd1kxWXYT/JFbt9rT4kHUnYYcYnZ9JSyzZ1lkpy53UI0PLxEJGZP9bV1KMDHwlt7k73i3HM/SkfPm69c7NQWzEIPr/Ap00pgxWqQflAAAAAElFTkSuQmCC) repeat-x 0 0;
+
+      &.stars-black{
+        background-position:0 -14px;
+      }
+
+      &.stars-grey{
+        background-position:0 -28px;
+      }
+
+      &.stars-yellow{
+        background-position:0 -41px;
+      }
+
+      &.icon-stars1-0{width:13px;}
+      &.icon-stars1-5{width:20px;}
+      &.icon-stars2-0{width:26px;}
+      &.icon-stars2-5{width:33px;}
+      &.icon-stars3-0{width:39px;}
+      &.icon-stars3-5{width:46px;}
+      &.icon-stars4-0{width:52px;}
+      &.icon-stars4-5{width:58px;}
+      &.icon-stars5-0{width:65px;}
+
+    }
+  }
+}
+
+
+//
+// Badge HTML:
+//
+//<b class="badge badge-important">3</b>
+//
+  .badge {
+    display: inline-block;
+    .min-width(@baseFontPx,30);
+    .padding(a,@baseFontPx,3);
+    .border-radius(cent,50%);
+    background: @alertDefault;
+    text-align: center;
+    color: #fff;
+
+   // Collapse when no content //
+    &:empty {display: none;}
+  }
+  .badge-secondary {
+    .min-width(13,18);
+    .padding(trb,13,3,2,2);
+    #font > .size(@copySmall);
+    line-height: 1;
+  }
+  .badge-notification {
+    .border-radius(a,@baseFontPx,5);
+    min-width: 0;
+    padding: 0;
+    font-weight: bold;
+    vertical-align: bottom;
+
+    &.badge-secondary{
+      line-height: 1.45;
+    }
+  }
+  .lt-ie10, .ie10{
+    .badge-notification{
+      vertical-align: baseline;
+    }
+  }
+
+  //adds padding relative to elements font size
+  .badge-notification:before,
+  .badge-notification:after {
+    content: "_";
+    visibility: hidden;
+    font-family: monospace;
+    font-size: 70%;
+  }
+
+  .badge-warn {background: @brandYellow; color: #fff;}
+  .badge-info {background: @alertInfo;}
+  .badge-link {background: @link;}
+  .badge-important {background: @alertImportant;}
+  .badge-error {background: @alertError;}
+  .badge-success {background: @alertSuccess;}
+  .badge-bold {background: @brandBlue;}
+  .badge-urgent {background: @urgency;}
+
+
+//
+// Text Label HTML:
+//
+// <span class="text-label" id="label1">
+//     I am a label
+//     <button type="button" class="btn-close icon icon-close" data-control="remove" data-target-id="label1" data-animation="fade"><span class="alt">close</span></button>
+// </span>
+//
+  .text-label {
+    display: inline-block;
+    position: relative;
+    .margin(trbl,13,0,6,6,0);
+    .border-radius(a,13,15);
+    background: @brandBlueSecondary;
+    .padding(tr,13,6,12);
+    #font > .size(13);
+    #font > .line-height(13,.75);
+    color: #fff;
+    white-space: nowrap;
+    cursor: pointer;
+
+    // reset the cursor if label does not include a remove control
+    &.no-remove {
+      cursor: default;
+    }
+
+    .icon {
+      .pos(r,13,-2);
+      .margin(b,13,-2);
+    }
+
+    // Collapse when no content //
+    &:empty {display: none;}
+  }
+  .label-bold {
+    border-color: @alertBold;
+    background: @alertBold;
+    color: #fff;
+  }
+  .label-link {
+    border-color: @alertLink;
+    background: @alertLink;
+    color: #fff;
+  }
+  .label-important {
+    border-color: @alertImportant;
+    background: @alertImportant;
+    color: #fff;
+  }
+
+  .lt-ie9 .text-label {
+    .icon{
+      top: auto;
+      #font > .size(13);
+      .padding(l,13,12);
+      .width(13,18);
+      .height(13,18);
+      background-image:url(/static/ui_toolkit/v2-0/images/icons-18.png);
+      background-position: -129px -129px;
+    }
+  }
+//
+// Urgency HTML:
+//
+// <div class="urgency">
+//    <strong class="message"><span class="visuallyhidden">Flights </span> Left At</strong>
+//</div>
+//
+  .urgency {
+    vertical-align: middle; 
+    #font > .size(15);
+
+    .message {display: inline-block}
+    .message {
+      .padding(l,15,6);
+      #font > .size(15);
+      text-transform: uppercase;
+    }
+  }
+
+  .urgency.secondary {
+    #font > .size(13);
+
+    .badge, .message {vertical-align: middle; display: inline-block}
+    .message {
+      .padding(l,13,6);
+      #font > .size(13);
+      text-transform: uppercase;
+    }
+  }
+
+
+//
+///Flights Timeline HTML:
+//
+// <div class="timeline">
+//   <div class="flight-time">
+//     <span class="visuallyhidden">Total Flight Time: XXXXXXX</span>
+//   </div>
+//   <div class="departure">
+//     <span class="visuallyhidden">Departure:</span>
+//    <span class="time"><b>4:10p</b></span>
+//     <span class="city">Seattle</span>
+//   </div>
+//   <div class="arrival">
+//     <span class="visuallyhidden">Arrival:</span>
+//     <span class="time"><b>9:20p</b></span>
+//     <span class="city">Boston</span>
+//   </div>
+//   <div class="layover multiple">
+//    <span class="time">4 Stops</span>
+//   </div>
+// </div>
+//
+// @TODO: Expand markup
+//
+////
+  .timeline {
+    position: relative;
+    z-index: 100;
+    .margin(trb,@baseFontPx,24,0,18);
+    .padding(tr,@baseFontPx,6,6);    
+        
+    .flight-time {
+      position: relative;
+      height: 0;
+      .margin(tr,@baseFontPx,0,3);
+      .border(t,@baseFontPx,3,@moduleGrey);
+
+      &:before, &:after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        .width(@baseFontPx,4);
+        .height(@baseFontPx,4);
+        .margin(t,@baseFontPx,-6);
+        .border-radius(a,@baseFontPx,16);
+        .border(a,@baseFontPx,3,@moduleGrey);
+        background: #fff;
+        content: '';  
+      }
+      &:before {.pos(l,@baseFontPx,-3);}
+      &:after {.pos(r,@baseFontPx,-3);}
+
+      .total {
+        display: block;
+        position: absolute;
+        .pos(t,13,-30);
+        left: 15%;
+        right: 15%;
+        #font > .size(13);
+        text-align: center;
+        color: @moduleGrey;
+      }
+    }
+    .departure, .arrival {
+      position: absolute;
+      width: 30%;
+      .height(@baseFontPx,24);
+
+      
+      .time, .city {
+        display: block;
+        position: relative;
+      }
+      .time {
+        .pos(t,15,-32);
+        .padding(b,15,24);
+        #font > .size(15);
+        text-transform: lowercase;
+      }
+      .city {
+        .pos(t,13,-38);
+        width: 100%;
+        overflow: hidden;
+        .padding(b,13,24);
+        #font > .size(13);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    .departure {
+      left: 0;
+      span {left: 0}
+    }
+
+    .arrival {
+      right: 0;
+      text-align: right;
+
+      span {right: 0;}
+    }
+  }
+  .layovers {
+    position: absolute;
+    .pos(trbl,13,-4,18,0,18);
+    .height(@baseFontPx,24);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    
+    .layover {
+      display: inline-block;
+      position: relative;
+      width: 15%;
+      color: @moduleGrey;
+      text-align: center;
+
+      .time {
+        display: inline-block;
+        margin: 0 auto;
+        .padding(tr,13,2,6);
+        .border-radius(a,13,12);
+        .border(a,13,3,@moduleGrey);
+        background: #fff;
+        #font > .size(13);
+        font-weight: bold;
+        line-height: ((24 / 13) + 0em);
+      }
+      .airport-code {
+        display: block;
+        position: absolute;
+        width: 100%;
+        #font > .size(13);
+        line-height: 1;
+      }
+    }
+  }
+  // IE8 fallbacks //
+  .lt-ie9 {
+    .timeline .flight-time:before, 
+    .timeline .flight-time:after,
+    .layovers .layover .time {background: @moduleGrey;}
+  }
+  //
+  // Read more link
+ //
+  .read-more {
+    display:inline-block;
+    .margin(t,@baseFontPx,24);
+  }
+
+  //
+  // See all link
+  //
+  .see-all{float:right;}
+
+  //
+  // Bread crumb
+  // <nav class="bread-crumb cf">
+  //   <ul>
+  //     <li><a href="#">Expedia.com</a>&nbsp;&bull;&nbsp;</li>
+  //     <li><a href="#">United States</a>&nbsp;&bull;&nbsp;</li>
+  //     <li><strong>San Francisco</strong></li>
+  //   </ul>
+  // </nav>
+  //
+  .bread-crumb{
+    .padding(b,@baseFontPx,24);
+    li {
+      float: left;
+      padding: 0;
+      #font > .size(@copySmall);
+      color: @textSecondary; 
+    }
+    strong {font-weight: normal; color: @brandBlue;}
+    a, a:link, a:active, a:visited, a:hover {
+      color: @textSecondary;
+    }
+    a:focus {
+      text-decoration: underline;
+    }
+  }
+
+

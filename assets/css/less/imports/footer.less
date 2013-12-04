@@ -1,0 +1,473 @@
+.site-footer-background {
+  background: #fff;
+  .padding(b,@baseFontPx,48);
+}
+
+.site-footer-minimal {
+  text-align: center;
+  .padding(trbl, @copySmall, 18, 0, 18, 0);
+  #font > .size(@copySmall);
+  color: @textSecondary;
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline;
+      .padding(trbl, @copySmall, 0, 12, 0, 12);
+      #font > .line-height(@copySmall, 1.1);
+      white-space: nowrap;
+    }
+  }
+}
+
+.site-footer-wrap {
+  margin: 0 auto;
+  .padding(trbl, @baseFontPx, 24, 24, 0, 24);
+  .max-width(@baseFontPx, 1176);
+
+  h6,
+  ul {
+    margin: 0;
+    padding-left: 0;
+    li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+      float: left;
+      //.margin(b, @baseFontPx, -5);
+      span {
+        .padding(trbl, @baseFontPx, 0, 5,0,7);
+      }
+    }
+  }
+
+  h6 {
+    display: block;
+    float: left;
+    clear: both;
+  }
+
+  .site-footer {
+    .margin(l, @baseFontPx, 162);
+  }
+
+    .cols-row {
+      padding-top: 0;
+      .padding(b, @baseFontPx, 16);
+      clear: left;
+    }
+    .toggle {
+      .margin(t, @baseFontPx, 18);
+      width: 100%;
+    }
+
+    #tripPlanning,
+    #tripPlanning.slide.viewed {
+      .margin(t, @baseFontPx, 12);
+    }
+
+    #tripPlanning.viewed {
+      margin-top: 0;
+    }
+
+    .toggle-trigger {
+        font-weight:bold;
+        #font > .size(13);
+    }
+
+    li>a {
+      .margin(r, @baseFontPx, 24);
+    }
+
+    .toggle-inner li a {
+      #font > .size(11);
+    }
+
+    .other-partner-links,
+    #footer-swxl {
+      h6,
+      .xp-t-xsmall {
+          color: #58738A;
+          font-weight: bold;
+          .margin(t, @baseFontPx, 12);
+      }
+
+    }
+
+    #footer-swxl .xp-t-xsmall  {
+      .margin(t, @baseFontPx, -4);
+      padding-top: 0;
+    }
+    .other-links,
+    .footer-list {
+      li {
+        display: block;
+        float: left;
+        width: 20%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #0065b8;
+        .padding(r, @baseFontPx, 24);
+      }
+      .footer-link {
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        color:#0065b8;
+      }
+    }
+    .partner-service-links,.other-links {
+      margin:0;
+      clear:left;
+    }
+    #partner-service-links {
+      .margin(trbl, @baseFontPx, 5, 0, 0, 0);
+       li {
+        .margin(trbl, @baseFontPx, -5, 0, 0, 0);
+      }
+    }
+    .legal {
+      #font > .size(11);
+      float: left;
+      clear: both;
+      .margin(trbl, @baseFontPx, 29,0,24,0);
+      color: #999;
+    }
+    .links-description {
+      #grid > .column(2,5);
+      padding-left: 0;
+      .padding(r, @baseFontPx, 15);
+      p {
+        color: #6b6b6b;
+        .padding(r, @baseFontPx, 24);
+      }
+    }
+    .links-list {
+      padding-left: 0;
+      #grid > .column(3,5);
+      ul {
+        margin: 0;
+        padding: 0;
+        .margin(b, @baseFontPx, 31);
+      }
+      li {
+        width: 33.3%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #0065b8;
+        .margin(b, @baseFontPx, -5);
+        display: block;
+        float: left;
+        .padding(r, @baseFontPx, 24);
+
+      }
+      p {
+        margin: 0;
+      }
+    }
+    .legal-footer,
+    .aside {
+      color: #999;
+    }
+
+    h5 {
+      color: #58738A;
+      .margin(trbl, @baseFontPx, 0,0,0,0);
+    }
+
+    .aside {
+      .margin(b,@baseFontPx, 18);
+    }
+
+    .disclaimer {
+      float: left;
+    }
+    .copyright {
+      float: right;
+      margin-top: 0;
+    }
+
+    .footer-logo {
+      .margin(b, @baseFontPx, 6);
+    }
+
+    h6,
+    .footer-logo {
+      font-weight: normal;
+      float: left;
+      .width(@baseFontPx, 160);
+      .padding(trbl, @baseFontPx, 12, 18,0,0);
+      white-space: nowrap;
+    }
+    .expedia-links {
+        float:left;
+        #font > .size(13);
+        .margin(t, @baseFontPx, 10);
+        li {
+          margin-bottom: 0;
+          line-height: 24px;
+          white-space: nowrap;
+        }
+    }
+
+  .site-footer.sub-footer {
+    .cols-row {
+      .margin(b, @baseFontPx, 0);
+      padding-bottom: 0;
+      padding-right: 0;
+      }
+    .cols-row.legal-footer {
+      .padding(b, @baseFontPx, 16);
+      }
+      .global-sites-list {
+      li {
+        //.width(@baseFontPx, 156);
+        #grid > .column(1,5);
+      .margin(b, @baseFontPx, 8);
+
+      }
+    }
+  }
+
+  .badge-container {
+    clear: both;
+    .padding(trbl, @baseFontPx, 36, 0, 36, 0);
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .segmented-list {
+    border: none;
+    p, h1, h2, h3, h4, h5, h6, .xp-t-xsmall {
+      #font > .size(11);
+      line-height: 18px;
+    }
+    .links-list a {
+      #font > .size(11);
+    }
+  }
+
+  .segmented-list.trip-planning {
+    .viewed {
+      .margin(b, @baseFontPx, 6);
+    }
+    .footer-list-container {
+      .margin(b, @baseFontPx, 18);
+    }
+  }
+
+  .logo-wrap {
+      float:left;
+      .width(@baseFontPx, 162);
+      #footer-logo.logo {
+        .margin(b, @baseFontPx, 24);
+          display:block;
+          height: 0;
+          overflow: hidden;
+          overflow: hidden;
+          .padding(t, @baseFontPx, 33);
+          .width(@baseFontPx, 162);
+      }
+  }
+  /* SWXL links */
+  #footer-swxl {
+
+    li span {
+      display:none;
+    }
+    .footer-list {
+      margin:0;
+      li {
+          .margin(r, @baseFontPx, 24);
+      }
+    }
+  }
+
+
+
+  .toggle .flag{
+      width:16px;
+      height:11px;
+      display: inline-block;
+      .margin(r, @baseFontPx, 7);
+      background-size: 160px 341px;   // if you update the sprite with more flags, update this height otherwise flags appear squished
+      background-position:0 0;
+      background-repeat:no-repeat;
+
+      &.at{background-position:-16px -11px}
+      &.au{background-position:-32px -22px}
+      &.be{background-position:-48px -33px}
+      &.br{background-position:-64px -44px}
+      &.ca{background-position:-80px -55px}
+      &.dk{background-position:-96px -66px}
+      &.fr{background-position:-112px -77px}
+      &.de{background-position:-128px -88px}
+      &.hk{background-position:-144px -99px}
+      &.in{background-position:-128px -110px}
+      &.ind{background-position:-112px -121px}
+      &.ie{background-position:-96px -132px}
+      &.it{background-position:-80px -143px}
+      &.jp{background-position:-64px -154px}
+      &.kr{background-position:-48px -165px}
+      &.my{background-position:-32px -176px}
+      &.mx{background-position:-16px -187px}
+      &.nl{background-position:0 -198px}
+      &.nz{background-position:-16px -209px}
+      &.no{background-position:-32px -220px}
+      &.ph{background-position:-48px -231px}
+      &.sg{background-position:-64px -242px}
+      &.es{background-position:-80px -253px}
+      &.se{background-position:-96px -264px}
+      &.tw{background-position:-112px -275px}
+      &.th{background-position:-128px -286px}
+      &.uk{background-position:-144px -297px}
+      &.vn{background-position:-128px -308px}
+      &.fi{background-position:-112px -319px}
+    }
+
+  .toggle .open .flag,
+  .toggle .viewed .flag{
+    background-image: url(/static/ui_toolkit/v2-0/images/flags.png); // only load background when toggle is opened
+  }
+
+
+  .ie10, .ie9 {
+    #footer-logo.logo {
+      position: static;
+    }
+  }
+
+} // end .site-footer-wrap
+
+.no-backgroundsize .site-footer-wrap .toggle .flag{
+  background-image: url(/static/ui_toolkit/v2-0/images/flags-1x.png);
+}
+
+
+
+@mqMinCw: ((959 / 16) + 0em);
+@media only screen and (max-width:@mqMinCw) {
+  .site-footer-wrap {
+    clear: left;
+    .padding(trbl, @baseFontPx, 0, 24, 0, 24);
+    .site-footer {
+      margin-left: 0;
+      float: left;
+      clear: left;
+       .expedia-links {
+        margin-top: 0;
+       }
+    }
+
+    .trip-planning-links {
+      .links-description {
+        display: block;
+        width: 100%;
+      }
+      .links-list {
+        width: 100%;
+        li {
+          width: 25%;
+          .padding(r, @baseFontPx, 24);
+        }
+      }
+    }
+    .site-footer .segmented-list p {
+      margin-bottom: 0;
+    }
+    .site-footer.sub-footer {
+      .global-sites-list, .other-links {
+        li {
+          width: 25%;
+        }
+      }
+    }
+    .logo-wrap {
+      float: none;
+      #footer-logo.logo {
+        .margin(t, @baseFontPx, 16);
+        .margin(b, @baseFontPx, 18);
+      }
+    }
+  }
+
+  .ie10, .ie9 {
+    #footer-logo.logo {
+      position: static;
+    }
+  }
+}
+
+@mq600: ((600 / 16) + 0em);
+
+@media only screen and (max-width: @mq600) {
+  .site-footer-wrap {
+    .trip-planning-links {
+      .links-description {
+        display: block;
+        width: 100%;
+      }
+      .links-list {
+        width: 100%;
+        li {
+          width: 33%;
+          .padding(r, @baseFontPx, 10);
+        }
+      }
+    }
+    .site-footer.sub-footer {
+      .global-sites-list, .other-links {
+        li {
+          width: 33%;
+        }
+      }
+    }
+  }
+}
+
+.ie7 {
+  .tv-footer {
+    .icon-expand {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background-image: url(/static/ui_toolkit/v2-0/images/icons-18.png);
+      background-repeat: no-repeat;
+      background-position: 0 -2px;
+      vertical-align: middle;
+
+    }
+  }
+}
+
+.tv-footer {
+  #footer-logo {
+    text-indent: -9999px;
+  }
+  #footer-logo.logo {
+    background-image: url(/static/ui_toolkit/v2-0/images/tvly-logo.svg);
+
+  }
+  a {
+    color: @tvlyLinkBlue;
+    &:link, &.link, &:visited {
+      color: @tvlyDarkBlue;
+    }
+  }
+}
+
+.no-svg .tv-footer,
+.firefox .tv-footer {
+  #footer-logo.logo {
+
+    background: url(/static/ui_toolkit/v2-0/images/tvly-logo-sm.png) no-repeat;
+    width: 7.235294117647059em;
+    height: 2.235294117647059em;  }
+}
+
+

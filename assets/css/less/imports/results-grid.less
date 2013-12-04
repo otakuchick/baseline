@@ -1,0 +1,51 @@
+.results-grid {
+  border-collapse: separate; // setting border collapse to separate so we can apply border-radius to the table
+  position: relative;
+  width: 100%;
+  .margin(b,@baseFontPx,12);
+  background: #fff;
+  .border(b,@baseFontPx,2,@moduleBorder,solid);
+  .border-radius(blr,@baseFontPx,3,3);
+  color: @text;
+  
+  // setting borders on bottom/left of each cell, 
+  // then hiding left border on first cell in the row
+  .grid-cell, .grid-cell-header {
+    .border(trbl,@baseFontPx,0,0,1,1,@moduleGrey,solid);
+    &:first-child {
+      border-left: 0;
+    }
+  }
+  
+  .grid-cell-header {
+    font-weight: normal;
+    color: @textSecondary;
+  }
+  
+  .grid-head .grid-cell, .grid-head .grid-cell-header {
+    border-top: 0;
+  }
+  
+  .target {
+    display: block;
+    height: 100%;
+    .padding(a,@baseFontPx,12);
+    color: @text;
+    text-decoration: none;
+    cursor: pointer;
+    .link {color: @link}
+  }
+  .grid-body .grid-row:last-child {
+    .grid-cell, .grid-cell-header {
+      border-bottom: 0;
+    }
+  }
+}
+
+.no-touch .results-grid .grid-body .grid-cell:hover, 
+.results-grid .grid-body .grid-cell:active,
+.results-grid .grid-body .grid-cell:focus {
+  background-color: @linkHoverBg;
+}
+
+

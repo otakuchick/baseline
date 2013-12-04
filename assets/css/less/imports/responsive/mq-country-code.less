@@ -1,0 +1,18 @@
+@mq600: ((600 / 16) + 0em);
+@media only screen and (max-width: @mq600) {
+  .cc-select, .cc-input.text {
+    width: 100%;
+    max-width: 100%;
+  }
+  .cc-select {
+    display: inline-block;
+  }
+  .cc-input.text {
+    input {
+      .padding(l,15,12);
+    }
+    .icon {
+      display: none;
+    }
+  }
+}

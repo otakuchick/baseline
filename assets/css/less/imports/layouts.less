@@ -1,0 +1,184 @@
+// ==========================================================================
+//Common Layouts
+// ==========================================================================
+
+// Global Layout Styles
+// =========================================================================
+ 
+// Box-Sizing to make our lives easier
+// Remove tap highlight color
+* {
+    .box-sizing;
+    -webkit-tap-highlight-color: fadeout(@linkHover,100%);
+}
+
+
+  // Column utility class 
+  .col { 
+    .col(@baseFontPx);
+  } 
+
+  // Nested column utility class
+  .cols-nested {
+    .cols-nested(@baseFontPx);  
+  }
+  
+  .row-divide {
+    .border(b,@baseFontPx,1,@moduleGrey);
+    .padding(b,@baseFontPx,24);
+  }
+  
+  // Row Utility Class
+  .cols-row {
+    position: relative; 
+    .padding(r,@baseFontPx,24);   
+    .cf;
+    + .cols-row {
+      .padding(t,@baseFontPx,24);
+    }
+  } 
+  // Flush Right Convenience Class
+  // Brought to you by Andrew R.
+  .justified-cols {
+    .col {
+      float: right;
+    }
+    .col:first-child {
+      float: left;
+      padding-left: 0;
+    }
+  }
+
+ html {
+  background-color: #fff;
+ }
+  body { 
+    position: relative;
+    margin: 0;
+    min-width: ((960 / @baseFontPx) + 0em);
+    max-width: @absMaxWidth;
+    padding-bottom:0;
+    background-color: @paleGrey;
+  }
+
+  // For IE7 Only
+  .ie7 body {width: 960px !important;}
+  
+
+  .site-content {
+    .padding(t,@baseFontPx,24);
+  }
+
+// Layout Modules
+// =========================================================================
+
+.split-col {
+  .columns(2);
+  .column-gap(@baseFontPx,24);
+  
+  .col-span {
+    .column-span;
+  }
+}  
+ 
+.promo-1x3 {
+  .heroimg {}
+  .col {.cols1(8)}
+}
+
+.promo-2x2 {
+  .col {.cols2(4)}  
+}
+
+/* Search Results Layout
+========================================================================== */
+// Search Results Layout
+// =========================================================================
+
+/* One-Column Details Page
+========================================================================== */
+layout-1col-a,
+.l-single-column-details {
+  div[role="region"] {width: 100%;}
+}
+
+/* Search Results Layout
+========================================================================== */
+.l-results,
+.layout-2col-a{
+  // Left Column
+  aside[role="complementary"] {
+    .cols3;
+  }
+  // Main Column
+  section[role="main"] {.cols9;}
+}
+
+// Two Column Inverse Layout
+// =========================================================================
+.l-2column-d,
+.layout-2col-b{
+  // Left Column
+  aside[role="complementary"] {
+      .cols4;
+  }
+  // Main Column
+  section[role="main"] {.cols8;}
+}
+
+
+// 50/50 Split Layout
+// =========================================================================
+.l-split,
+.layout-2col-c{
+  aside[role="complementary"] {
+    width: 50%;
+  }
+  section[role="main"] {
+    width: 50%;
+  }
+}
+
+// Travel Guide Layout
+// =========================================================================
+.l-travel {
+  .location-list{.cols5}
+  .location-map{.cols7}
+}
+
+// Single Column Master
+// =========================================================================
+.l-singlecol,
+.layout-1col-a{
+  section[role="main"] {
+    width: 100%;
+  }
+}
+
+// Two column that stacks responsively
+// =========================================================================
+.layout-2col-stack {
+  aside[role="complementary"] {
+    .cols4;
+  }
+  section[role="main"] {
+    .cols8;
+  }
+}
+
+.layout-2col-stack.inverse {
+  aside[role="complementary"] {
+    float: right;
+  }
+}
+
+// Interstitial
+// =========================================================================
+.has-interstitial
+{
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+}

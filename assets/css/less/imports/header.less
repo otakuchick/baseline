@@ -1,0 +1,1142 @@
+///**
+// * Site Header Module
+// *
+// * Minimalist Global Header module with integrated navigation
+// *
+// */
+//
+//   Adjust rounded corners for header based on page type: fixed/responsive/fluid
+  body[data-layout="fixed"] .site-header {
+    .border-radius(blr,@baseFontPx,3,0);
+  }
+ // Hide top border when there's a site alert present
+  .alert + .site-header {border-top: none;}
+
+  .alert-banner .btn-close {
+    .padding(tr,13,6,24);
+    right: 12px;
+    #font > .size(16);
+    font-weight: normal;
+    color: @brandBlue;
+    }
+
+  // Travel arranger banner styles
+
+  .alert-banner.secondary.travel-arranger {
+    .padding(trbl, @baseFontPx, 12, 0, 12, 32);
+
+    .action-remove {
+      .pos(t, @baseFontPx, 4);
+      text-decoration: none;
+      &:hover { text-decoration: underline;}
+    }
+  }
+
+
+  // Co-brand Header
+  // ==========================================================================
+
+  .partnermarketing-header {
+    background: #fff;
+    .border(t,@baseFontPx,5) !important;
+    border-color: @brandYellow !important;
+    .box-shadow(inset 0 ((1 / @baseFontPx) + 0em) #ebc326);
+    .padding(t, @baseFontPx, 3);
+  }
+
+  // Site Header
+  // ==========================================================================
+
+  .svg #header-logo.logo,
+  .svg #footer-logo.logo {
+    background-image: url(/static/ui_toolkit/v2-0/images/exp-logo.svg);
+    background-repeat: no-repeat;
+    .background-size();
+    &.ar-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-ar.svg);}
+    &.at-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-at.svg);}
+    &.au-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-au.svg);}
+    &.be-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-be.svg);}
+    &.br-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-br.svg);}
+    &.ca-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-ca.svg);}
+    &.de-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-de.svg);}
+    &.dk-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-dk.svg);}
+    &.es-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-es.svg);}
+    &.fi-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-fi.svg);}
+    &.fr-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-fr.svg);}
+    &.hk-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-hk.svg);}
+    &.id-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-id.svg);}
+    &.ie-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-ie.svg);}
+    &.in-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-in.svg);}
+    &.it-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-it.svg);}
+    &.jp-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-jp.svg);}
+    &.kr-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-kr.svg);}
+    &.mx-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-mx.svg);}
+    &.my-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-my.svg);}
+    &.nl-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-nl.svg);}
+    &.no-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-no.svg);}
+    &.nz-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-nz.svg);}
+    &.ph-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-ph.svg);}
+    &.se-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-se.svg);}
+    &.sg-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-sg.svg);}
+    &.th-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-th.svg);}
+    &.tw-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-tw.svg);}
+    &.uk-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-uk.svg);}
+    &.vn-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-vn.svg);}
+  }
+
+  // pngs for browsers that dont support svg, or are bad at rendering svg
+  .no-svg #header-logo.logo,
+  .no-svg #footer-logo.logo,
+  .firefox.svg #header-logo.logo,
+  .firefox.svg #footer-logo.logo{
+    background: url(/static/ui_toolkit/v2-0/images/exp-logo.png) no-repeat;
+    &.ar-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-ar.png);}
+    &.at-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-at.png);}
+    &.au-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-au.png);}
+    &.be-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-be.png);}
+    &.br-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-br.png);}
+    &.ca-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-ca.png);}
+    &.de-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-de.png);}
+    &.dk-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-dk.png);}
+    &.es-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-es.png);}
+    &.fi-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-fi.png);}
+    &.fr-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-fr.png);}
+    &.hk-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-hk.png);}
+    &.id-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-id.png);}
+    &.ie-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-ie.png);}
+    &.in-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-in.png);}
+    &.it-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-it.png);}
+    &.jp-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-jp.png);}
+    &.kr-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-kr.png);}
+    &.mx-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-mx.png);}
+    &.my-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-my.png);}
+    &.nl-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-nl.png);}
+    &.no-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-no.png);}
+    &.nz-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-nz.png);}
+    &.ph-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-ph.png);}
+    &.se-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-se.png);}
+    &.sg-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-sg.png);}
+    &.th-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-th.png);}
+    &.tw-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-tw.png);}
+    &.uk-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-uk.png);}
+    &.vn-pos {background-image:url(/static/ui_toolkit/v2-0/images/exp-logo-vn.png);}
+  }
+
+
+  .site-header {
+    .box-shadow(inset 0 ((1 / @baseFontPx) + 0em) #ebc326);
+    .border(t,@baseFontPx,5);
+    .padding(t,@baseFontPx,13);
+    border-color: @brandYellow;
+    background: #fff;
+    height:auto;
+
+    @iconFontSize: 20;
+   .off-canvas-btn{
+     overflow: visible;
+     #font > .size(@iconFontSize);
+     line-height: 1.2;
+     .margin(t,20,6);
+     .margin(b,20,16);
+     height:auto;
+
+     // When there's a badge in the off-canvas toggle
+     // For Scratchpad
+     .badge {
+       position: absolute;
+       left: 50%;
+       .pos(t,11,-3);
+       .border(a,11,2,#fff);
+       .border-radius(a,11,5);
+       #font > .size(11,@iconFontSize);
+       line-height: 1.5;
+     }
+   }
+
+   .cols-row {
+     .padding(tr,@baseFontPx,0,24)
+     }
+
+    .logo {
+      float: left;
+      #grid > .column(2);
+      text-indent: -999em;
+      overflow: hidden;
+      display: block;
+      .height(@baseFontPx,33);
+      .margin(trb,@baseFontPx,3,0,5);
+    }
+    .phone-number {
+      .margin(t,@baseFontPx,11);
+      .padding(tr,@baseFontPx,6,24);
+      color: darken(@moduleGrey,36%);
+    }
+  }
+
+.partnermarketing-header + .site-header {
+  border: 0;
+  box-shadow: none;
+}
+
+// IE incorrectly rounds up the font-size mixin decimal, so I'm having to 'hard code' the font size
+.ie9,
+.ie10
+{
+  .site-header .off-canvas-btn{
+    font-size:1.18em;
+  }
+}
+
+.no-boxshadow .site-header {
+  .border(t,@baseFontPx,6);
+  .padding(t,@baseFontPx,12);
+}
+
+//  /**
+//   * Co-brand Header
+//   */
+  .mediaqueries .partnermarketing-header {
+    display: none;
+  }
+
+  @mqMaxTablet: ((959 / 16) + 0em);
+  @media only screen and (min-width: @mqMaxTablet) {
+    .mediaqueries .partnermarketing-header {
+      display: block;
+      overflow: hidden;
+    }
+  }
+
+//  /**
+//   * Main Site Navigation
+//   *
+//   * Main site navigation with drop down styling
+//   *
+//   */
+
+   // Main Nav Element */
+   .site-navigation {
+
+     .margin(b,@baseFontPx,-2);
+
+     float: right;
+     #grid > .column(10);
+
+     .utility-nav {float: left;}
+     .shop-nav { float: right;}
+
+     ul {
+      margin: 0;
+      padding: 0;
+     }
+
+     li { list-style-type: none; }
+
+     > ul > li {
+       position: relative;
+       padding: 0;
+     }
+
+     > ul > li {display: inline; float: left;}
+
+     li a {
+      .padding(tr,15,12,18);
+       display: block;
+       #font > .size(15);
+       line-height: 1.2;
+       text-decoration: none;
+     }
+     .selected-tab {
+        a {
+          background: @link;
+          color: white;
+        }
+     }
+   }
+
+   .site-navigation {
+     .nav-group {display: inline-block;}
+
+    // menu toggle; hide for desktop
+    .menu-toggle-btn {
+      display: none;
+      .pos(t,15,-9);
+
+    }
+     .nav-tab {
+       .margin(r,15,12);
+       .icon {
+         .margin(l,15,4);
+         padding-right:0;
+       }
+         .new-badge {
+           position: relative;
+           .pos(trbl, @baseFontPx, -3, 0, 0, 3);
+           background: @brandBlue;
+           .border-radius(a,@baseFontPx, 18);
+           .padding(trbl, @baseFontPx, 6, 12, 6, 12);
+           text-transform: uppercase;
+           display: inline-block;
+           color: #fff;
+           #font > .size(12);
+        }
+        .new-badge2 {
+          position: relative;
+          .pos(trbl, @baseFontPx, -3, 0, 0, 3);
+          background: @brandBlue;
+          .border-radius(a,@baseFontPx, 18);
+          .padding(trbl, @baseFontPx, 6, 12, 6, 12);
+          text-transform: uppercase;
+          display: inline-block;
+          color: #fff;
+          #font > .size(12);
+       }
+     }
+     #support-menu .nav-tab {margin-right: 0}
+   }
+
+   // No :hover for touch devices */
+   .no-touch .site-navigation .nav-tab:hover,
+   .no-touch .site-navigation .nav-tab:focus,
+   .site-navigation .nav-tab:active {
+    .border-radius(a,15,2);
+    background: @linkHoverBg;
+    color: @link;
+   }
+   // Tab State - open sub menu */
+   .site-navigation .open > .nav-tab,
+   .no-touch .site-navigation .open > .nav-tab:focus,
+   .site-navigation .open > .nav-tab:active,
+   .site-navigation .open > .nav-tab:hover {
+     text-decoration: none;
+     color: #fff;
+     background: @brandBlue;
+     .border-radius(tlr,15,2,2);
+   }
+
+     // Sub Menu Styles (extends menu module) */
+     .site-navigation .menu {
+        .pos(t,@baseFontPx,42);
+        right: auto;
+        margin: 0;
+        min-width: 100%;
+        border: none;
+        .border-radius(none);
+        padding: 0;
+        background: none;
+
+        // Show drop down */
+        .open > .menu {
+          visibility: visible;
+          .opacity-no-ie(1);
+          height: auto;
+        }
+      }
+      .site-navigation .shop-nav .menu {
+        left: auto;
+        .pos(r,@baseFontPx,12);
+
+        li:first-child a {.border-radius(tl,13,2)}
+      }
+      .site-navigation #support-menu .menu {right: 0;}
+      .site-navigation .menu {
+        ul {margin: 0}
+        li {
+          float: none;
+          font-weight: normal;
+          padding:0;
+
+          a {
+            .min-width(13,144);
+            .max-width(13,270);
+            background: @brandBlue;
+            font-weight: normal;
+            color: #a6d2f4;
+          }
+
+          &:first-child a {.border-radius(tr,13,2)}
+          &:last-child a {.border-radius(blr,13,2,2)}
+        }
+      }
+      // No :hover for touch devices */
+      .no-touch .site-navigation .menu a:hover,
+      .site-navigation .menu a:focus,
+      .site-navigation .menu a:active {
+        color: #fff;
+        background: @linkHover;
+        outline: 0;
+      }
+
+  // IE < 8 Fallbacks */
+  .ie7 .site-navigation {
+   .nav-tab {
+     padding-bottom: 9px;
+     height: auto;
+     z-index: 1000;
+   }
+    .menu {
+      .pos(t,@baseFontPx,39);
+      z-index: 1000;
+    }
+     .utility-nav .menu {left: 0;}
+     .shop-nav .menu {
+       .pos(r,@baseFontPx,12);
+     }
+  }
+
+  .ie8 .site-header,
+  .ie7 .site-header {
+   .border(t,@baseFontPx,5);
+   border-color: @brandYellow;
+   min-height: 0;
+    .new-badge {
+      .min-width(@baseFontPx, 36);
+      .min-height(@baseFontPx, 20);
+      text-align: center;
+      .pos(t, @baseFontPx, -1);
+    }
+  }
+
+  // ie7 does not interpret the border mixins correctly, falling back to old-skool border declarations */
+  .ie8 .site-header,
+  .ie7 .site-header {
+    border-top: 5px solid @brandYellow;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .ie7 .site-header {
+    .padding(b, @baseFontPx, 6);
+  }
+
+  .ie8 .site-header.site-header-secondary,
+  .ie7 .site-header.site-header-secondary {
+    z-index: 900;
+    border-top: 0;
+    border-bottom: 1px solid @moduleGrey;
+  }
+
+  .ie7 .site-header.site-header-secondary {
+    .padding(trbl, @baseFontPx, 6, 0, 12, 0);
+  }
+
+  .ie8 .site-navigation {
+     li>a>span {
+      position: relative;
+      padding: 0 4px;
+      // background: url(//www.expedia.com/static/ui_toolkit/v2-0/images/dropdown-icon.png) 0 0 no-repeat;
+      width: 9px;
+      height: 10px;
+      display: inline-block;
+      top: 2px;
+      left: 2px;
+      vertical-align: top;
+    }
+
+    .nav-tab .open>a>span {
+     // background: url(//www.expedia.com/static/ui_toolkit/v2-0/images/dropdown-icon.png) 0 -8px no-repeat;
+    }
+
+  }
+
+  // ie7 */
+  .ie7 .site-navigation {
+    li>a>span {
+    position: relative;
+    padding: 0 4px;
+    padding-right: 0;
+    width: 10px;
+    height: 10px;
+    top: -3px;
+    left: 2px;
+    display: inline-block;
+  }
+
+  .open>a>span {
+    background: url(//www.expedia.com/static/ui_toolkit/v2-0/images/dropdown-icon.png) 0 -13px no-repeat;
+  }
+
+  .menu li a {
+    margin-bottom: -1px;
+  }
+}
+
+
+.site-header-secondary,
+.tv-header.site-header-secondary {
+  background: #fff;
+  border-top: 0;
+  box-shadow: none;
+  .border(b,@baseFontPx,1,);
+  border-color:  @moduleGrey;
+  .padding(t, @baseFontPx, 0);
+}
+
+/*  The following CSS is specific to an AB test variant for the global header,
+    and has been namespaced with a global class "3110" on the outermost
+    header container.
+*/
+
+
+@mq1001: ((1001 / 16) + 0em);
+@mq725: ((725 / 16) + 0em);
+
+.ie8 {
+  .site-header {
+    .padding(b, @baseFontPx, 6);
+    .below726 { display: none ;}
+    .site-navigation {
+      .shop-nav li a {
+        .padding(tr,15,12,9);
+        #font > .size(13);
+      }
+
+      .nav-tab { margin-right: 0; }
+      .below870,
+      #all-in-shop-menu { display: none; }
+
+      .menu { .pos(t,@baseFontPx,36); }
+
+      .shop-nav .menu { right: 0;}
+    }
+
+    .site-navigation.all-in {
+      float: none;
+      width: auto;
+      clear: left;
+      .utility-nav {
+       li {
+        .padding(trbl, @baseFontPx, 4, 4, 4, 4);
+       }
+
+       li a {
+        .padding(trbl,@baseFontPx, 8, 8, 8, 8);
+       }
+      }
+    }
+  }
+
+}
+
+.ie9, .ie10 {
+  .site-navigation.all-in {
+    clear: left;
+    float: none;
+    width: auto;
+  }
+}
+
+.ie8 .site-header {
+  .all-in-collapsed { display: none ;}
+  .site-navigation.all-in {
+    .utility-nav {
+     &>li>a {
+      .padding(trbl, @baseFontPx, 8,7,8,7);
+     }
+    }
+  }
+
+}
+
+
+
+// IE7 compatibility styles
+// ==========================================================================
+
+
+.ie7 .site-header {
+  .utility-nav.below726,
+  .all-in-collapsed { display: none ;}
+  .site-navigation {
+    z-index: 1000;
+    position: relative;
+    .pos(r, @baseFontPx, -24);
+    li a {
+      padding-right: 0;
+    }
+    li a#header-itineraries,
+    li a#tv-header-itineraries  {
+      .padding(r, @baseFontPx, 18);
+    }
+  }
+
+  .site-navigation.all-in {
+    .pos(r, @baseFontPx, 0);
+    .pos(l, @baseFontPx, -8);
+    z-index: 900;
+    width: 992px;
+    float: none;
+    li a {
+      .padding(trbl, @baseFontPx, 8, 8, 8, 8);
+    }
+  }
+
+ }
+// Travelocity brand overrides
+// ==========================================================================
+
+.tv-header {
+  border-color: @tvlyLinkBlue transparent @moduleGrey;
+  box-shadow: none;
+  background: @tvlyDarkBlue;
+
+  .tvly-tracking-beacon {
+    display: block;
+    .width(@baseFontPx, 1);
+    .height(@baseFontPx, 1);
+    overflow: hidden;
+  }
+
+  .menu-toggle-btn {
+    color: #fff;
+  }
+  .site-navigation {
+
+    li a { color: #fff; }
+
+    .selected-tab a {
+      background: @tvlyMidBlue;
+      color: white;
+    }
+
+   .nav-tab:hover,
+   .nav-tab:focus,
+   .nav-tab:active {
+    background: @tvlyDarkBlue;
+    color: white;
+   }
+
+  .nav-group .open > .nav-tab,
+   .site-navigation .open > .nav-tab:focus,
+   .site-navigation .open > .nav-tab:active,
+   .site-navigation .open > .nav-tab:hover {
+     background: @tvlyLinkBlue;
+   }
+
+  .menu {
+      li {
+        a,
+        a:link {
+          background: @tvlyLinkBlue;
+          font-weight: normal;
+          color: white;
+          &:focus,
+          &:active,
+          &:hover {
+            background: @tvlyMidBlue;
+          }
+        }
+      }
+    }
+  } // .site-navigation
+
+} // .tv-header
+
+.tv-header.site-header-secondary {
+  .site-navigation {
+    li a {
+      color: @tvlyLinkBlue;
+    }
+    .selected-tab a {
+      color: #fff;
+    }
+  }
+}
+
+.lt-ie9 .tv-header {
+  border-top: 5px solid @tvlyLinkBlue;
+  border-bottom: 1px solid @moduleGrey;
+  .site-navigation {
+    .nav-tab .icon-toggle180 {
+      background: url(//www.expedia.com/static/ui_toolkit/v2-0/images/dropdown-icon.png) 0 -13px no-repeat;
+    }
+  }
+}
+
+.ie7 .tv-header {
+  .site-navigation {
+    .nav-tab {
+      margin-right: 0;
+    }
+    li a {
+      #font > .size(13);
+      span {
+        .pos(t,@baseFontPx,-2);
+      }
+    }
+    .menu {
+     .pos(t,@baseFontPx,35);
+    }
+    .shop-nav .menu {
+      .pos(r,@baseFontPx,0);
+    }
+  }
+  .site-navigation.all-in {
+    li a {
+      #font > .size(15);
+    }
+  }
+}
+
+
+// Travelocity logo overrides
+// ==========================================================================
+
+.svg .tv-header {
+  #header-tv-logo.logo {
+    background-image: url(/static/ui_toolkit/v2-0/images/tvly-logo-inverse.svg);
+    background-repeat: no-repeat;
+    .background-size();
+    .height(@baseFontPx,42);
+    .margin(t, @baseFontPx, -3);
+    .margin(l, @baseFontPx, -2);
+  }
+}
+
+.no-svg #header-tv-logo.logo,
+.firefox.svg #header-tv-logo.logo {
+  background: url(/static/ui_toolkit/v2-0/images/tvly-logo-inverse-sm.png) no-repeat;
+  .width(@baseFontPx,123);
+  .height(@baseFontPx,38);
+}
+
+@media only screen and (min-width: @mq725) and  (max-width: @mq1001){
+
+.ie9 .site-header, .ie10 .site-header {
+  .site-navigation.all-in {
+      .utility-nav {
+       &>li>a {
+        .padding(trbl, @baseFontPx, 8,8,8,8);
+       }
+        #all-in-home-header-link a { padding-left: 0;}
+        #all-in-home-header-link.selected-tab a { .padding(l, @baseFontPx, 8);}
+      }
+
+    .all-in-full { display: none ;}
+  }
+
+  #shop-menu { display: none;}
+}
+
+}
+
+@media only screen and (min-width: @mq725) {
+
+  .site-header {
+    .padding(b, @baseFontPx, 6);
+    .below726 { display: none ;}
+    .site-navigation {
+      .shop-nav li a {
+        .padding(tr,15,12,9);
+        #font > .size(13);
+      }
+
+      .nav-tab { margin-right: 0; }
+
+      .menu { .pos(t,@baseFontPx,36); }
+
+      .shop-nav .menu { right: 0;}
+    }
+
+    .site-navigation.all-in {
+      float: none;
+      width: auto;
+      clear: left;
+      .utility-nav {
+       &>li {
+        .padding(trbl, @baseFontPx, 4, 0, 4, 0);
+       }
+       &>li>a {
+        .padding(trbl,@baseFontPx, 8, 8, 8, 8);
+       }
+        #all-in-home-header-link.selected-tab a { .padding(l, @baseFontPx, 8);}
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: @mq1001) {
+
+  .site-header {
+
+    .all-in-collapsed { display: none;}
+
+  }
+
+}
+
+@media only screen and (max-width: @mq1001) {
+
+  .site-header {
+
+    .all-in-collapsed { display: block; }
+    .all-in-full{ display: none;}
+
+  }
+
+}
+
+@media only screen and (max-width: @mq725) {
+  .site-header {
+    .border(b,@baseFontPx,1);
+    border-color: @brandYellow transparent @moduleGrey;
+    .below726,
+    .all-in-full { display: block;}
+  }
+  .site-header-secondary {
+    display: none;
+  }
+
+.tv-header {
+  border-color: @tvlyLinkBlue transparent @moduleGrey;
+  box-shadow: none;
+  background: @tvlyDarkBlue;
+
+  .menu-toggle-btn {
+    color: #fff;
+  }
+  .site-navigation {
+    background: #fff;
+    li a {
+      color: @tvlyLinkBlue;
+      background: #fff;
+    }
+
+    .selected-tab a {
+      background: @tvlyMidBlue;
+      color: white;
+    }
+
+   .nav-tab:hover,
+   .nav-tab:focus,
+   .nav-tab:active {
+    background: @tvlyMidBlue;
+    color: white;
+   }
+
+  .nav-group .open > .nav-tab,
+   .site-navigation .open > .nav-tab:focus,
+   .site-navigation .open > .nav-tab:active,
+   .site-navigation .open > .nav-tab:hover {
+     background: @wellGrey;
+     color: @text;
+
+   }
+
+    .menu {
+      background: #fff;
+      li {
+        background: #fff;
+        a,
+        a:link {
+          .border(t, @baseFontPx, 1);
+          border-top-color: #fff !important; //TODO fix specificity rules
+          background: @wellGrey;
+          font-weight: normal;
+          color: @text;
+          &:focus,
+          &:active,
+          &:hover {
+            color: @text;
+            background: @paleGrey;
+          }
+        }
+      }
+    }
+  } // .site-navigation
+
+} // .tv-header
+
+}
+.lt-ie9 .tv-header {
+  border-top: 5px solid @tvlyLinkBlue;;
+  border-bottom: 1px solid @moduleGrey;
+  .site-navigation {
+    .nav-tab .icon-toggle180 {
+      background-image: url(/static/ui_toolkit/v2-0/images/tvly-dropdown-icon.png);
+    }
+  }
+}
+
+.ie7 .tv-header {
+  .site-navigation {
+    .nav-tab {
+      margin-right: 0;
+  }
+    li a {
+      #font > .size(13);
+      span {
+        .pos(t,@baseFontPx,-2);
+      }
+    }
+    .menu {
+     .pos(t,@baseFontPx,35);
+    }
+    .shop-nav .menu {
+      .pos(r,@baseFontPx,0);
+  }
+  }
+  .site-navigation.all-in {
+    li a {
+      #font > .size(15);
+    }
+  }
+}
+
+// TODO: Kevin get Bills help integrating this more appropriately
+@scratchpadMenuWidth: 300;
+@imgFontSize: 36;
+// Scratchpad Pattern
+// ====================================================================
+// Overrides from header
+.site-navigation .scratchpad .menu .scratchpad-item > a {
+  .min-width(13,@scratchpadMenuWidth);
+  .max-width(13,@scratchpadMenuWidth);
+  .padding(tr,13,12,24);
+
+  &:hover { // Added by Kevin to override an existing hover behavior
+    background: #00355f;
+  }
+}
+
+// Scratchpad specific
+.scratchpad  {
+
+  .badge {
+    .margin(b,13,-1);
+    #font > .size(13,15);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+  &.open .badge {
+    background: transparent;
+    color: #9fd3f6;
+  }
+  .menu-header {
+    .width(@baseFontPx,@scratchpadMenuWidth);
+    .padding(a,@baseFontPx,18);
+    .border-radius(tl,13,3);
+    color: @paleGrey;
+    background: #00355f;
+
+    p {
+      .margin(b,@baseFontPx,24);
+      color: #fff;
+    }
+    .btn-action, .sub-action {
+      vertical-align: middle;
+    }
+    .btn-action {
+      float: left;
+      margin-top: 0;
+    }
+    .sub-action {
+      padding-right: 0;
+      background: none !important;
+      color: #95abbc;
+      text-align: right;
+  }
+  }
+}
+.site-navigation .scratchpad .item-link {
+  overflow: hidden;
+  position: relative;
+  min-width: 100%;
+  color: #6ea6cb;
+}
+
+
+// Overly-Specific Styles
+// Wow - I really have to be this specific
+.site-navigation .shop-nav .scratchpad .menu {
+  // Commented out by Kevin:
+  // Disabling for the first version of tray, re-enable when using all content
+  // right: 50%;
+  // .margin(r,@baseFontPx,-(@scratchpadMenuWidth /2));
+  .border-radius(a,@baseFontPx,6);
+}
+
+.scratchpad .scratchpad-greeting {
+  .padding(a,13,12);
+  .border-radius(tl,13,3);
+
+  // This is hacky, but somebody has been using overly generic selectors like
+  // .menu li a { which makes this otherwise impossible
+  .btn-action {
+    font-weight: bold;
+    padding: 0 !important;
+    border-color: #d4a900 #aa8700 #aa8700;
+    background: #ffbe00;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, #ffbe00), color-stop(100%, #ffcb00));
+    background: -webkit-linear-gradient(bottom, #ffbe00 0%, #ffcb00 100%);
+    background: -moz-linear-gradient(bottom, #ffbe00 0%, #ffcb00 100%);
+    background: -ms-linear-gradient(bottom, #ffbe00 0%, #ffcb00 100%);
+    background: linear-gradient(bottom, #ffbe00 0%, #ffcb00 100%);
+    text-align: center;
+    color: #3d3100;
+
+    &:hover {
+      color: #3d3100 !important;
+      border-color: #b89300 #8a6e00 #8a6e00 !important;
+      background-color: #ffcb00 !important;
+    }
+  }
+
+  .sub-action {
+    padding: 0.6em !important;
+  }
+}
+
+.site-navigation .shop-nav .scratchpad-item:first-child  .item-link {.border-radius(none);}
+
+.scratchpad-item {
+  .site-navigation .scratchpad & .item-data {
+    .padding(l,13,36);
+    // margin-right: 30%; // Commented out by Kevin; use when using full content
+    margin-right: 12%;    // and remove this temporary value
+    line-height: 1.45;
+  }
+  .item-title {
+    width: 100%;
+    overflow: hidden;
+    #truncate();
+  }
+
+  .item-title, .price {
+    color: #a6d2f4;
+  }
+  // Unused but ready for future styling
+  // .item-date {}
+  // .item-info {}
+  // .item-watches {}
+  // end unused
+  .item-price-urgency {
+    position: absolute;
+    .pos(t,13,12);
+    .pos(r,13,18);
+    width: 30%;
+    text-align: right;
+
+    .item-urgency, .price {display: inline-block; width: 100%;}
+    .item-urgency {color: #fff; font-style: normal;}
+    .price {#font > .size(15,13); line-height: 1.2;}
+  }
+  .item-img-icon {
+    position: absolute;
+    .pos(t,@imgFontSize,12);
+    .pos(l,@imgFontSize,12);
+    .width(@imgFontSize,36);
+    #font > .size(@imgFontSize,13);
+    color: #6aa1c6;
+
+    .image {
+      background-color: #00355f;
+
+      img { // Kevin did this, not sure about keeping, ask Jason/Paul for input
+        position: relative;
+      }
+    }
+  }
+
+  &.dateless {
+    .item-title {
+      .padding(t,13,12);
+    }
+    .item-date {
+      display: none;
+    }
+  }
+
+  &.first .item-link {
+    .padding(t,13,24); // TODO: This is not working!
+    .border-radius(tl,@baseFontPx,6);
+  }
+}
+
+.site-navigation .scratchpad .menu .scratchpad-item .view-all-history {
+  color: @paleGrey;
+  text-align: center;
+  .border-radius(br,@baseFontPx,6); // TODO: Doesn't work
+  .border-radius(bl,@baseFontPx,6);
+}
+// Link States
+// ============================================================
+
+// Item Links
+// Hopefully some of the specificity will go away once Storefront refactors the header css
+.no-touch .site-navigation .scratchpad .item-link:hover,
+.site-navigation .scratchpad .item-link:focus,
+.site-navigation .scratchpad .item-link:active {
+  color: #b8c6d1;
+  background: @brandBlue;
+  .item-img-icon {color: inherit;}
+  .item-title, .price {color: @paleGrey;}
+}
+
+// .no-touch .site-navigation .scratchpad .scratchpad-item .view-all-history:hover,
+// .no-touch .site-navigation .scratchpad .scratchpad-item .view-all-history:focus,
+// .no-touch .site-navigation .scratchpad .scratchpad-item .view-all-history:active {color: #6ea6cb;}
+
+.no-touch .site-navigation .scratchpad .view-all-history:hover,
+.no-touch .site-navigation .scratchpad .sub-action:hover {text-decoration: underline;}
+
+
+// Everything below small tablets
+@media only screen and (max-width: @mq725) {
+  .site-navigation .scratchpad {
+    // font-size + padding Overrides for content since the default sizes are rest in header :(
+
+    .menu .menu-header {
+      position: relative;
+      width: auto;
+      .padding(tr,@baseFontPx,18,24);
+      .margin(r,@baseFontPx,-24);
+      .margin(l,@baseFontPx,-24);
+
+      + ul li a:first-child {.border-radius(none);}
+    }
+    .menu .scratchpad-item .item-link {
+      min-width: 100%;
+      border: none;
+      .padding(tr,15,12,24);
+    }
+    .scratchpad-item .item-data {
+      #font > .size(13,15);
+      .item-img-icon {
+        #font > .size(36,13);
+      }
+    }
+    .scratchpad-item .item-img-icon {
+      #font > .size(@imgFontSize,15);
+      .pos(t,36,12);
+
+    }
+    .scratchpad-item .item-link.view-all-history {
+      .border-radius(bl,@baseFontPx,0);
+    }
+   .menu .item-link .badge {
+      line-height: 1.45;
+    }
+  }
+
+  // Again - too much specificity
+  .site-navigation .shop-nav .scratchpad .menu  {right: 0; margin-right: 0;}
+}
+
+// Travelocity logo overrides
+// ==========================================================================
+
+// scratchpad badge
+.badge-notification.badge-secondary {
+  line-height: 1.5;
+}
+.ie8 .site-navigation li > a > span.badge {
+  .padding(l, @baseFontPx, 0);
+  .padding(r, @baseFontPx, 0);
+  top: 0px;
+  height: 15px;
+  width: 16px;
+  &.visuallyhidden {
+    display: none;
+  }
+}

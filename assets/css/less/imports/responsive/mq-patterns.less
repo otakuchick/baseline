@@ -1,0 +1,293 @@
+
+// FLIGHTS SEARCH WIZARD PATTERN
+// =======================================================================
+// Desktop breakpoint
+@media only screen and (min-width: @mqMinDesktop) {
+  .pattern-playback.flights .playback-search {
+    visibility: visible !important;
+    height: auto !important;
+    opacity: 1 !important;
+    
+    & > * {
+      .opacity(1);
+      .transition(none);
+    }
+    .inline-wrapper {
+      position: relative;
+      .margin(r,@baseFontPx,130);
+    }
+    .cols-row {
+      width: auto;
+      float: left;
+      padding-right: 0;
+      padding-top: 0;
+      &.validation-group {
+        float: none;
+        width: 100%;
+      }
+      &.locations {
+        float: none;
+        .margin(r,@baseFontPx,312);
+      }
+      &.timeframe, &.search-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      &.search-button {
+        .pos(r,@baseFontPx,-130);
+        .width(@baseFontPx,130);
+      }
+    }
+    .origin, .destination {
+      width: 50%;
+    }
+    .departing, .returning {
+      .min-width(17,156);
+    }
+    .options {
+      clear: left;
+      label {
+        margin-top: 0;
+      }
+      .options-pane {
+        .cols-nested:last-child {
+          .padding(b,@baseFontPx,12);
+        }
+        div.col {
+          .margin(t,@baseFontPx,24);
+          .check {
+            clear: left;
+          }
+        }
+        .children-rules {
+          .col {
+            margin-top: 0;
+          }
+          .young-child-note {
+            display: inline-block;
+            .margin(trbl,13,0,12,0,0);
+          }
+          label {
+            line-height: 1;
+          }
+        } 
+      }
+    }
+    button.btn-secondary.btn-sub-action {
+      .margin(t,15,36);
+    }
+    + .playback-summary {
+      display: none;
+    }
+  }
+  
+  // Accomodating long French translation for 'Search'
+  html[lang="fr"] .pattern-playback.flights .playback-search {
+    .inline-wrapper {
+      .margin(r,@baseFontPx,160);
+    }
+    .cols-row {
+      &.search-button {
+        .pos(r,@baseFontPx,-160);
+        .width(@baseFontPx,160);
+      }
+    }
+  }
+}
+
+// Tablet (large to small) breakpoint
+@media only screen and (min-width: @mqMinSmallTablet) and (max-width: @mqMaxTablet) {
+  .pattern-playback.flights .playback-search {
+    .cols-row + .cols-row {
+      padding-top: 0;
+    }
+    .origin, .destination {
+      width: 50%;
+    }
+    .departing, .returning, .travelers {
+      max-width: 33%;
+    }
+    .departing, .returning {
+      .min-width(17,156);
+    }
+    .options-pane {
+      label {
+        margin-top: 0;
+      }
+      div.col {
+        .margin(t,@baseFontPx,24);
+      }
+    }
+  }
+}
+
+// Tablets 600+ breakpoint
+@media only screen and (min-width: @mqTablet600) and (max-width: @mqMaxTablet) {
+  .pattern-playback.flights .playback-search {
+    .options {
+      .options-pane {
+        .children-rules {
+          .col {
+            margin-top: 0;
+          }
+          .young-child-note {
+            display: inline-block;
+            .margin(trbl,13,0,12,0,0);
+          }
+          label {
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile breakpoint
+@media only screen and (max-width: @mqMaxMobile) {
+  .pattern-playback.flights .playback-search {
+    .cols-row + .cols-row {
+      padding-top: 0;
+    }
+    .origin, .destination, .col, .select {
+      width: 100%;
+    }
+    .departing, .returning {
+      width: 50%;
+    }
+    .options {
+      a.toggle-trigger {
+        white-space: nowrap;
+      }
+    }
+    .options-pane {
+      label {
+        margin-top: 0;
+      }
+      div.col {
+        .margin(t,@baseFontPx,12);
+      }
+      label.col + label.col {
+        .margin(t,@baseFontPx,12);
+      }
+      .passenger-select, .children-ages {
+        .col, .select {
+          width: auto;
+        }
+        label.col + label.col {
+          margin-top: 0;
+        }
+      }
+    } 
+  }
+}
+
+// HOTELS SEARCH WIZARD PATTERN
+// =======================================================================
+
+@media only screen and (min-width: @mqMinTablet) {
+  .pattern-playback.hotels .playback-search {
+    .inline-wrapper {
+      position: relative;
+      .margin(r,@baseFontPx,130);
+    }
+    .cols-row {
+      width: auto;
+      float: left;
+      padding-right: 0;
+      padding-top: 0;
+      &.validation-group {
+        float: none;
+        width: 100%;
+      }
+      &.location {
+        width: 55%;
+      }
+    }
+    .destination {
+      width: 100%;
+    }
+    .check-in, .check-out {
+      .min-width(17,156);
+    }
+    .options {
+      width: 100%;
+      clear: both;
+      label {
+        margin-top: 0;
+      }
+      .options-pane {
+        .cols-nested:last-child {
+          padding-bottom: 0;
+        }
+        div.col {
+          .margin(t,@baseFontPx,24);
+          .check {
+            clear: left;
+          }
+        }
+        .children-rules {
+          .col {
+            margin-top: 0;
+          }
+          .young-child-note {
+            display: inline-block;
+            .margin(trbl,13,0,12,0,0);
+          }
+          label {
+            line-height: 1;
+          }
+        } 
+      }
+    }
+    button.btn-secondary.btn-sub-action {
+      margin-top: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: @mqMinSmallTablet) and (max-width: @mqMaxSmallTablet) {
+  .pattern-playback.hotels .playback-search {
+    .cols-row + .cols-row {
+      padding-top: 0;
+    }
+    .destination {
+      width: 100%;
+    }
+    .check-in, .check-out {
+      max-width: 33%;
+      .min-width(17,156);
+    }
+    .options-pane {
+      label {
+        margin-top: 0;
+      }
+      div.col {
+        .margin(t,@baseFontPx,24);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: @mqMaxMobile) {
+  .pattern-playback.hotels .playback-search {
+    .cols-row + .cols-row {
+      padding-top: 0;
+    }
+    .destination {
+      width: 100%;
+    }
+    .check-in, .check-out {
+      width: 50%;
+    }
+    .options-pane {
+      label {
+        margin-top: 0;
+      }
+      div.col {
+        .margin(t,@baseFontPx,24);
+      }
+    }
+  }
+}

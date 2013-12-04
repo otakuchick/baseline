@@ -1,0 +1,147 @@
+/* UITK Calendar */
+
+.cal{
+  *{.box-sizing;}
+  overflow:hidden;
+  // .width(@baseFontPx,473);
+  position:relative;
+
+  ul{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+  }
+  li{
+
+    @dateWidth:(100/7);
+
+    float:left;
+    padding-bottom: 0;
+    text-align: center;
+    width:@dateWidth + 0%;
+
+    &.date-offset-1{
+      margin-left:@dateWidth + 0%;
+    }
+
+    &.date-offset-2{
+      margin-left:@dateWidth*2 + 0%;
+    }
+
+    &.date-offset-3{
+      margin-left:@dateWidth*3 + 0%;
+    }
+
+    &.date-offset-4{
+      margin-left:@dateWidth*4 + 0%;
+    }
+
+    &.date-offset-5{
+      margin-left:@dateWidth*5 + 0%;
+    }
+
+    &.date-offset-6{
+      margin-left:@dateWidth*6 + 0%;
+    }
+  }
+
+  h2{
+    #font > .size(15);
+    .margin(trbl,15,12,0,24,0);
+    text-align: center;
+  }
+
+  .next, .prev{
+    border: none;
+    color:@link;
+    position:absolute;
+    #font > .size(36);
+    .pos(t,36,10);
+    .btn-label{
+      margin:0;
+      padding:0;
+    }
+  }
+
+  .next{
+    .pos(r,36,12);
+  }
+
+  .prev{
+    .pos(l,36,9);
+    .pos(t,36,9);
+  }
+
+  .next:hover,.next:active,.next:focus,
+  .prev:hover,.prev:active,.prev:focus{
+    color:@linkHover;
+  }
+
+  .vertical-divider{
+    position: absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    .border(l,@baseFontPx,3,@brandBlue);
+    height:auto;
+    .margin(trbl,@baseFontPx,0,0,0,-1.5);
+    z-index: 1;
+  }
+}
+
+.cal-days li{
+  color: #999;
+  font-weight: bold;
+}
+
+.cal-month{
+  float:left;
+  .padding(a,@baseFontPx,12);
+  width: 50%;
+  .min-height(@baseFontPx,276);
+}
+
+.cal-dates{
+  a{
+    display: block;
+    #font > .line-height(13,1.25);
+    width:100%;
+
+    &.highlight{
+      background:@linkHoverBg;
+    }
+
+    &:hover, &:focus, &:active{
+      background: @linkHover;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &.start, &.end{
+      background: @brandBlue;
+      color: #fff;
+    }
+
+    &.disabled{
+      background: #fff;
+      color:#CACACA;
+      cursor:default;
+    }
+  }
+}
+
+.lt-ie9 .cal{
+  .next, .prev{
+    #font > .size(17);
+    .pos(t,17,15);
+  }
+
+  .next{
+    .pos(r,17,12);
+  }
+
+  .prev{
+    .pos(l,17,12);
+  }
+}
+

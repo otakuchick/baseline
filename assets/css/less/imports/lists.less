@@ -1,0 +1,91 @@
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+  * Segmented List Example HTML:
+  *
+  * <ul class="segmented-list">
+  *     <li class="segment">
+  *       <a class="info">CLICKABLE BLOCK OF CONTENT</a>
+  *     </li>
+  *     <li class="segment"></div>
+  * </ul>
+  */
+  .segmented-list {
+    .margin(b,@baseFontPx,12);
+    margin-left: 0;
+    .border-radius(blr,@baseFontPx,3,3);
+    .border(trb,@baseFontPx,0,0,1,@moduleGrey);
+    padding-left: 0;
+    list-style: none;
+    color: @text;
+
+    & + .segmented-list {.margin(t,@baseFontPx,12);}
+
+    .segment {
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 0;
+      .border(trb,@baseFontPx,0,0,1,@moduleGrey);
+      background: #fff;
+
+      &:first-child, &:first-child .target {.border-radius(tlr,@baseFontPx,3,3)}
+      &:last-child, &:last-child .target {.border-radius(blr,@baseFontPx,3,3)}
+      
+      /* Clickable Target */
+      .target {
+        display: block;
+        .padding(a,@baseFontPx,18);
+        color: @text;
+        text-decoration: none;
+        cursor: pointer;
+        .cf;
+        .link {color: @link}
+      }
+      &.no-target {
+        .padding(a,@baseFontPx,18);
+        background: #fff;
+      }
+    }
+      /* Segment Title */
+      .segment-title {
+        .title-main {margin: 0;}
+        .title-sub {color: @moduleGrey;}
+      }
+      /* Segment Footer */
+      .segment-footer {
+        .target {
+          .padding(t,@baseFontPx,9);
+          .padding(b,@baseFontPx,9);
+        }
+      }
+  }
+
+  /* Segment & Target States */
+  .segmented-list {
+    .segment {
+      &.open {
+        .margin(tr,@baseFontPx,6,0);
+        .border(tr,@baseFontPx,1,0,@moduleGrey);
+      }
+      &.after-open {
+        .margin(t,@baseFontPx,6);
+        .border(t,@baseFontPx,1,@moduleGrey);
+      }
+    }
+  }
+
+
+
+
+  /* No :hover for touch devices */
+  .no-touch .segmented-list .target:hover, 
+  .segmented-list .target:active,
+  .segmented-list .target:focus {
+    background: @linkHoverBg;
+  }
+
+  .segmented-list + .segmented-list {.margin(t,@baseFontPx,24)}
+

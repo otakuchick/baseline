@@ -1,0 +1,68 @@
+.on-off-switch{
+
+  @onOffSwitchFontSize:13;
+
+  legend,
+  label{
+   float:left;
+  //  border:1px solid red;
+  }
+
+  legend{
+    .padding(t,@onOffSwitchFontSize,18);
+    .margin(r,@onOffSwitchFontSize,12);
+
+  }
+
+  .check + .check{
+    .margin(l,@onOffSwitchFontSize,1);
+  }
+
+  .inline-label{
+    .border-radius(a,@onOffSwitchFontSize,3);
+   // background-color:#e5e5e5;
+    .padding(tr,@onOffSwitchFontSize,6,12);
+    margin:0;
+    color:@link;
+
+    &:hover{
+      background-color:@areaHover;
+    }
+  }
+
+  input:active + .inline-label{
+    background-color:@areaActive;
+  }
+
+  input:focus + .inline-label {
+    background-color:@areaActive;
+    color:@link;
+  }
+
+  input:checked + .inline-label{
+    background-color:@brandBlue;
+    color:#fff;
+  }
+
+
+
+//  if :checked is not supported
+// yes, this is doubling up on styles but IE cries otherwise.
+  input.checked + .inline-label{
+    background-color:@brandBlue;
+    color:#fff;
+  }
+
+}
+
+// IE goodness
+.lt-ie9 .on-off-switch{
+  .inline-label{
+    cursor:pointer;
+    .padding(r,13,12);
+  }
+}
+
+
+
+

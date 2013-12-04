@@ -1,0 +1,185 @@
+/* 
+ * BOX STYLES
+ */
+ 
+ /**
+  * Box HTML:
+  *
+  * <div class="box"></div>
+  */
+ 
+  .box {
+    position: relative;
+    .padding(a,@baseFontPx,18);
+    .border-radius(a,@baseFontPx,3);
+    background: #fff;
+    .border(b,@baseFontPx,1,@moduleGrey);
+
+
+    .box-title {
+      .margin(b,@baseFontPx,24);
+      .title-main, .title-sub {margin: 0;}
+      .title-main {}
+      .title-sub {
+        #font > .size(@copy);
+        font-weight: normal;
+        color: darken(@moduleGrey,36%);
+
+      }
+      &:first-child {margin-top: 0;}
+    }
+    
+    p {
+      #font > .size(13);
+      + p {.margin(t,13,18);}
+    }
+  }
+
+  .box + .box {.margin(t,@baseFontPx,24);}
+  
+  /* Box Theme Colors */
+  .box-default {background: @alertDefault}
+  .box-info {background: @alertInfo}
+  .box-bold {
+    background: @alertBold;
+    * {color: #fff}
+  }
+  
+  /* Extends box style */
+  /**
+   * Secondary Box (extends .box) HTML:
+   *
+   * <div class="box box-secondary"></div>
+   */
+  .box-secondary {
+    .padding(a,@baseFontPx,18);
+
+    .box-title {
+      .margin(b,@baseFontPx,18);
+      .title-sub {#font > .size(13);}
+    }
+    
+  }
+
+ /**
+  * Control Box HTML (extends .box):
+  *
+  * <div class="box control">
+  *
+  * </div>
+  */
+  .control {
+    .3dShadow(darken(@moduleGrey,18%));
+    .border-radius(a,@baseFontPx,4);
+    .border(t,@baseFontPx,3,@brandYellow);
+  }
+ 
+ /**
+  * Box Well
+  *
+  * Dark bg and inset top border (extends .box)
+  *
+  * @todo Create new color variables
+  */
+  .well {
+    .border-radius(a,@baseFontPx,4);
+    .border(trb,@baseFontPx,1,0,0,@moduleGrey);
+    background: lighten(@moduleBorder,29.75%);
+
+    &.secondary {
+      .border-width(trb,13,1,0,0);
+    }    
+  }
+
+  .well-light {
+    border-top-color: @alertDefault;
+    background: @alertLight 
+  }
+  .well-bold {
+
+  }
+  .well-info {
+
+  }
+
+  /* Complex Box */
+  .complex {
+    .border(t,@baseFontPx,8,@moduleGrey); 
+    .border(t,@baseFontPx,8,@moduleGrey);
+    .border(t,@baseFontPx,8,@moduleGrey); 
+    > .inner {
+      .padding(t,@baseFontPx,4);
+    }
+  }
+ 
+ .grab {
+   .border(trb,@baseFontPx,12,1,1,@moduleBlue);
+   
+    > .inner {
+      .padding(t,@baseFontPx,6);
+    }
+ }
+ 
+ /* Complex Grab Box (extends complex box) */
+ 
+ /* Headline Bar Boxes */
+ .box .headline-bar {
+   .margin(b,@h3,0);
+ }   
+ 
+  /* Bold Headline Box (extends headline box) */
+ .bar-bold {
+   border: 0;
+   .headline-bar {
+     .margin(b,@h3,0);
+     .padding(l,@h3,15);
+     .padding(r,@h3,15);
+   }
+   > .inner {
+     .padding(b,@baseFontPx,9);
+     .border(trb,@baseFontPx,0,3,3,@moduleBlue);
+     .border-radius(blr,@baseFontPx,4,4); 
+   }
+ } 
+ 
+ /* Inset Headline Bar Box */
+ .inset {
+   .headline-bar {
+     .padding(l,@h3,9);
+     .padding(r,@h3,9);
+     .margin(trb,@h3,3,3,0);
+   }
+ } 
+ 
+ /* Wizard Box */
+ .wizard {
+   .linear-gradient(tb,@moduleBlue,@link);
+   border: none;
+   .padding(b,@baseFontPx,4);
+   > .hd {
+     #font > .size(@h3);
+     color: #fff;   
+     .margin(b,@h3,12);
+     .padding(trb,@h3,15,15,3);
+   } 
+   > .inner {
+     background: #fff;
+     .border(a,@baseFontPx,1,@moduleGrey);
+     .border-radius(a,@baseFontPx,3);   
+     .padding(trb,@baseFontPx,5,8,8);
+     .margin(trb,@baseFontPx,0,3,0); 
+   }
+   
+   .ad-callout { 
+     display: none;                          
+     background: @headline;
+     .margin(trb,@baseFontPx,18,-8,-8);  
+     .padding(a,@baseFontPx,6);
+   }
+ }
+ 
+ /* Message Boxes */
+ .message {
+   
+ }
+ 

@@ -1,0 +1,90 @@
+/* Search Results Module
+========================================================================== */
+
+.results-list {
+  .margin(t,@baseFontPx,24);
+
+  .segment {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+
+    .col {
+      .padding(t,@baseFontPx,12);
+      .padding(b,@baseFontPx,12);
+      &:last-child {float: right}
+    }
+    .info, .detail {
+      padding: 0;
+    }
+  }
+      .recently-viewed {
+        opacity: 0;
+        visibility: hidden;
+        #font > .size(13);
+        text-transform: uppercase;
+        .transition(opacity .5s);
+      }
+
+    .detail {
+      position: relative;
+      .box {
+        .padding(trb,@baseFontPx,12,24,12);
+      }
+      .price-detail-footer {
+        float: right;
+        .box-sizing;
+        .padding(trbl,@baseFontPx,0,24,24,48);
+        .btn {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
+    .info-summary, .detail-info {
+      .cols6(9);
+    }
+    .price-summary, .detail-price, .price-detail-footer {
+      .cols3(9);
+    }
+    .target {
+      .price-summary {
+        .padding(trb,@baseFontPx,24,12,0);
+        text-align: right;
+
+        .urgency, .price {
+          display: inline-block;
+          margin: 0;
+          vertical-align: middle;
+        }
+        .price {.padding(l,@h3,6);}
+      }
+    }
+}
+
+/* Result States - Styles */
+.results-list .open {
+  &.segment {
+    .margin(trb,@baseFontPx,6,0,0);
+    .border(a,@baseFontPx,1,@moduleGrey);
+  }
+    .detail {
+      .border(t,@baseFontPx,1,@alertDefault,dotted);
+
+      .price-detail-footer {
+        opacity: 1;
+      }
+    }
+}
+
+.boxshadow .open {
+  &.segment {
+    border: none;
+    .box-shadow(0 0 0 ((1 / @baseFontPx) + 0em) @moduleGrey);
+  }
+}
+
+/* Previously Viewed States */
+.viewed {
+  .price-summary .recently-viewed {opacity: 1; visibility: visible}
+}

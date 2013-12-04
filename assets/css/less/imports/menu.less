@@ -1,0 +1,75 @@
+//  /**
+//   * Dropdown Menu Example HTML:
+//   *
+//   * <ul class="menu>
+//   *   <li><a href="">Menu Item</a></li>
+//   *   <li><a href=""></li>
+//   * </div>
+//   */
+  .menu {
+    z-index: 1000;
+    position: absolute;
+    right: 0;
+    min-width: 100%;
+    height: 0;
+    .margin(t,15,4); 
+    .opacity-no-ie(0);
+    visibility: hidden;
+    .popupShadow;
+    .margin(tr,@baseFontPx,0,0);
+    .padding(trb,@baseFontPx,9,0,0);
+    .border-radius(tlrbrl,@baseFontPx,3,0,3,3);
+    .border(a,@baseFontPx,3,@brandBlue);
+    background: #fff;
+
+    li {
+      .padding(trb,@baseFontPx,0,18,6);
+      list-style: none;
+    }
+
+    .menu-footer {
+      .margin(t,@baseFontPx,6);
+      .border(t,@baseFontPx,1,@moduleGrey);
+      background: lighten(@moduleGrey,18%);
+      text-align: right;
+
+      a {.padding(tr,13,6,0); #font > .size(13)}
+    }
+
+//    /* Sets offset menu is pinned
+//     *
+//     * Options: pull-left|right default: right */
+    &.pin-left {right: auto; left: 0;}
+
+ }                   
+ .open > .menu {
+   .opacity-no-ie(1);
+   visibility: visible;
+   height: auto;
+ }
+ 
+  .btn-group {
+
+    .menu { 
+      .min-width(15,120);
+      .margin(t,@baseFontPx,-4);    
+
+      a {
+        display: block;
+        .padding(tr,13,6,6);
+        color: @text + #222;
+      }
+    }
+  }
+  // states
+  .no-touch .btn-group .menu a:hover,
+  .no-touch .btn-group .menu footer-menu a:hover,
+  .btn-group .menu .a:active {
+    color: @link
+   }
+  .btn-group .menu a:focus {
+    color: @linkHover;
+  }
+
+
+

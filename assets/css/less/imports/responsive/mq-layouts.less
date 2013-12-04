@@ -1,0 +1,381 @@
+
+// ==========================================================================
+// Media queries for standard UITK layouts
+// ========================================================================== 
+
+// Tablet MQ
+@media only screen and (min-width: @mqMinTablet) and (max-width: @mqMaxTablet){
+  // 2 Column A
+  // ==========================================================================
+
+  .l-results,
+  .layout-2col-a {
+
+    // TODO: DELETE ME
+    //
+    .sort-filter-bar{
+      &.include-toggle-left {
+        .margin(l,@baseFontPx,61);
+
+        // off canvas toggle button //
+        .off-canvas-btn{
+          display: block;
+          .pos(l,@baseFontPx,-60);
+        }
+      }
+      &.include-toggle-right {
+        .margin(r,@baseFontPx,61);
+
+        // off canvas toggle button //
+        .off-canvas-btn{
+          display: block;
+          .pos(r,@baseFontPx,-60);
+          margin-right: 0;
+        }
+      }
+    }
+    //
+    // END TODO
+
+
+    // Base Layout Rules
+    // =======================================================================
+
+    // Complementary Column //
+    aside[role="complementary"] {
+      .cols3(@mqColsTablet);
+    }
+
+    // Main Column //
+    section[role="main"] {
+      .cols6(@mqColsTablet);
+    }
+
+    // Off-Canvas Rules
+    // =======================================================================
+    @colCount: 4;
+
+
+  // prevents a long aside from creating whitespace at bottom of a short page
+    aside[role="complementary"]{height:0;}
+    .off-canvas-open aside[role="complementary"]{height:auto;}
+
+
+    //TODO: remove non-off-canvas rule once all teams have switched to new container tags
+    section[role="main"],
+    &.off-canvas section[role="main"]{
+      width:100%;
+    }
+    // END TODO
+
+    //TODO: remove non-off-canvas rule once all teams have switched to new container tags
+    aside[role="complementary"],
+    &.off-canvas aside[role="complementary"] {
+      #offCanvas > #hidden > .columnLeft(@colCount,@mqColsTablet);
+    }
+    // END TODO
+
+    &.off-canvas.inverse aside[role="complementary"]{
+      #offCanvas > #hidden > .columnRight(@colCount,@mqColsTablet);
+    }
+
+    .off-canvas-inner{left:0}
+    .off-canvas-inner.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentLeft(@colCount,@mqColsTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+
+
+    .off-canvas-outer{right:0}
+    .off-canvas-outer.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentRight(@colCount,@mqColsTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+
+  }
+
+  // Two Column Inverse Layout
+  // ==========================================================================
+
+  .l-2column-d,
+  .layout-2col-b {
+
+    // Base Layout Rules
+    // =======================================================================
+    // Complementary Column //
+    aside[role="complementary"] {
+      .cols4(@mqColsTablet);
+    }
+
+    // Main Column //
+    section[role="main"] {
+      .cols6(@mqColsTablet);
+    }
+
+    // Off-Canvas Rules
+    // =======================================================================
+    @colCount: 4;
+
+    //TODO: remove non-off-canvas rule once all teams have switched to new container tags
+    section[role="main"],
+    &.off-canvas section[role="main"] {
+      width:100%;
+    }
+    // END TODO
+
+    //TODO: remove non-off-canvas rule once all teams have switched to new container tags
+    aside[role="complementary"],
+    &.off-canvas aside[role="complementary"]{
+      #offCanvas > #hidden > .columnLeft(@colCount,@mqColsTablet);
+    }
+    // END TODO
+
+    &.off-canvas.inverse aside[role="complementary"]{
+      #offCanvas > #hidden > .columnRight(@colCount,9);
+    }
+
+    .off-canvas-inner{left:0}
+    .off-canvas-inner.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentLeft(@colCount,@mqColsTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+
+
+    .off-canvas-outer{right:0}
+    .off-canvas-outer.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentRight(@colCount,@mqColsTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+  }
+
+  //TODO remove me
+  .l-2column-d {
+    @colCount: 4;
+    section[role="main"] {
+      width: 100%;
+    }
+
+    aside[role="complementary"]{
+      #offCanvas > #hidden > .columnRight(@colCount,@mqColsTablet);
+    }
+
+    .off-canvas-inner{left:0}
+    .off-canvas-inner.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentLeft(@colCount,@mqColsTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+
+
+    .off-canvas-outer{right:0}
+    .off-canvas-outer.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentRight(@colCount,@mqColsTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: @mqMaxSmallTablet) {
+  // 50/50 Page Layout
+  // ==========================================================================
+  .l-split {
+    [role="complementary"] {
+      float: right;
+      width: 100%;
+    }
+    [role="main"] {
+      width: 100%
+    }
+  }
+
+  // Search Results Layout
+  // ==========================================================================
+  .l-results,
+  .layout-2col-a {
+
+    //clear space for the toggle
+    .sort-filter-bar {
+      &.include-toggle-left {
+        .margin(l,@baseFontPx,61);
+
+        // off canvas toggle button
+        .off-canvas-btn{
+          display: block;
+          .pos(l,@baseFontPx,-60);
+        }
+      }
+      &.include-toggle-right {
+        .margin(r,@baseFontPx,61);
+      }
+
+      .filters .tab {
+        .border-radius(trbr,15,4,4);
+      }
+      .filters .dropdown {display: none;}
+    }
+
+    // Complementary Column
+    aside[role="complementary"] {
+      .cols4(@mqColsSmallTablet);
+    }
+    // Main Column
+    section[role="main"] {.cols6(@mqColsSmallTablet);}
+
+    // off canvas
+    @colCount: 3;
+    &.off-canvas section[role="main"]{
+      width:100%;
+    }
+
+    // TODO: remove non off-canvas rule once teams move to the new container tags
+    aside[role="complementary"],
+    &.off-canvas aside[role="complementary"]{
+      #offCanvas > #hidden > .columnLeft(@colCount,@mqColsSmallTablet);
+    }
+
+    &.off-canvas.inverse aside[role="complementary"]{
+      #offCanvas > #hidden > .columnRight(@colCount,@mqColsSmallTablet);
+    }
+
+    .off-canvas-inner{left:0}
+    .off-canvas-inner.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentLeft(@colCount,@mqColsSmallTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+
+
+    .off-canvas-outer{right:0}
+    .off-canvas-outer.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentRight(@colCount,@mqColsSmallTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+
+  }
+
+  // Two Column Inverse Layout
+  // ==========================================================================
+  .layout-2col-b{
+
+    // Complementary Column //
+    & aside[role="complementary"] {
+      .cols4(@mqColsSmallTablet);
+    }
+    // Main Column //
+    & section[role="main"] {
+      .cols9(@mqColsSmallTablet);
+    }
+
+    // off canvas //
+    @colCount: 3;
+
+    &.off-canvas section[role="main"]{
+      width:100%;
+    }
+
+    &.off-canvas aside[role="complementary"]{
+      #offCanvas > #hidden > .columnLeft(@colCount,@mqColsSmallTablet);
+    }
+
+    &.off-canvas.inverse aside[role="complementary"]{
+      #offCanvas > #hidden > .columnRight(@colCount,@mqColsSmallTablet);
+    }
+
+    .off-canvas-inner{left:0}
+    .off-canvas-inner.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentLeft(@colCount,@mqColsSmallTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+
+
+    .off-canvas-outer{right:0}
+    .off-canvas-outer.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentRight(@colCount,@mqColsSmallTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+  }
+
+  // TODO: deprecated, remove when no longer in use
+  // =====================================================================
+  .l-2column-d {
+    @colCount: 3;
+    // Main Column //
+    & section[role="main"] {
+      .cols6(@mqColsSmallTablet);
+      float: left;
+    }
+
+    aside[role="complementary"]{
+      #offCanvas > #hidden > .columnRight(@colCount,@mqColsSmallTablet);
+    }
+
+    .off-canvas-inner{left:0}
+    .off-canvas-inner.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentLeft(@colCount,@mqColsSmallTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+
+
+    .off-canvas-outer{right:0}
+    .off-canvas-outer.off-canvas-open{
+      &.site-content{
+        #offCanvas > #visible > .siteContentRight(@colCount,@mqColsSmallTablet);
+      }
+      aside[role="complementary"]{
+        #offCanvas > #visible > .column();
+      }
+    }
+  }
+  
+  .layout-2col-stack {
+    aside[role="complementary"], section[role="main"] {
+      float: left;
+      width: 100%;
+    }
+    aside[role="complementary"] {
+      .margin(b,@baseFontPx,24);
+    }
+  }
+}

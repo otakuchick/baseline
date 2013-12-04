@@ -1,0 +1,117 @@
+
+// ==========================================================================
+// Global Overrides for all @media breakpoints < 984px
+// ========================================================================== 
+@media only screen and (max-width: @mqMaxTablet) {
+
+  .l-2column-d .site-content > .off-canvas-btn {
+    display: inline-block;
+    position: absolute;
+    .pos(t,@baseFontPx,24);
+    right: 0;
+  }
+
+  // for off canvas layouts
+  // TODO: remove reference to individual (deprecated) layouts
+  .off-canvas, .l-results, .l-2column-d {
+
+    // prevents a long aside from creating whitespace at bottom of a short page
+    aside[role="complementary"]{height:0;}
+    .off-canvas-open aside[role="complementary"]{height:auto;}
+
+
+    // sets overflow hidden and width 100%
+    .site-content-wrap{
+      #offCanvas > .siteContentWrap();
+    }
+    .site-content{
+      #offCanvas > #hidden > .siteContent();
+    }
+
+  }
+
+
+  .l-2column-d .site-content > .off-canvas-btn
+  {
+    display: inline-block;
+    position: absolute;
+    .pos(t,@baseFontPx,24);
+
+  }
+
+
+  .off-canvas .site-content > .off-canvas-btn{
+    display: inline-block;
+    position: absolute;
+    .pos(t,@baseFontPx,24);
+    left: 0;
+  }
+
+
+  .off-canvas.inverse .site-content > .off-canvas-btn{
+    left:auto;
+    right:0;
+  }
+
+  // off canvas overlay styles
+  .site-content {
+    .off-canvas-overlay {
+      display: none;
+    }
+    &.off-canvas-open {
+      .off-canvas-overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2000;
+        cursor: pointer;
+      }
+    }
+    &.off-canvas-inner .off-canvas-overlay {
+      .pos(l,@baseFontPx,24);
+    }
+    &.off-canvas-outer .off-canvas-overlay {
+      .pos(r,@baseFontPx,24);
+    }
+  }
+  
+  // fix for IE's transparent overlay clickthrough bug
+  .lt-ie10 .off-canvas-overlay,
+  .ie10 .off-canvas-overlay {
+    background: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==) repeat;
+  }
+
+  // Sort Bar Off-Canvas Toggle
+  // ==========================================================================
+  .sort-bar-wrap {
+    display: table;
+
+    .sort-bar-column {
+      display: table-cell;
+      vertical-align: top;
+      width: 100%;
+
+      &.toggle {
+        width: auto;
+      }
+      .off-canvas-btn {display: block;}
+    }
+
+    // Overrides for toggle side; left/right
+    &.toggle-right {
+      .off-canvas-btn {margin-right: 0;}
+      .sort-bar-column.toggle {
+        padding-right: 0;
+        .padding(l,@baseFontPx,24)
+      }
+    }
+    // When off-canvas button has text, adjust a couple settings
+    &.btn-has-text {
+      .toggle {.padding(r,@baseFontPx,24);}
+      .off-canvas-btn { margin-right: 0;}
+    }
+  }
+}

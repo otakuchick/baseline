@@ -1,0 +1,189 @@
+.tile{
+  .padding(t,@baseFontPx,36);
+  .media,
+  .image {
+    margin-bottom: 0;
+  }
+
+  p,
+  .price-list{
+    color: @text;
+  }
+
+  .price-list,
+  .tile-heading{
+    margin: 0;
+  }
+
+  .well{
+    .margin(tr,13,12,0)
+  }
+
+  .tile-link{
+    display: block;
+    text-decoration: none;
+
+    .tile-name{
+      .margin(trb,15,12,0,0);
+    }
+
+    figure{
+      margin-bottom: 0;
+    }
+
+    p{
+      .margin(t,13,2);
+    }
+
+    em{
+      font-style: normal;
+    }
+
+    .tile-price{
+      color: @moduleGrey;
+      text-align: right;
+      strong,
+      em{
+        color: @link;
+      }
+      strong{
+        font-weight: normal;
+        #font > .size(20,13);
+      }
+    }
+  }
+
+  .tile-link:hover .tile-details, .tile-link:focus .tile-details,
+  .tile-footer a:hover, .tile-footer a:focus {
+    background: @linkHoverBg;
+    color: @text;
+  }
+
+  .tile-details{
+    p{
+      margin:0;
+    }
+  }
+
+  // Disable padding when there is not a tile-heading
+  &.tile-no-header{
+    padding-top: 0;
+  }
+  //GROUP HEADER
+  .tile-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    .margin(l,@baseFontPx,24);
+    .border-radius(tlr,@baseFontPx,3,3);
+    .padding(tr,@baseFontPx,9,12);
+    background-color:#424242;
+
+    .tile-heading {
+      #font > .size(13);
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+
+  &.tile-no-header .tile-media,
+  .tile-details{
+    border: none;
+    .border-radius(none);
+    margin: 0;
+    .tile-name{
+      .margin(t,15,0);
+      .margin(b,15,0);
+    }
+  }
+
+  .tile-footer {
+    .border(t,@baseFontPx,1,@moduleGrey);
+    .3dShadow;
+    .border-radius(blr,@baseFontPx,3,3);
+    background: #fff;
+
+    a{
+      display: block;
+      #font > .size(13);
+      .border-radius(blr,13,3,3);
+      .padding(tr,13,12,24);
+      text-decoration: none;
+    }
+  }
+  }
+.tile-content {
+background: #fff;
+
+.module-close {
+  position: absolute;
+  .pos(t,@baseFontPx,9);
+  .pos(r,@baseFontPx,9);
+}
+}
+
+/* Remove background and border when using "tile-no-bg" class */
+.tile-no-bg {
+.tile .tile-content {border: none; background: none;}
+}
+/* Reset Styles When No Footer */
+.tile-no-footer{
+.tile-footer {
+  border: none;
+}
+.tile-content{
+  .3dShadow;
+  .border-radius(blr,@baseFontPx,3,3);
+}
+}
+/* Tile States */
+.tile-target:hover,
+.tile-target:focus{
+.tile-name,
+.tile-price strong,
+.tile-price em{
+  color: @text;
+}
+}
+
+// grid of large tiles
+.tile-grid .tile{.cols4();}
+
+// grid of larger tiles
+.tile-grid-sub-primary .tile{.cols6();}
+
+// grid of medium tiles
+.tile-grid-secondary .tile{.cols3();}
+
+// grid of small tiles
+.tile-grid-tertiary .tile{.cols2();}
+
+
+// group of tiles
+.tile-group{
+  .cols6();
+
+  // Tile
+  .tile-group-header {
+    .border-radius(a,@baseFontPx,3);
+    .padding(tr,@baseFontPx,12,18);
+    .linear-gradient(tb,#424242,#333);
+
+    .tile-heading {
+      margin: 0;
+      color: #fff;
+    }
+  }
+  .tile {
+    .padding(t,@baseFontPx,24);
+  }
+
+  // Grid
+  .tile-grid .tile,
+  .tile-grid-sub-primary .tile{.cols6(6);}
+  .tile-grid-secondary .tile{.cols3(6);}
+  .tile-grid-tertiary .tile{.cols2(6);}
+}
